@@ -1,0 +1,29 @@
+SMAP
+WorkItemFinishReportView.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 WorkItemFinishReportPresenter.gwtentity
+model/project/WorkItem/WorkItemFinishReportPresenter.gwtentity
+*L
+117:53,3
+118:56,2
+119:58,2
+120:60,7
+121:67,7
+117:74,4
+126:81
+125:82
+130:86
+129:87
+133:91
+137:95
+136:96
+140:100
+143:104
+146:108,3
+147:111
+148:112
+146:113,3
+150:116,7
+*E

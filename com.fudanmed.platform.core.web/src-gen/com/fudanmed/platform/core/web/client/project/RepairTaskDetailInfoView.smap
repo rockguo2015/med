@@ -1,0 +1,14 @@
+SMAP
+RepairTaskDetailInfoView.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 RepairTaskDetailInfoPresenter.gwtentity
+model/project/RepairTask/RepairTaskDetailInfoPresenter.gwtentity
+*L
+54:45
+57:50,2
+58:52,2
+57:54,4
+63:62
+*E

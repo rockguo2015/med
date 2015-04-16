@@ -1,0 +1,21 @@
+SMAP
+WorkItemStorageListPresenter.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 WorkItemStorage.gwtentity
+model/warehouse/WorkItemStorage.gwtentity
+*L
+74:27,2
+75:29
+74:30,7
+79:41,2
+80:43,2
+79:45,4
+84:53,2
+85:55,2
+84:57,4
+89:65,2
+90:67,2
+89:69,4
+*E

@@ -1,0 +1,28 @@
+SMAP
+WorkItemTaskListPresenter.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 UIEntities.gwtentity
+model/project/GroupTask/UIEntities.gwtentity
+*L
+249:30
+250:31,2
+251:33,2
+252:35,2
+253:37
+251:38,4
+250:42,7
+258:53,2
+259:55
+258:56,7
+264:67
+265:68,2
+266:70,2
+265:72,4
+271:80,2
+272:82,2
+273:84,2
+272:86,4
+271:90
+*E

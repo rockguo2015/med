@@ -1,0 +1,21 @@
+SMAP
+FaultTypeForm.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 维修类别.gwtentity
+model/project/维修类别.gwtentity
+*L
+96:162,2
+97:164,3
+98:167,2
+99:169,2
+100:171,2
+101:173,2
+102:175,2
+103:177,2
+104:179,2
+97:181,4
+96:185,4
+95:189
+*E

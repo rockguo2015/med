@@ -1,0 +1,14 @@
+SMAP
+WorkItemOutStockRecordListView.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 工单领退料查询.gwtentity
+model/warehouse/领退料/工单领退料查询.gwtentity
+*L
+181:47
+184:52,2
+187:57
+186:58
+192:63
+*E

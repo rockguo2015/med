@@ -1,0 +1,20 @@
+SMAP
+CreateOrUpdateOnsitePositionView.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 区域位置.gwtentity
+model/区域位置.gwtentity
+*L
+141:49,2
+144:54
+143:55
+147:59
+146:60
+150:64
+154:68
+157:72
+156:73
+160:77
+164:81
+*E

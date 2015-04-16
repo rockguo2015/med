@@ -1,0 +1,20 @@
+SMAP
+CreateOrUpdateProductTypeView.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 材料类别.gwtentity
+model/warehouse/材料类别.gwtentity
+*L
+533:49,2
+536:54
+535:55
+539:59
+538:60
+542:64
+546:68
+549:72
+548:73
+552:77
+555:81
+*E

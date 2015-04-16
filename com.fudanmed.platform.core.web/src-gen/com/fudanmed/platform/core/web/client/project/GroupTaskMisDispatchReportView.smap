@@ -1,0 +1,21 @@
+SMAP
+GroupTaskMisDispatchReportView.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 GroupTaskMisDispatchReportPresenter.gwtentity
+model/project/GroupTask/GroupTaskMisDispatchReportPresenter.gwtentity
+*L
+80:52,3
+81:55,2
+82:57,2
+80:59,4
+87:66
+86:67
+91:71
+90:72
+94:76
+98:80
+97:81
+101:85
+*E

@@ -1,0 +1,20 @@
+SMAP
+RepairDispatchView.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 RepairDispatchPresenter.gwtentity
+model/project/RepairTask/RepairDispatchPresenter.gwtentity
+*L
+70:52,3
+71:55,2
+70:57,4
+76:64
+75:65
+80:69
+79:70
+83:74
+86:78
+85:79
+89:83
+*E

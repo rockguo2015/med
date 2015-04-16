@@ -1,0 +1,15 @@
+SMAP
+WorkItemStockRecordManagementPresenterServiceImpl.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 工单领退料查询.gwtentity
+model/warehouse/领退料/工单领退料查询.gwtentity
+*L
+72:45,2
+73:47
+74:48,11
+72:59,3
+77:65,9
+76:74
+*E

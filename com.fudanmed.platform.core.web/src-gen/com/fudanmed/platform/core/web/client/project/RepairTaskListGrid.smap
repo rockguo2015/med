@@ -1,0 +1,23 @@
+SMAP
+RepairTaskListGrid.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 UIEntities.gwtentity
+model/project/RepairTask/UIEntities.gwtentity
+*L
+269:66
+270:68
+271:70
+272:72
+274:78
+275:80
+276:82
+279:159,2
+280:161,16
+281:177,4
+280:181
+283:182,2
+280:184
+279:185,7
+*E

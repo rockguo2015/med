@@ -1,0 +1,16 @@
+SMAP
+ProductTypeForm.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 材料类别.gwtentity
+model/warehouse/材料类别.gwtentity
+*L
+80:98,2
+81:100,3
+82:103,2
+83:105,2
+81:107,4
+80:111,4
+79:115
+*E

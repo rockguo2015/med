@@ -1,0 +1,20 @@
+SMAP
+CreateOrUpdateFaultTypeView.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 维修类别.gwtentity
+model/project/维修类别.gwtentity
+*L
+555:49,2
+558:54
+557:55
+561:59
+560:60
+564:64
+568:68
+571:72
+570:73
+574:77
+577:81
+*E

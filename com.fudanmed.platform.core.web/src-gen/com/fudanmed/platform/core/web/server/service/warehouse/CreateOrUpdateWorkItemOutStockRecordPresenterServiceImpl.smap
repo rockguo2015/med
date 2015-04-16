@@ -1,0 +1,19 @@
+SMAP
+CreateOrUpdateWorkItemOutStockRecordPresenterServiceImpl.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 工单领料.gwtentity
+model/warehouse/领退料/工单领料.gwtentity
+*L
+239:41,5
+238:46
+242:50,5
+245:58,2
+246:60
+245:61,3
+247:64,2
+245:66
+250:70,2
+249:72
+*E

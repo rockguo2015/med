@@ -1,0 +1,31 @@
+SMAP
+ProductWarehouseStorageManagementPresenter.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 ProductWarehouseStorage.gwtentity
+model/warehouse/ProductWarehouseStorage.gwtentity
+*L
+103:52,3
+104:55
+105:56,2
+106:58
+104:59,7
+103:66,3
+112:73,2
+113:75
+114:76,2
+112:78,4
+118:85,2
+121:91,3
+122:94,2
+123:96,2
+122:98,3
+121:101,3
+128:108,3
+129:111,2
+130:113,2
+129:115,3
+128:118,3
+135:125
+*E

@@ -1,0 +1,14 @@
+SMAP
+CreateOrUpdateProductSpecificationPresenterServiceImpl.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 材料品种.gwtentity
+model/warehouse/材料品种.gwtentity
+*L
+197:27,5
+196:32
+200:36,5
+203:44
+204:45
+*E

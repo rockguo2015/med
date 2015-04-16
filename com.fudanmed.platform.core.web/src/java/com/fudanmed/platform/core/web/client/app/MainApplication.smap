@@ -1,0 +1,12 @@
+SMAP
+MainApplication.java
+Xtend
+*S Xtend
+*F
++ 0 MainApplication.xtend
+src/xtend/com/fudanmed/platform/core/web/client/app/MainApplication.xtend
+*L
+9:12,2
+13:17
+12:18
+*E

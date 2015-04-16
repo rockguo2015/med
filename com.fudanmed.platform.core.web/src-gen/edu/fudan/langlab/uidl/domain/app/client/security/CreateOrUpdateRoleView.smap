@@ -1,0 +1,19 @@
+SMAP
+CreateOrUpdateRoleView.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 role.gwtentity
+model/role.gwtentity
+*L
+109:48,2
+112:53
+111:54
+115:58
+114:59
+118:63
+122:67
+125:71
+124:72
+128:76
+*E

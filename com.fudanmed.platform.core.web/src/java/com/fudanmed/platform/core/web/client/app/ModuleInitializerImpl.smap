@@ -1,0 +1,11 @@
+SMAP
+ModuleInitializerImpl.java
+Xtend
+*S Xtend
+*F
++ 0 ModuleInitializerImpl.xtend
+src/xtend/com/fudanmed/platform/core/web/client/app/ModuleInitializerImpl.xtend
+*L
+23:21
+24:22
+*E

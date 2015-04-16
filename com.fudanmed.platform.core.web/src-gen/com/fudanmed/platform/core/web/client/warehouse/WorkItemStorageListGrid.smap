@@ -1,0 +1,17 @@
+SMAP
+WorkItemStorageListGrid.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 WorkItemStorage.gwtentity
+model/warehouse/WorkItemStorage.gwtentity
+*L
+53:161,3
+54:164,2
+55:166
+54:167,4
+57:171,2
+58:173,18
+57:191,4
+53:195,3
+*E

@@ -1,0 +1,17 @@
+SMAP
+WorkItemOutsourceDataForm.java
+Gwtentity
+*S Gwtentity
+*F
++ 0 WorkItemOutsourcePresenter.gwtentity
+model/project/WorkItem/WorkItemOutsourcePresenter.gwtentity
+*L
+31:109,2
+32:111,3
+33:114,2
+34:116,2
+35:118,8
+32:126,4
+31:130,4
+30:134
+*E
