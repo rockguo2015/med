@@ -1,0 +1,339 @@
+package com.fudanmed.platform.core.deliver{
+	
+	import java.util.Date
+	import java.util.Collection
+	import edu.fudan.mylang.utils.DateUtil
+	import edu.fudan.mylang.pf.*
+	import com.fudanmed.platform.core.domain.*
+	import edu.fudan.langlab.domain.code.Code
+	import edu.fudan.langlab.domain.common.*
+	import static com.uniquesoft.uidl.validation.Validates
+	import com.fudanmed.platform.core.deliver.*
+	import com.fudanmed.platform.core.deliver.impl.*
+	import edu.fudan.langlab.domain.security.ISystemUserService
+	import edu.fudan.langlab.domain.code.*
+	
+	service RCDeliverCodeTypeProvider implements CodeTypeProvider{
+		op getCodeTypes() : Collection<CodeType> {
+			newArrayList(
+				new CodeType("运送紧急度",typeof(DLDeliverEmergencyImpl)),
+				new CodeType("病人运送方式",typeof(DLPatientDeliverMethod))
+			);
+		}
+	}
+
+	
+	entity DLTaskEvent{
+		createTime : Date //生成时间
+		operator : RCEmployee //操作员
+		op getDescription():String
+		belongs to task : DLTask
+	}
+	
+	entity DLTask{
+		sid : String //任务编号
+		createTime : Date //生成时间
+		performers : RCEmployee[*] //运送人
+		operator : RCEmployee //操作员
+		part taskSource : DLTaskSource //任务来源
+		part events : DLTaskEvent[*] opposite task
+		op checkInvariant():void{
+			Assert(!sid.nullOrEmpty,"任务编号不能为空")
+			Assert(createTime!=null,"生成时间不能为空")
+			Assert(operator!=null,"操作员不能为空")
+			Assert(taskSource!=null,"任务来源不能为空")
+		}
+	}
+	
+	criteria DLTaskCriteria for distinct DLTask{
+		join self.performers as worker
+		sid : String //任务编号
+		createTimeFrom : Date //生成时间
+		createTimeTo : Date //生成时间
+		performer : RCEmployee //运送人
+		taskSourceType : DLTaskSourceType //任务来源
+		
+		condition self.sid like :sid
+		condition self.createTime >= :createTimeFrom
+		condition self.createTime <= :createTimeTo
+		condition worker = :performer
+		condition self.taskSource.type = :taskSourceType
+		
+	}
+	
+	enum DLTaskSourceType{
+		curtomerRequest imported
+	}
+	
+	/*任务来源标记，用于记录任务产生的原因，如科室即时要求，HIS系统导入等 */
+	entity DLTaskSource {
+		type : DLTaskSourceType
+	}
+	
+	/*用户即时需求产生的任务来源标记*/
+	entity DLTaskSource4CustomerRequest extends DLTaskSource{
+		organization : RCOrganization
+		reporter : String
+		op getEntityName():String{
+			"科室请求"
+		}
+	}
+	
+	entity DLTaskSource4HISImport extends DLTaskSource{
+		importBatchId : String
+		op getEntityName():String{
+			"HIS系统导入"
+		}
+	}
+	/*
+	 * 病区
+	 */
+	entity DLInHospitalLocation implements INamedModelObject{
+		name : String
+		location : RCOnsitePosition[*]
+		op getEntityName():String{
+			name
+		}
+	}
+	/*
+	 * 检查科室
+	 */
+	entity DLCheckOrganization implements INamedModelObject{
+		name : String
+		organization : RCOrganization
+		op getEntityName():String{
+			organization.entityName
+		}
+	}
+	
+	/*运送紧急度 */
+	entity DLDeliverEmergency extends Code{
+		
+	}
+	
+	datatype DLPlanDateTime{
+		planDate : Date //计划日期
+		planTime : Date //计划时间
+		
+		op checkInvariant():void{
+			Assert(planDate!=null,"必须设置计划日期")
+		}
+	}
+	enum DLPatientCheckDeliverTaskEventType{
+		^create performUpdate dispatch cancel finish
+	}
+	//DLTaskEvent
+	entity DLPatientCheckDeliverTaskEvent extends DLTaskEvent{
+		comment : String
+		eventType : DLPatientCheckDeliverTaskEventType
+		op getDescription():String{
+			comment
+		}
+	}
+	
+	/*统一安排调度的运送 */
+	entity DLCenterlizedDeliverTask extends DLTask{
+		resources : DLResource[*] //"资源"
+		subject : DLDeliverSubject //运送项目
+		planDateTime : DLPlanDateTime //计划日期
+		
+		//derived
+		fromLocation : RCOnsitePosition //起始位置
+		//derived
+		toLocation : RCOnsitePosition //目标位置
+		
+		op createEvent(eventType : DLPatientCheckDeliverTaskEventType)	:DLPatientCheckDeliverTaskEvent{
+			create DLPatientCheckDeliverTaskEvent(this)=>[
+				it.eventType := eventType
+				it.operator := beanFactory.getBean(typeof(ISystemUserService)).currentUserAsParty as RCEmployee
+				it.createTime := DateUtil::today
+			]
+		}
+		op checkInvariant():void{
+			super.checkInvariant()
+		}
+		
+		behavior Status{
+			
+			state scheduled
+			state dispatched
+			state canceled
+			state finished
+			
+			signal performUpdate
+			signal dispatch
+			signal cancel
+			signal finish
+			
+			start(){
+				checkInvariant()
+				createTime := DateUtil::now	
+				createEvent(DLPatientCheckDeliverTaskEventType::^create)		
+				next state scheduled
+			}
+			
+			on scheduled{
+				input dispatch(performers : Collection<RCEmployee>){
+					Assert(!performers.nullOrEmpty,"必须设置运送员")
+					this.performers := performers
+					createEvent(DLPatientCheckDeliverTaskEventType::dispatch)=>[
+						it.comment := "分配给"+performers.^map[entityName].^join(',')+"执行"
+					]		
+					next state dispatched
+				}
+			}
+			
+			on dispatched{
+				input finish(comment : String){
+					createEvent(DLPatientCheckDeliverTaskEventType::finish)=>[
+						it.comment := comment
+					]		
+					next state finished
+					
+				}
+			}
+			
+			on scheduled, dispatched{
+				input performUpdate(updater:(DLCenterlizedDeliverTask)=>void){
+					updater.apply(this)
+					checkInvariant
+					createEvent(DLPatientCheckDeliverTaskEventType::performUpdate)		
+					next state -
+				}
+				input cancel(comment:String){
+					createEvent(DLPatientCheckDeliverTaskEventType::cancel)=>[
+						it.comment := comment
+					]		
+					next state canceled
+				}
+			}
+		}		
+	}
+
+	criteria DLCenterlizedDeliverTaskCriteria for distinct DLCenterlizedDeliverTask{
+		join self.performers as worker
+		sid : String //任务编号
+		createTimeFrom : Date //生成时间
+		createTimeTo : Date //生成时间
+		performer : RCEmployee //运送人
+		taskSourceType : DLTaskSourceType //任务来源
+		
+		condition self.sid like :sid
+		condition self.createTime >= :createTimeFrom
+		condition self.createTime <= :createTimeTo
+		condition worker = :performer
+		condition self.taskSource.type = :taskSourceType
+		
+	}	
+	
+	entity DLDeliverSubject implements INamedModelObject{
+		task : DLTask	//执行该运送项目的任务
+		emergency : DLDeliverEmergency
+		op checkInvariant():void{
+			
+		}
+		op getEntityName():String
+	}	
+	// TODO up-level
+	enum DLGender{male female}
+	
+	entity DLInHospitalPatient implements INamedModelObject{
+		sid : String //住院号
+		name : String //姓名
+		age : Integer //年龄
+		gender : DLGender //性别
+		
+		op getEntityName():String{
+			name
+		}
+	}
+	
+	/*病人运送方式 */
+	entity DLPatientDeliverMethod extends Code{
+		
+	}
+	
+	/*住院病人检查运送任务*/
+	entity DLPatientCheckDeliver extends DLDeliverSubject{
+		patient : DLInHospitalPatient //病人
+		location : DLInHospitalLocation //病区
+		bedNumber : String //床号
+		checkOrganization : DLCheckOrganization //检查科室
+		checkType :DLDeliverPatientCheckCategory //检查项目
+		deliverMethod : DLPatientDeliverMethod //接送方式
+		
+		op getEntityName():String{
+			patient.entityName
+		}
+		
+		op checkInvariant():void{
+			super.checkInvariant()
+			Assert(patient!=null,"必须设置运送病人")
+			Assert(checkOrganization!=null,"必须设置检查科室")
+			Assert(location!=null,"必须设置病区")
+		}
+	}
+	
+	entity DLDeliverPatientCheckCategory implements INamedModelObject{
+		name : String
+		belongs to parentCategory : DLDeliverPatientCheckCategory
+		part subCategories : DLDeliverPatientCheckCategory[*] opposite parentCategory
+		
+		op getEntityName():String{
+			name
+		}
+	}
+	
+	entity DLDeliverPatientCheckType implements INamedModelObject{
+		name : String
+		category : DLDeliverPatientCheckCategory
+		performence : Integer //绩效系数
+		timeLimitation : Integer //时间限制(分钟)
+		comment : String 
+		op getEntityName():String{
+			name
+		}
+	}
+
+	entity DLDeliverMaterialCategory implements INamedModelObject{
+		name : String
+		belongs to parentCategory : DLDeliverMaterialCategory
+		part subCategories : DLDeliverMaterialCategory[*] opposite parentCategory
+		
+		op getEntityName():String{
+			name
+		}
+	}
+	
+	entity DLDeliverMaterialType implements INamedModelObject{
+		name : String
+		category : DLDeliverMaterialCategory
+		comment : String 
+		unit : String //计量单位
+		op getEntityName():String{
+			name
+		}
+	}
+
+	entity DLMaterialDeliverDetail{
+		materialType : DLDeliverMaterialType //材料类型
+		quantity : Double //数量
+		belongs to materialDeliver : DLMaterialDeliver
+	}
+
+	/*物品运送*/
+	entity DLMaterialDeliver extends DLDeliverSubject{
+		part materialDetails : DLMaterialDeliverDetail[*] opposite materialDeliver
+		fromLocation : RCOnsitePosition
+		toLocation : RCOnsitePosition
+		op checkInvariant():void{
+			super.checkInvariant()
+			Assert(!materialDetails.nullOrEmpty,"物品信息必须输入")
+		}
+		op getEntityName():String{
+			materialDetails.^map[materialType.entityName+'('+quantity+')'].^join(',')
+		}
+	}
+	
+
+}
