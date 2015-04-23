@@ -43,13 +43,13 @@ public class InStockRecordItemListGrid extends GXTGridComponent<UIInStockRecordI
   public StringValueColumn<UIInStockRecordItem,RCProduceSpecificationUnitProxy> unit;
   
   @Inject
+  private IntegerValueProviderFactory integerValueProviderFactory;
+  
+  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
-  
-  @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

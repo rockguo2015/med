@@ -53,6 +53,7 @@ public class DevicePMPlanMapper extends AbstractEntityMapper<UIDevicePMPlan,RCDe
     	result.setPmType(convertService.toValue(com.fudanmed.platform.core.device.pm.proxy.RCDevicePMTypeProxy.class,entity.getSpec().getPmType()));
     if(entity. getSpec()  != null &&entity. getSpec().getDevice()  != null )
     	result.setDeviceType(convertService.toValue(com.fudanmed.platform.core.device.proxy.RCDeviceTypeProxy.class,entity.getSpec().getDevice().getDeviceType()));
+    	result.setComment(convertService.toValue(java.lang.String.class,entity.getComment()));
     return result;
     
   }

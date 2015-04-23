@@ -34,16 +34,16 @@ public class TaskListGrid extends GXTGridComponent<UITask> implements IInitializ
   public StringValueColumn<UITask,UITaskSourceType> taskSource;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   private UITask value = new UITask();
   

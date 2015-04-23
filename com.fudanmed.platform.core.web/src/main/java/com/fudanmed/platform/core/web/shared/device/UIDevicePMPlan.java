@@ -199,6 +199,27 @@ public class UIDevicePMPlan extends GWTEntity {
     				}
     			};
   
+  private String comment;
+  
+  public String getComment() {
+    return this.comment;
+  }
+  
+  public void setComment(final String comment) {
+    this.comment = comment;
+  }
+  
+  public final static String P_Comment = "comment";
+  
+  public static IObjectFieldAccessor<UIDevicePMPlan,String> CommentAccessor = new IObjectFieldAccessor<UIDevicePMPlan,String>(){
+    				public String getValue(UIDevicePMPlan object){
+    					return object.getComment();
+    				}
+    				public void setValue(UIDevicePMPlan object,String value){
+    					object.setComment(value);
+    				}
+    			};
+  
   public RCDevicePMPlanProxy toProxy() {
     return (RCDevicePMPlanProxy)super.toProxy();
     

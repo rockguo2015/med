@@ -27,10 +27,10 @@ public class WorkItemStockRecordItemStat4ProductEntryCriteriaDataListGrid extend
   public StringColumn<UIWorkItemStockRecordItemStat4ProductEntryCriteriaData> unit;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIWorkItemStockRecordItemStat4ProductEntryCriteriaData value = new UIWorkItemStockRecordItemStat4ProductEntryCriteriaData();
   

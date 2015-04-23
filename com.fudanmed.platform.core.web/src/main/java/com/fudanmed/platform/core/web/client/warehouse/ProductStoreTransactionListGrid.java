@@ -33,13 +33,13 @@ public class ProductStoreTransactionListGrid extends GXTGridComponent<UIProductS
   public StringValueColumn<UIProductStoreTransaction,RCEmployeeProxy> operator;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

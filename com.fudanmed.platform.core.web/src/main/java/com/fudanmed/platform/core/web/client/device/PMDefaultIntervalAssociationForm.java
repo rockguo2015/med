@@ -42,10 +42,10 @@ public class PMDefaultIntervalAssociationForm extends GXTFormComponent<UIPMDefau
   public TextAreaItem description;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private IntegerValueProviderFactory integerValueProviderFactory;

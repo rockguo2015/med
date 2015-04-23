@@ -25,12 +25,6 @@ public class PMWorkItemValidator implements IValidator<UIPMWorkItem> {
     	if(!rule.checkValid()) 
     		errors.add(new ValidationErrorItem("安排执行日期",rule.getMessage(),com.google.common.collect.Lists.newArrayList("assignDate" )));
     }
-    {
-    	com.uniquesoft.uidl.validation.rules.Required rule 
-    		= ruleFactory.Required(_entity.getTeam());
-    	if(!rule.checkValid()) 
-    		errors.add(new ValidationErrorItem("配合班组",rule.getMessage(),com.google.common.collect.Lists.newArrayList("team" )));
-    }
     return errors;
     
   }

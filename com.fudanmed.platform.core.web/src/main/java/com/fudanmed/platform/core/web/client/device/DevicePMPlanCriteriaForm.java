@@ -37,13 +37,13 @@ public class DevicePMPlanCriteriaForm extends GXTFormComponent<UIDevicePMPlanCri
   public RCDevicePMTypeContentProvider pmTypeContentProvider;
   
   @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
-  
-  @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDevicePMPlanCriteria value = new UIDevicePMPlanCriteria();
   

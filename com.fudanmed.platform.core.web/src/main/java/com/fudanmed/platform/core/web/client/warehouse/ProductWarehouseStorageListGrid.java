@@ -40,13 +40,13 @@ public class ProductWarehouseStorageListGrid extends GXTGridComponent<UIProductW
   public StringValueColumn<UIProductWarehouseStorage,RCProduceSpecificationUnitProxy> unit;
   
   @Inject
+  private IntegerValueProviderFactory integerValueProviderFactory;
+  
+  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
-  
-  @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

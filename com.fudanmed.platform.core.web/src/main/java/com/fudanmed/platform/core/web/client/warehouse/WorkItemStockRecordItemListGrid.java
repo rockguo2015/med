@@ -49,13 +49,13 @@ public class WorkItemStockRecordItemListGrid extends GXTGridComponent<UIWorkItem
   public StringValueColumn<UIWorkItemStockRecordItem,RCProduceSpecificationUnitProxy> unit;
   
   @Inject
+  private IntegerValueProviderFactory integerValueProviderFactory;
+  
+  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
-  
-  @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

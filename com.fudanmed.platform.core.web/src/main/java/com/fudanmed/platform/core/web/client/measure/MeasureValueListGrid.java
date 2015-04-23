@@ -26,10 +26,10 @@ public class MeasureValueListGrid extends GXTGridComponent<UIMeasureValue> imple
   public StringColumn<UIMeasureValue> measurePerson;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIMeasureValue value = new UIMeasureValue();
   

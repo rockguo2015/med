@@ -44,13 +44,13 @@ public class PMWorkItem4DispatcherListGrid extends GXTGridComponent<UIPMWorkItem
   public StringColumn<UIPMWorkItem> teamComment;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIPMWorkItem value = new UIPMWorkItem();
   
@@ -152,8 +152,15 @@ public class PMWorkItem4DispatcherListGrid extends GXTGridComponent<UIPMWorkItem
     this.unForceFit();
     final Procedure3<Context,UIPMWorkItemStatue,SafeHtmlBuilder> _function = new Procedure3<Context,UIPMWorkItemStatue,SafeHtmlBuilder>() {
         public void apply(final Context context, final UIPMWorkItemStatue value, final SafeHtmlBuilder sb) {
+          boolean _or = false;
           boolean _equals = Objects.equal(value, UIPMWorkItemStatue.teamFinished);
           if (_equals) {
+            _or = true;
+          } else {
+            boolean _equals_1 = Objects.equal(value, UIPMWorkItemStatue.planed);
+            _or = (_equals || _equals_1);
+          }
+          if (_or) {
             String _string = value.toString();
             String _plus = ("<B style=\'color:red;\'>" + _string);
             String _plus_1 = (_plus + "</B>");

@@ -33,10 +33,10 @@ public class ProductTypeForm extends GXTFormComponent<UIProductType> implements 
   public ReadonlyItem<RCProductCategoryProxy> category;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIProductType value = new UIProductType();
   

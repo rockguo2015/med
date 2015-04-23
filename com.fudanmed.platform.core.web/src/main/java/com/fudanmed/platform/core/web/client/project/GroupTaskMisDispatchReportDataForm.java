@@ -33,10 +33,10 @@ public class GroupTaskMisDispatchReportDataForm extends GXTFormComponent<GroupTa
   public TextAreaItem comment;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private GroupTaskMisDispatchReportData value = new GroupTaskMisDispatchReportData();
   

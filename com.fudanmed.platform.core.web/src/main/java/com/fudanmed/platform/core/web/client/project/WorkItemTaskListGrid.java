@@ -48,16 +48,16 @@ public class WorkItemTaskListGrid extends GXTGridComponent<UIWorkItemTask> imple
   public StringColumn<UIWorkItemTask> comment;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   private UIWorkItemTask value = new UIWorkItemTask();
   

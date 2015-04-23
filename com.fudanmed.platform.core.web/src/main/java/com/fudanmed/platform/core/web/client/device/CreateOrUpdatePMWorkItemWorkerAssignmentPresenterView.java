@@ -2,6 +2,7 @@ package com.fudanmed.platform.core.web.client.device;
 
 import com.fudanmed.platform.core.domain.proxy.RCOrganizationProxy;
 import com.fudanmed.platform.core.web.client.device.CreateOrUpdatePMWorkItemWorkerAssignmentView;
+import com.fudanmed.platform.core.web.client.device.WorkItemPlanAssignmentListPresenter;
 import com.fudanmed.platform.core.web.shared.device.UIPMWorkItemWorkerAssignment;
 import com.google.inject.ImplementedBy;
 import com.uniquesoft.gwt.client.common.ViewerWithValidation;
@@ -14,4 +15,6 @@ public interface CreateOrUpdatePMWorkItemWorkerAssignmentPresenterView extends V
   public abstract void setValue(final UIPMWorkItemWorkerAssignment value);
   
   public abstract void setTeam(final RCOrganizationProxy team, final Procedure1<? super Void> postInit);
+  
+  public abstract void setWorkItemPlanAssignmentListPresenter(final WorkItemPlanAssignmentListPresenter workItemPlanAssignmentListPresenter);
 }

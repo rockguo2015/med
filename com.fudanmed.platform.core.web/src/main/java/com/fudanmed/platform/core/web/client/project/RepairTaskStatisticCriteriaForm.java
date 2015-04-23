@@ -53,13 +53,13 @@ public class RepairTaskStatisticCriteriaForm extends GXTFormComponent<UIRepairTa
   public UIRepairTaskStatusContentProvider statusContentProvider;
   
   @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private UIDateRangeValueProviderFactory uIDateRangeValueProviderFactory;
-  
-  @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIRepairTaskStatisticCriteria value = new UIRepairTaskStatisticCriteria();
   

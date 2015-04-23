@@ -1,6 +1,7 @@
 package com.fudanmed.platform.core.web.client.device;
 
 import com.fudanmed.platform.core.device.pm.proxy.RCPMWorkItemProxy;
+import com.fudanmed.platform.core.device.pm.proxy.RCPMWorkItemWorkerAssignmentProxy;
 import com.fudanmed.platform.core.web.client.device.WorkItemPlanAssignmentListPresenterServiceAsync;
 import com.fudanmed.platform.core.web.client.device.WorkItemPlanAssignmentListPresenterView;
 import com.fudanmed.platform.core.web.shared.device.UIWorkItemPlanAssignment;
@@ -11,6 +12,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.uniquesoft.gwt.client.common.IPresenterInitiazerNotifier;
 import com.uniquesoft.gwt.client.common.async.IPostInitializeAction;
+import com.uniquesoft.gwt.shared.extensions.BooleanExtensions;
 import edu.fudan.langlab.uidl.domain.app.client.workbench.WorkbenchAbstractPresenter;
 import java.util.Collection;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -25,6 +27,10 @@ public class WorkItemPlanAssignmentListPresenter extends WorkbenchAbstractPresen
   }
   
   private RCPMWorkItemProxy context;
+  
+  private RCPMWorkItemWorkerAssignmentProxy assignment;
+  
+  private Boolean unassignedOnly;
   
   public void setup(final IPresenterInitiazerNotifier<WorkItemPlanAssignmentListPresenter> _notifier) {
     
@@ -60,9 +66,40 @@ public class WorkItemPlanAssignmentListPresenter extends WorkbenchAbstractPresen
     this.refresh();
   }
   
+  public void setup4UnassignedItems(final RCPMWorkItemProxy context, final IPresenterInitiazerNotifier<WorkItemPlanAssignmentListPresenter> _notifier) {
+    
+    this.unassignedOnly = Boolean.valueOf(true);
+    this.context = context;
+    final Procedure1<Void> _function = new Procedure1<Void>() {
+        public void apply(final Void it) {
+          WorkItemPlanAssignmentListPresenter.this.refresh();_notifier.done(WorkItemPlanAssignmentListPresenter.this);
+        }
+      };
+    this.activate(new IPostInitializeAction() {
+        public void initializeFinished(Void v) {
+          _function.apply(v);
+        }
+    });
+  }
+  
+  public void setup4WorkerAssignment(final RCPMWorkItemWorkerAssignmentProxy context, final IPresenterInitiazerNotifier<WorkItemPlanAssignmentListPresenter> _notifier) {
+    
+    this.assignment = context;
+    final Procedure1<Void> _function = new Procedure1<Void>() {
+        public void apply(final Void it) {
+          WorkItemPlanAssignmentListPresenter.this.refresh();_notifier.done(WorkItemPlanAssignmentListPresenter.this);
+        }
+      };
+    this.activate(new IPostInitializeAction() {
+        public void initializeFinished(Void v) {
+          _function.apply(v);
+        }
+    });
+  }
+  
   public void refresh() {
     
-    boolean _notEquals = (!Objects.equal(this.context, null));
+    boolean _notEquals = (!Objects.equal(this.assignment, null));
     if (_notEquals) {
       final Procedure1<Collection<UIWorkItemPlanAssignment>> _function = new Procedure1<Collection<UIWorkItemPlanAssignment>>() {
           public void apply(final Collection<UIWorkItemPlanAssignment> items) {
@@ -71,7 +108,31 @@ public class WorkItemPlanAssignmentListPresenter extends WorkbenchAbstractPresen
           }
         };
       AsyncCallback<Collection<UIWorkItemPlanAssignment>> _onSuccess = this.<Collection<UIWorkItemPlanAssignment>>onSuccess(_function);
-      _service.loadWorkItemPlanAssignmentList(this.context, _onSuccess);
+      _service.loadWorkItemPlanAssignment4WorkerList(this.assignment, _onSuccess);
+    }
+    boolean _notEquals_1 = (!Objects.equal(this.context, null));
+    if (_notEquals_1) {
+      boolean _isLogicTrue = BooleanExtensions.isLogicTrue(this.unassignedOnly);
+      boolean _not = (!_isLogicTrue);
+      if (_not) {
+        final Procedure1<Collection<UIWorkItemPlanAssignment>> _function_1 = new Procedure1<Collection<UIWorkItemPlanAssignment>>() {
+            public void apply(final Collection<UIWorkItemPlanAssignment> items) {
+              getView().setResults(items);
+              
+            }
+          };
+        AsyncCallback<Collection<UIWorkItemPlanAssignment>> _onSuccess_1 = this.<Collection<UIWorkItemPlanAssignment>>onSuccess(_function_1);
+        _service.loadWorkItemPlanAssignmentList(this.context, _onSuccess_1);
+      } else {
+        final Procedure1<Collection<UIWorkItemPlanAssignment>> _function_2 = new Procedure1<Collection<UIWorkItemPlanAssignment>>() {
+            public void apply(final Collection<UIWorkItemPlanAssignment> items) {
+              getView().setResults(items);
+              
+            }
+          };
+        AsyncCallback<Collection<UIWorkItemPlanAssignment>> _onSuccess_2 = this.<Collection<UIWorkItemPlanAssignment>>onSuccess(_function_2);
+        _service.loadUnassignedWorkItemPlanAssignmentList(this.context, _onSuccess_2);
+      }
     }
   }
   

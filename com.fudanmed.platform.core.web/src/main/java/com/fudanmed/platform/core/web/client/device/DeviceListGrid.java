@@ -51,13 +51,13 @@ public class DeviceListGrid extends GXTGridComponent<UIDevice> implements IIniti
   public StringValueColumn<UIDevice,RCDeviceTypeProxy> deviceType;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
-  
-  @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  
+  @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDevice value = new UIDevice();
   

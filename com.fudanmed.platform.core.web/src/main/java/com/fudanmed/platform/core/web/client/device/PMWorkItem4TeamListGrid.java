@@ -44,13 +44,13 @@ public class PMWorkItem4TeamListGrid extends GXTGridComponent<UIPMWorkItem> impl
   public StringColumn<UIPMWorkItem> teamComment;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIPMWorkItem value = new UIPMWorkItem();
   

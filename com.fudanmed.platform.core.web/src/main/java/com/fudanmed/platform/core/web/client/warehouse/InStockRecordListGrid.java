@@ -40,16 +40,16 @@ public class InStockRecordListGrid extends GXTGridComponent<UIInStockRecord> imp
   public BooleanColumn<UIInStockRecord> committed;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIInStockRecord value = new UIInStockRecord();
   

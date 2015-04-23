@@ -39,10 +39,10 @@ public class PrimaryAttributeForm extends GXTFormComponent<UIPrimaryAttribute> i
   public TextItem attributeName;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIPrimaryAttribute value = new UIPrimaryAttribute();
   

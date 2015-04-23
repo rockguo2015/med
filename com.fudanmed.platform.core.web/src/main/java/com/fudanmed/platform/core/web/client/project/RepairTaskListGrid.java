@@ -59,16 +59,16 @@ public class RepairTaskListGrid extends GXTGridComponent<UIRepairTask> implement
   public StringColumn<UIRepairTask> reporterName;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIRepairTask value = new UIRepairTask();
   

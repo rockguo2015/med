@@ -2,6 +2,7 @@ package com.fudanmed.platform.core.web.server.service.device;
 
 import com.fudanmed.platform.core.device.pm.RCPMWorkItem;
 import com.fudanmed.platform.core.device.pm.RCPMWorkItemWorkerAssignment;
+import com.fudanmed.platform.core.device.pm.RCWorkItemPlanAssignment;
 import com.fudanmed.platform.core.device.pm.proxy.RCPMWorkItemProxy;
 import com.fudanmed.platform.core.device.pm.proxy.RCPMWorkItemWorkerAssignmentProxy;
 import com.fudanmed.platform.core.domain.RCMaintenanceTeam;
@@ -10,10 +11,15 @@ import com.fudanmed.platform.core.domain.proxy.RCOrganizationProxy;
 import com.fudanmed.platform.core.web.client.device.CreateOrUpdatePMWorkItemWorkerAssignmentPresenterService;
 import com.fudanmed.platform.core.web.server.service.device.PMWorkItemWorkerAssignmentMapper;
 import com.fudanmed.platform.core.web.shared.device.UIPMWorkItemWorkerAssignment;
+import com.fudanmed.platform.core.web.shared.device.UIWorkItemPlanAssignment;
 import com.uniquesoft.gwt.server.service.common.BaseService;
 import com.uniquesoft.gwt.shared.SessionTimeOutException;
 import com.uniquesoft.gwt.shared.validation.ValidationException;
 import edu.fudan.mylang.pf.IObjectFactory;
+import java.util.Collection;
+import java.util.List;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,16 +49,26 @@ public class CreateOrUpdatePMWorkItemWorkerAssignmentPresenterServiceImpl extend
     this.mapper.transform(uivalue,  _resolved);
   }
   
-  public void createValue(final RCPMWorkItemProxy parent, final UIPMWorkItemWorkerAssignment uivalue) throws SessionTimeOutException, ValidationException {
+  public void createValue(final Collection<UIWorkItemPlanAssignment> planAssignments, final RCPMWorkItemProxy parent, final UIPMWorkItemWorkerAssignment uivalue) throws SessionTimeOutException, ValidationException {
     RCPMWorkItem _resolved= null;
     if(parent!=null) _resolved=(com.fudanmed.platform.core.device.pm.RCPMWorkItem)com.uniquesoft.uidl.extensions.ModelObjects.resolve(parent, entities);
     
-    final Procedure1<RCPMWorkItemWorkerAssignment> _function = new Procedure1<RCPMWorkItemWorkerAssignment>() {
+    final Function1<UIWorkItemPlanAssignment,RCWorkItemPlanAssignment> _function = new Function1<UIWorkItemPlanAssignment,RCWorkItemPlanAssignment>() {
+        public RCWorkItemPlanAssignment apply(final UIWorkItemPlanAssignment it) {
+          RCWorkItemPlanAssignment _resolved= null;
+          if(it!=null) _resolved=(com.fudanmed.platform.core.device.pm.RCWorkItemPlanAssignment)com.uniquesoft.uidl.extensions.ModelObjects.resolve(it, entities);
+          
+          return  _resolved;
+        }
+      };
+    Iterable<RCWorkItemPlanAssignment> _map = IterableExtensions.<UIWorkItemPlanAssignment, RCWorkItemPlanAssignment>map(planAssignments, _function);
+    List<RCWorkItemPlanAssignment> _list = IterableExtensions.<RCWorkItemPlanAssignment>toList(_map);
+    final Procedure1<RCPMWorkItemWorkerAssignment> _function_1 = new Procedure1<RCPMWorkItemWorkerAssignment>() {
         public void apply(final RCPMWorkItemWorkerAssignment it) {
           CreateOrUpdatePMWorkItemWorkerAssignmentPresenterServiceImpl.this.mapper.transform(uivalue, it);
         }
       };
-     _resolved.assignWorker(_function);
+     _resolved.assignWorker(_list, _function_1);
   }
   
   public RCOrganizationProxy loadTeamOrg4WorkItem(final RCPMWorkItemProxy value) throws SessionTimeOutException, ValidationException {

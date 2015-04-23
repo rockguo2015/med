@@ -34,13 +34,13 @@ public class StockTakingListListGrid extends GXTGridComponent<UIStockTakingList>
   public StringColumn<UIStockTakingList> comment;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

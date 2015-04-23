@@ -51,7 +51,8 @@ public class BatchInitializePMPlanPresenter extends WorkbenchAbstractPresenter<B
     BatchInitializePMPlanData _value = _view.getValue();
     final Procedure1<Void> _function = new Procedure1<Void>() {
         public void apply(final Void it) {
-          Info.display("success", "\u6279\u91CF\u751F\u6210PM\u8BA1\u5212");
+          Info.display("success", "\u6279\u91CF\u751F\u6210PM\u8BA1\u5212");eventBus.fireEvent(new com.fudanmed.platform.core.web.client.device.DevicePMSpecificationsChangedEvent());
+          
           notifier.success();
         }
       };

@@ -131,6 +131,7 @@ package com.fudanmed.platform.core.web feature device{
 			input call.performCommit(CommitResultNotifier notifier){
 				service.init4Device(deviceCriteria,getView().value,onSuccess[
 					display("success","批量生成PM计划")
+					fire eventbus.DevicePMSpecificationsChanged
 					notifier.success
 				])						
 			}
@@ -197,7 +198,7 @@ package com.fudanmed.platform.core.web feature device{
 	
 		planDate : Date "PM计划日期"
 		status : UIDevicePMPlanStatus "状态"
-	
+		comment : String "维保记录"
 	
 		map DevicePMPlanMapper{
 			direct{
@@ -208,7 +209,8 @@ package com.fudanmed.platform.core.web feature device{
 				{specification,entity.spec.device.specification} readonly,
 				{location,entity.spec.device.location} readonly,
 				{pmType,entity.spec.pmType} readonly,
-				{deviceType,entity.spec.device.deviceType} readonly
+				{deviceType,entity.spec.device.deviceType} readonly,
+				{comment,entity.comment} readonly
 			}
 		}
 	
@@ -227,7 +229,7 @@ package com.fudanmed.platform.core.web feature device{
 			}
 		}
 		ui-component DevicePMPlan4DeviceInfoListGrid as GXTGrid{
-			binding{pmType,planDate,status,description}
+			binding{pmType,planDate,status,description,comment}
 			op initializeComponent():void{
 				this.asWidget.groupBy(pmType,false)
 			}

@@ -43,10 +43,10 @@ public class StockTakingItem4InputListGrid extends GXTGridComponent<UIStockTakin
   private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIStockTakingItem value = new UIStockTakingItem();
   

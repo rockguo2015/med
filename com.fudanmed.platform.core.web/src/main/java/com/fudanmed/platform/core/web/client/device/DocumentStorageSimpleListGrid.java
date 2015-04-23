@@ -22,10 +22,10 @@ public class DocumentStorageSimpleListGrid extends GXTGridComponent<UIDocumentSt
   public DateColumn<UIDocumentStorage> uploadTime;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDocumentStorage value = new UIDocumentStorage();
   

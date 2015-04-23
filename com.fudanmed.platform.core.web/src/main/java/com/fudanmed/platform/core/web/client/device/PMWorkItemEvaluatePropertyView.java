@@ -42,10 +42,10 @@ public class PMWorkItemEvaluatePropertyView extends GXTPropertyView<UIPMWorkItem
   public IValueViewer<String> comment;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

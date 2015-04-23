@@ -39,13 +39,13 @@ public class FaultTypeListGrid extends GXTGridComponent<UIFaultType> implements 
   public BooleanColumn<UIFaultType> needAudit;
   
   @Inject
+  private BooleanValueProviderFactory booleanValueProviderFactory;
+  
+  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
-  
-  @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

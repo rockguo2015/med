@@ -33,10 +33,10 @@ public class ComplaintForm extends GXTFormComponent<UIComplaint> implements IIni
   public TextAreaItem contents;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIComplaint value = new UIComplaint();
   

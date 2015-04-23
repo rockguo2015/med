@@ -47,13 +47,13 @@ public class WorkItemOutStockRecordDetailForm extends GXTFormComponent<UIWorkIte
   public StringReadonlyItem comment;
   
   @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
-  
-  @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIWorkItemOutStockRecord value = new UIWorkItemOutStockRecord();
   

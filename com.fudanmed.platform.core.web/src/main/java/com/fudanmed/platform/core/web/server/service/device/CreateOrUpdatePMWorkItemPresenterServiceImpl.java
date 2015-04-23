@@ -6,11 +6,13 @@ import com.fudanmed.platform.core.device.pm.RCPMWorkItemDAO;
 import com.fudanmed.platform.core.device.pm.RCWorkItemPlanAssignment;
 import com.fudanmed.platform.core.device.pm.proxy.RCDevicePMPlanProxy;
 import com.fudanmed.platform.core.device.pm.proxy.RCPMWorkItemProxy;
+import com.fudanmed.platform.core.domain.RCMaintenanceTeam;
 import com.fudanmed.platform.core.web.client.device.CreateOrUpdatePMWorkItemPresenterService;
 import com.fudanmed.platform.core.web.server.service.device.DevicePMPlanMapper;
 import com.fudanmed.platform.core.web.server.service.device.PMWorkItemMapper;
 import com.fudanmed.platform.core.web.shared.device.UIDevicePMPlan;
 import com.fudanmed.platform.core.web.shared.device.UIPMWorkItem;
+import com.google.common.base.Objects;
 import com.uniquesoft.gwt.server.service.common.BaseService;
 import com.uniquesoft.gwt.shared.SessionTimeOutException;
 import com.uniquesoft.gwt.shared.extensions.IterableExtensions2;
@@ -56,6 +58,11 @@ public class CreateOrUpdatePMWorkItemPresenterServiceImpl extends BaseService im
     final Procedure1<RCPMWorkItem> _function = new Procedure1<RCPMWorkItem>() {
         public void apply(final RCPMWorkItem it) {
           CreateOrUpdatePMWorkItemPresenterServiceImpl.this.mapper.transform(uivalue, it);
+          RCMaintenanceTeam _team = it.getTeam();
+          boolean _notEquals = (!Objects.equal(_team, null));
+          if (_notEquals) {
+            it.assignTeam();
+          }
         }
       };
     this.dao.update( _resolved, _function);
@@ -107,7 +114,11 @@ public class CreateOrUpdatePMWorkItemPresenterServiceImpl extends BaseService im
               }
             };
           IterableExtensions.<RCDevicePMPlanProxy>forEach(selectedPlans, _function);
-          workItem.assignTeam();
+          RCMaintenanceTeam _team = workItem.getTeam();
+          boolean _notEquals = (!Objects.equal(_team, null));
+          if (_notEquals) {
+            workItem.assignTeam();
+          }
         }
       };
     ObjectExtensions.<RCPMWorkItem>operator_doubleArrow(_create, _function_1);

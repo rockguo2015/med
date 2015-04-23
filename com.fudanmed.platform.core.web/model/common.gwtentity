@@ -15,7 +15,7 @@ package com.fudanmed.platform.core.web feature common{
 	import com.google.gwt.core.client.Scheduler
 	import com.fudanmed.platform.core.web.client.utils.Deferred
 	import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer
-	
+	//this is a comment
 	service ServerSideTimeService{
 		op getTime():Date{
 			 new Date()

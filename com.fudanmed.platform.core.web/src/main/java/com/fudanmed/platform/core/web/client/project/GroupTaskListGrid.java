@@ -55,13 +55,13 @@ public class GroupTaskListGrid extends GXTGridComponent<UIGroupTask> implements 
   public DateTimeColumn<UIGroupTask> finishDateTime;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

@@ -33,10 +33,10 @@ public class DeviceTypeCategoryForm extends GXTFormComponent<UIDeviceTypeCategor
   public ReadonlyItem<RCDeviceTypeCategoryProxy> parent;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIDeviceTypeCategory value = new UIDeviceTypeCategory();
   

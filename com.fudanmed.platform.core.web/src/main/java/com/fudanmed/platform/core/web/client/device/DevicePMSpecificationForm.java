@@ -42,13 +42,13 @@ public class DevicePMSpecificationForm extends GXTFormComponent<UIDevicePMSpecif
   public TextAreaItem description;
   
   @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private IntegerValueProviderFactory integerValueProviderFactory;
-  
-  @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDevicePMSpecification value = new UIDevicePMSpecification();
   

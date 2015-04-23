@@ -290,6 +290,15 @@ class AppRestService extends BaseService implements IAppRestService{
 				put("id",item.id)
 				put("sid",item.sid)
 				put("name",item.name)
+				val dtype = switch(item.deviceType.name){
+					case '水表': 1
+					case '电表': 2
+					case '气表': 3
+					case '峰谷电表': 4
+					default : 0
+				}
+				put("deviceType",dtype)
+				
 				if(item.lastValue!=null){
 					put("lastDate",item.lastValue.measureDate.toDateTimeString)
 					put("lastValue",item.lastValue.serializeValues)

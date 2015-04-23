@@ -13,11 +13,11 @@ import com.fudanmed.platform.core.web.client.device.CreatePrimaryTypePresenter;
 import com.fudanmed.platform.core.web.client.device.DeviceCategoryAndTypeListPresenter;
 import com.fudanmed.platform.core.web.client.device.DeviceManagementPresenterServiceAsync;
 import com.fudanmed.platform.core.web.client.device.DeviceManagementPresenterView;
+import com.fudanmed.platform.core.web.client.device.DevicePMPlanAssignmentListPresenter;
 import com.fudanmed.platform.core.web.client.device.DevicePMPlanList4DevicePresenter;
 import com.fudanmed.platform.core.web.client.device.DevicePropertyPresenter;
 import com.fudanmed.platform.core.web.client.device.DocumentStorageListPresenter;
 import com.fudanmed.platform.core.web.client.device.PMWorkItemEvaluatePropertyViewPresenter;
-import com.fudanmed.platform.core.web.client.device.PMWorkItemListPresenter;
 import com.fudanmed.platform.core.web.client.device.PMWorkItemPropertyPresenter;
 import com.fudanmed.platform.core.web.client.device.PictureListPresenter;
 import com.fudanmed.platform.core.web.client.organization.OnsiteLocationOutlinePresenter;
@@ -93,16 +93,6 @@ public class DeviceManagementPresenter extends WorkbenchAbstractPresenter<Device
   @Inject
   private DevicePMPlanList4DevicePresenter devicePMPlanList4DevicePresenter;
   
-  public PMWorkItemListPresenter initPart(final PMWorkItemListPresenter part) {
-    this.registerPart(part);
-    this.getView().setWorkItemListPresenter(part);
-    return part;
-    
-  }
-  
-  @Inject
-  private PMWorkItemListPresenter workItemListPresenter;
-  
   public DocumentStorageListPresenter initPart(final DocumentStorageListPresenter part) {
     this.registerPart(part);
     this.getView().setDeviceDocumentStorageListPresenter(part);
@@ -143,6 +133,16 @@ public class DeviceManagementPresenter extends WorkbenchAbstractPresenter<Device
   @Inject
   private DeviceCategoryAndTypeListPresenter deviceCategoryAndTypeListPresenter;
   
+  public DevicePMPlanAssignmentListPresenter initPart(final DevicePMPlanAssignmentListPresenter part) {
+    this.registerPart(part);
+    this.getView().setDevicePMPlanAssignmentListPresenter(part);
+    return part;
+    
+  }
+  
+  @Inject
+  private DevicePMPlanAssignmentListPresenter devicePMPlanAssignmentListPresenter;
+  
   public void setup(final IPresenterInitiazerNotifier<DeviceManagementPresenter> _notifier) {
     
     AttributeSlotTreeListPresenter _initPart = this.initPart(this.attributeSlotTreeListPresenter);
@@ -154,21 +154,21 @@ public class DeviceManagementPresenter extends WorkbenchAbstractPresenter<Device
                 DevicePMPlanList4DevicePresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.devicePMPlanList4DevicePresenter);
                 final Procedure1<DevicePMPlanList4DevicePresenter> _function = new Procedure1<DevicePMPlanList4DevicePresenter>() {
                     public void apply(final DevicePMPlanList4DevicePresenter it) {
-                      PMWorkItemListPresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.workItemListPresenter);
-                      final Procedure1<PMWorkItemListPresenter> _function = new Procedure1<PMWorkItemListPresenter>() {
-                          public void apply(final PMWorkItemListPresenter it) {
-                            DocumentStorageListPresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.deviceDocumentStorageListPresenter);
-                            final Procedure1<DocumentStorageListPresenter> _function = new Procedure1<DocumentStorageListPresenter>() {
-                                public void apply(final DocumentStorageListPresenter it) {
-                                  PictureListPresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.devicepictureListPresenter);
-                                  final Procedure1<PictureListPresenter> _function = new Procedure1<PictureListPresenter>() {
-                                      public void apply(final PictureListPresenter it) {
-                                        OnsiteLocationOutlinePresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.onsiteLocationOutlinePresenter);
-                                        final Procedure1<OnsiteLocationOutlinePresenter> _function = new Procedure1<OnsiteLocationOutlinePresenter>() {
-                                            public void apply(final OnsiteLocationOutlinePresenter it) {
-                                              DeviceCategoryAndTypeListPresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.deviceCategoryAndTypeListPresenter);
-                                              final Procedure1<DeviceCategoryAndTypeListPresenter> _function = new Procedure1<DeviceCategoryAndTypeListPresenter>() {
-                                                  public void apply(final DeviceCategoryAndTypeListPresenter it) {
+                      DocumentStorageListPresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.deviceDocumentStorageListPresenter);
+                      final Procedure1<DocumentStorageListPresenter> _function = new Procedure1<DocumentStorageListPresenter>() {
+                          public void apply(final DocumentStorageListPresenter it) {
+                            PictureListPresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.devicepictureListPresenter);
+                            final Procedure1<PictureListPresenter> _function = new Procedure1<PictureListPresenter>() {
+                                public void apply(final PictureListPresenter it) {
+                                  OnsiteLocationOutlinePresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.onsiteLocationOutlinePresenter);
+                                  final Procedure1<OnsiteLocationOutlinePresenter> _function = new Procedure1<OnsiteLocationOutlinePresenter>() {
+                                      public void apply(final OnsiteLocationOutlinePresenter it) {
+                                        DeviceCategoryAndTypeListPresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.deviceCategoryAndTypeListPresenter);
+                                        final Procedure1<DeviceCategoryAndTypeListPresenter> _function = new Procedure1<DeviceCategoryAndTypeListPresenter>() {
+                                            public void apply(final DeviceCategoryAndTypeListPresenter it) {
+                                              DevicePMPlanAssignmentListPresenter _initPart = DeviceManagementPresenter.this.initPart(DeviceManagementPresenter.this.devicePMPlanAssignmentListPresenter);
+                                              final Procedure1<DevicePMPlanAssignmentListPresenter> _function = new Procedure1<DevicePMPlanAssignmentListPresenter>() {
+                                                  public void apply(final DevicePMPlanAssignmentListPresenter it) {
                                                     final Procedure1<Void> _function = new Procedure1<Void>() {
                                                         public void apply(final Void it) {_notifier.done(DeviceManagementPresenter.this);
                                                         }
@@ -180,31 +180,35 @@ public class DeviceManagementPresenter extends WorkbenchAbstractPresenter<Device
                                                     });
                                                   }
                                                 };
-                                              _initPart.setup(new IPresenterInitiazerNotifier<DeviceCategoryAndTypeListPresenter>() {
-                                                  public void done(DeviceCategoryAndTypeListPresenter presenter) {
+                                              _initPart.setup(new IPresenterInitiazerNotifier<DevicePMPlanAssignmentListPresenter>() {
+                                                  public void done(DevicePMPlanAssignmentListPresenter presenter) {
                                                     _function.apply(presenter);
                                                   }
                                               });
                                             }
                                           };
-                                        _initPart.setupAsSimpleTree(_function);
+                                        _initPart.setup(new IPresenterInitiazerNotifier<DeviceCategoryAndTypeListPresenter>() {
+                                            public void done(DeviceCategoryAndTypeListPresenter presenter) {
+                                              _function.apply(presenter);
+                                            }
+                                        });
                                       }
                                     };
-                                  _initPart.setup(new IPresenterInitiazerNotifier<PictureListPresenter>() {
-                                      public void done(PictureListPresenter presenter) {
-                                        _function.apply(presenter);
-                                      }
-                                  });
+                                  _initPart.setupAsSimpleTree(_function);
                                 }
                               };
-                            _initPart.setup(new IPresenterInitiazerNotifier<DocumentStorageListPresenter>() {
-                                public void done(DocumentStorageListPresenter presenter) {
+                            _initPart.setup(new IPresenterInitiazerNotifier<PictureListPresenter>() {
+                                public void done(PictureListPresenter presenter) {
                                   _function.apply(presenter);
                                 }
                             });
                           }
                         };
-                      _initPart.setup(_function);
+                      _initPart.setup(new IPresenterInitiazerNotifier<DocumentStorageListPresenter>() {
+                          public void done(DocumentStorageListPresenter presenter) {
+                            _function.apply(presenter);
+                          }
+                      });
                     }
                   };
                 _initPart.setup(new IPresenterInitiazerNotifier<DevicePMPlanList4DevicePresenter>() {
@@ -373,7 +377,7 @@ public class DeviceManagementPresenter extends WorkbenchAbstractPresenter<Device
     _service.loadEntityExtension(value, _onSuccess);
     this.devicePropertyPresenter.setDevice(value);
     this.devicePMPlanList4DevicePresenter.setDevice(value);
-    this.workItemListPresenter.setDevice(value);
+    this.devicePMPlanAssignmentListPresenter.setDevice(value);
     DeviceFileContainerProxy _deviceFileContainerProxy = new DeviceFileContainerProxy(value);
     this.deviceDocumentStorageListPresenter.setDevice(_deviceFileContainerProxy);
     DevicePictureContainerProxy _devicePictureContainerProxy = new DevicePictureContainerProxy(value);

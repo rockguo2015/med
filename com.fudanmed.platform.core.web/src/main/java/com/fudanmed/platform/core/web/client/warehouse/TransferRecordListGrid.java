@@ -34,13 +34,13 @@ public class TransferRecordListGrid extends GXTGridComponent<UITransferRecord> i
   public StringColumn<UITransferRecord> comment;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UITransferRecord value = new UITransferRecord();
   

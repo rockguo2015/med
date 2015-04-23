@@ -25,10 +25,10 @@ public class ProductTypeListGrid extends GXTGridComponent<UIProductType> impleme
   public StringValueColumn<UIProductType,RCProductCategoryProxy> category;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIProductType value = new UIProductType();
   

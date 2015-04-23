@@ -47,16 +47,16 @@ public class WorkItemFinishReportDataForm extends GXTFormComponent<WorkItemFinis
   public DoubleItem price;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private WorkItemFinishReportData value = new WorkItemFinishReportData();
   

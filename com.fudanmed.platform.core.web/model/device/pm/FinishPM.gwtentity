@@ -13,7 +13,7 @@ package com.fudanmed.platform.core.web feature device{
 	import com.fudanmed.platform.core.web.client.*
 
 	ui-datatype UIWorkItemPlanAssignmentFinishData{
-		comment : String
+		comment : String "备注"
 		ui-component WorkItemPlanAssignmentFinishDataForm as GXTForm{
 			binding{comment as TextAreaItem}
 		}

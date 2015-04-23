@@ -42,13 +42,13 @@ public class DevicePMPlan4SelectListGrid extends GXTGridComponent<UIDevicePMPlan
   public StringColumn<UIDevicePMPlan> description;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
-  
-  @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  
+  @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDevicePMPlan value = new UIDevicePMPlan();
   

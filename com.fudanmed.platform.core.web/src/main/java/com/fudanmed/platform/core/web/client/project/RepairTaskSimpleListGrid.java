@@ -31,13 +31,13 @@ public class RepairTaskSimpleListGrid extends GXTGridComponent<UIRepairTask> imp
   public StringColumn<UIRepairTask> reporterName;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIRepairTask value = new UIRepairTask();
   

@@ -3,6 +3,8 @@ package com.fudanmed.platform.core.web.client.device;
 import com.fudanmed.platform.core.domain.proxy.RCOrganizationProxy;
 import com.fudanmed.platform.core.web.client.device.CreateOrUpdatePMWorkItemWorkerAssignmentPresenterView;
 import com.fudanmed.platform.core.web.client.device.PMWorkItemWorkerAssignmentForm;
+import com.fudanmed.platform.core.web.client.device.WorkItemPlanAssignmentListPresenter;
+import com.fudanmed.platform.core.web.client.device.WorkItemPlanAssignmentListPresenterView;
 import com.fudanmed.platform.core.web.shared.device.UIPMWorkItemWorkerAssignment;
 import com.google.gwt.editor.client.HasEditorErrors;
 import com.google.gwt.event.shared.EventBus;
@@ -45,6 +47,12 @@ public class CreateOrUpdatePMWorkItemWorkerAssignmentView extends ErrorNotifierV
   @Inject
   private EventBus eventBus;
   
+  private WorkItemPlanAssignmentListPresenter workItemPlanAssignmentListPresenter;
+  
+  public void setWorkItemPlanAssignmentListPresenter(final WorkItemPlanAssignmentListPresenter workItemPlanAssignmentListPresenter) {
+    this.workItemPlanAssignmentListPresenter = workItemPlanAssignmentListPresenter;
+  }
+  
   @Inject
   private PMWorkItemWorkerAssignmentForm form;
   
@@ -57,6 +65,16 @@ public class CreateOrUpdatePMWorkItemWorkerAssignmentView extends ErrorNotifierV
           int _minus = (-1);
           VerticalLayoutData _VLayoutData = CreateOrUpdatePMWorkItemWorkerAssignmentView.this.widgets.VLayoutData(1, _minus, 10);
           it.add(_asWidget, _VLayoutData);
+          WorkItemPlanAssignmentListPresenterView _view = CreateOrUpdatePMWorkItemWorkerAssignmentView.this.workItemPlanAssignmentListPresenter.getView();
+          Widget _asWidget_1 = _view.asWidget();
+          final Procedure1<Widget> _function = new Procedure1<Widget>() {
+              public void apply(final Widget it) {
+                it.setHeight("300");
+              }
+            };
+          Widget _doubleArrow = ObjectExtensions.<Widget>operator_doubleArrow(_asWidget_1, _function);
+          VerticalLayoutData _VLayoutData_1 = CreateOrUpdatePMWorkItemWorkerAssignmentView.this.widgets.VLayoutData(1, 1, 10);
+          it.add(_doubleArrow, _VLayoutData_1);
         }
       };
     VerticalLayoutContainer _doubleArrow = ObjectExtensions.<VerticalLayoutContainer>operator_doubleArrow(_VLayout, _function);
@@ -82,7 +100,7 @@ public class CreateOrUpdatePMWorkItemWorkerAssignmentView extends ErrorNotifierV
   }
   
   public Size getSize() {
-    Size _size = new Size(350, 320);
+    Size _size = new Size(800, 520);
     return _size;
   }
   

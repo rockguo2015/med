@@ -33,10 +33,10 @@ public class WorkItemOutsourceDataForm extends GXTFormComponent<WorkItemOutsourc
   public TextAreaItem comment;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private WorkItemOutsourceData value = new WorkItemOutsourceData();
   

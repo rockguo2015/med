@@ -24,10 +24,10 @@ public class StockTakingRecordCriteriaForm extends GXTFormComponent<UIStockTakin
   public DateItem dateTo;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIStockTakingRecordCriteria value = new UIStockTakingRecordCriteria();
   

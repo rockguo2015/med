@@ -33,10 +33,10 @@ public class GroupTaskFinishReportDataForm extends GXTFormComponent<GroupTaskFin
   public TextAreaItem comment;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private GroupTaskFinishReportData value = new GroupTaskFinishReportData();
   

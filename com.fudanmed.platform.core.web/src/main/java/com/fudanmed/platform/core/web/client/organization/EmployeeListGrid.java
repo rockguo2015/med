@@ -46,16 +46,16 @@ public class EmployeeListGrid extends GXTGridComponent<UIEmployee> implements II
   public BooleanColumn<UIEmployee> isLeaveJob;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   private UIEmployee value = new UIEmployee();
   

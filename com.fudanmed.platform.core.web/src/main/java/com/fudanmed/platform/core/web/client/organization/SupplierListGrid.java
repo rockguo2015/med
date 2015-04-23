@@ -37,10 +37,10 @@ public class SupplierListGrid extends GXTGridComponent<UISupplier> implements II
   public StringColumn<UISupplier> aptitudeName;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UISupplier value = new UISupplier();
   

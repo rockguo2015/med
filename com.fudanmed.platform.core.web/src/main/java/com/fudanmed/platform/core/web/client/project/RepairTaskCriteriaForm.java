@@ -42,13 +42,13 @@ public class RepairTaskCriteriaForm extends GXTFormComponent<UIRepairTaskCriteri
   public DateRangeItem reportDateRange;
   
   @Inject
+  private BooleanValueProviderFactory booleanValueProviderFactory;
+  
+  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
-  
-  @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private UIDateRangeValueProviderFactory uIDateRangeValueProviderFactory;

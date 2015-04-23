@@ -26,13 +26,13 @@ public class DocumentStorageListGrid extends GXTGridComponent<UIDocumentStorage>
   public TextButtonActionColumn<UIDocumentStorage> download;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
-  
-  @Inject
   private ActionColumnValueProviderFactory actionColumnValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
+  
+  @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDocumentStorage value = new UIDocumentStorage();
   

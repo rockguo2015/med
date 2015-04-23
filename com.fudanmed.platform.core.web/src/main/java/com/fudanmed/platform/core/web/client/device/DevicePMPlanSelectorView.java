@@ -14,7 +14,9 @@ import com.fudanmed.platform.core.web.client.organization.OnsiteLocationOutlineP
 import com.fudanmed.platform.core.web.shared.device.UIDevicePMPlan;
 import com.fudanmed.platform.core.web.shared.device.UIDevicePMPlanCriteria;
 import com.fudanmed.platform.core.web.shared.organization.UIOnsitePosition;
+import com.google.gwt.cell.client.Cell.Context;
 import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
@@ -42,6 +44,7 @@ import com.uniquesoft.gwt.shared.DateUtil;
 import com.uniquesoft.gwt.shared.common.pager.IPagedResult;
 import com.uniquesoft.gwt.shared.extensions.IterableExtensions2;
 import com.uniquesoft.gwt.shared.extensions.StringExtensions;
+import edu.fudan.langlab.gxt.client.component.grid.ICellRender;
 import edu.fudan.langlab.gxt.client.component.grid.SGroupingGrid;
 import edu.fudan.langlab.gxt.client.validation.ErrorNotifierViewer;
 import edu.fudan.langlab.gxt.client.widget.ContentPanel;
@@ -58,6 +61,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure2;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure3;
 
 public class DevicePMPlanSelectorView extends ErrorNotifierViewer implements DevicePMPlanSelectorPresenterView, IHasSize, IHasTitle {
   @Inject
@@ -443,6 +447,30 @@ public class DevicePMPlanSelectorView extends ErrorNotifierViewer implements Dev
                       }
                     };
                   it.withExpander(_function);
+                  final Procedure3<Context,Date,SafeHtmlBuilder> _function_1 = new Procedure3<Context,Date,SafeHtmlBuilder>() {
+                      public void apply(final Context context, final Date value, final SafeHtmlBuilder sb) {
+                        DateTimeFormat _format = DateTimeFormat.getFormat("yyyy/MM/dd");
+                        final String d = _format.format(value);
+                        int _minus = (-2);
+                        Date _addMonths = DateUtil.addMonths(value, _minus);
+                        long _time = _addMonths.getTime();
+                        Date _day = DateUtil.today();
+                        long _time_1 = _day.getTime();
+                        boolean _lessThan = (_time < _time_1);
+                        if (_lessThan) {
+                          String _plus = ("<B style=\'color:red;\'>" + d);
+                          String _plus_1 = (_plus + "</B>");
+                          sb.appendHtmlConstant(_plus_1);
+                        } else {
+                          sb.appendHtmlConstant(d);
+                        }
+                      }
+                    };
+                  it.planDate.setRender(new ICellRender<Date>() {
+                      public void render(Context context,Date value,SafeHtmlBuilder sb) {
+                        _function_1.apply(context,value,sb);
+                      }
+                  });
                 }
               };
             DevicePMPlan4SelectListGrid _doubleArrow = ObjectExtensions.<DevicePMPlan4SelectListGrid>operator_doubleArrow(DevicePMPlanSelectorView.this.listGrid, _function);
@@ -465,6 +493,30 @@ public class DevicePMPlanSelectorView extends ErrorNotifierViewer implements Dev
                       }
                     };
                   it.withExpander(_function);
+                  final Procedure3<Context,Date,SafeHtmlBuilder> _function_1 = new Procedure3<Context,Date,SafeHtmlBuilder>() {
+                      public void apply(final Context context, final Date value, final SafeHtmlBuilder sb) {
+                        DateTimeFormat _format = DateTimeFormat.getFormat("yyyy/MM/dd");
+                        final String d = _format.format(value);
+                        int _minus = (-2);
+                        Date _addMonths = DateUtil.addMonths(value, _minus);
+                        long _time = _addMonths.getTime();
+                        Date _day = DateUtil.today();
+                        long _time_1 = _day.getTime();
+                        boolean _lessThan = (_time < _time_1);
+                        if (_lessThan) {
+                          String _plus = ("<B style=\'color:red;\'>" + d);
+                          String _plus_1 = (_plus + "</B>");
+                          sb.appendHtmlConstant(_plus_1);
+                        } else {
+                          sb.appendHtmlConstant(d);
+                        }
+                      }
+                    };
+                  it.planDate.setRender(new ICellRender<Date>() {
+                      public void render(Context context,Date value,SafeHtmlBuilder sb) {
+                        _function_1.apply(context,value,sb);
+                      }
+                  });
                 }
               };
             DevicePMPlan4SelectListGrid _doubleArrow = ObjectExtensions.<DevicePMPlan4SelectListGrid>operator_doubleArrow(DevicePMPlanSelectorView.this.listGrid, _function);

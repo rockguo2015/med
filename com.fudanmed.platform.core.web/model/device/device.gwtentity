@@ -637,20 +637,22 @@ package com.fudanmed.platform.core.web feature device{
 			part attributeSlotTreeListPresenter : AttributeSlotTreeListPresenter
 			part devicePropertyPresenter : DevicePropertyPresenter
 			part devicePMPlanList4DevicePresenter : DevicePMPlanList4DevicePresenter
-			part workItemListPresenter : PMWorkItemListPresenter
+//			part workItemListPresenter : PMWorkItemListPresenter
 			part deviceDocumentStorageListPresenter : DocumentStorageListPresenter
 			part devicepictureListPresenter : PictureListPresenter
 			part onsiteLocationOutlinePresenter : OnsiteLocationOutlinePresenter
 			part deviceCategoryAndTypeListPresenter : DeviceCategoryAndTypeListPresenter
+			part devicePMPlanAssignmentListPresenter : DevicePMPlanAssignmentListPresenter
 			input prepare.setup(){
 				initPart(attributeSlotTreeListPresenter).setup[
 					initPart(devicePropertyPresenter).setup[
 						initPart(devicePMPlanList4DevicePresenter).setup[
-						initPart(workItemListPresenter).setup[
+//						initPart(workItemListPresenter).setup[
 						initPart(deviceDocumentStorageListPresenter).setup[
 						initPart(devicepictureListPresenter).setup[
 						initPart(onsiteLocationOutlinePresenter).setupAsSimpleTree[
 						initPart(deviceCategoryAndTypeListPresenter).setup[
+						initPart(devicePMPlanAssignmentListPresenter).setup[
 					this.activate[
 						//getView().filterWithoutDeviceType()
 						//getView().filterWithDeviceType(ct as RCDeviceTypeProxy)
@@ -725,7 +727,8 @@ package com.fudanmed.platform.core.web feature device{
 				])
 				devicePropertyPresenter.setDevice(value)
 				devicePMPlanList4DevicePresenter.setDevice(value)
-				workItemListPresenter.setDevice(value)
+//				workItemListPresenter.setDevice(value)
+				devicePMPlanAssignmentListPresenter.setDevice(value)
 				deviceDocumentStorageListPresenter.setDevice(new DeviceFileContainerProxy(value))
 				devicepictureListPresenter.setDevice(new DevicePictureContainerProxy(value))
 			}
@@ -921,20 +924,21 @@ package com.fudanmed.platform.core.web feature device{
 								add(devicePropertyPresenter.getView().asWidget,"基本信息")
 								add(attributeSlotTreeListPresenter.getView().asWidget,"扩展技术参数")
 								add(devicePMPlanList4DevicePresenter.getView().asWidget,"PM任务清单")
-								add(widgets.ContentPanel=>[
-									widget = workItemListPresenter.getView().asWidget
-									val workItemAc = workItemListPresenter.getView().actionContext 
-									addButton(workItemAc.onSingleObjectAction[
-										onExecute[UIPMWorkItem workItem|
-											fire view.showPMWorkItemInfo(workItem.toProxy)
-										]
-									].asButtonRequester("任务单详情"))
-									addButton(workItemAc.onSingleObjectAction[
-										onExecute[UIPMWorkItem workItem|
-											fire view.showPMEvaluateInfo(workItem.toProxy)
-										]
-									].asButtonRequester("服务评价"))
-								],"PM记录")
+								add(devicePMPlanAssignmentListPresenter.getView().asWidget,"PM记录")
+//								add(widgets.ContentPanel=>[
+//									widget = workItemListPresenter.getView().asWidget
+//									val workItemAc = workItemListPresenter.getView().actionContext 
+//									addButton(workItemAc.onSingleObjectAction[
+//										onExecute[UIPMWorkItem workItem|
+//											fire view.showPMWorkItemInfo(workItem.toProxy)
+//										]
+//									].asButtonRequester("任务单详情"))
+//									addButton(workItemAc.onSingleObjectAction[
+//										onExecute[UIPMWorkItem workItem|
+//											fire view.showPMEvaluateInfo(workItem.toProxy)
+//										]
+//									].asButtonRequester("服务评价"))
+//								],"PM记录")
 	
 								add(widgets.Label("维修记录"),"维修记录")
 								add(widgets.ContentPanel=>[

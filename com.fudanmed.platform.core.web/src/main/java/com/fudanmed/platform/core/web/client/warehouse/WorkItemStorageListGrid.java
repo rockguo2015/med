@@ -60,13 +60,13 @@ public class WorkItemStorageListGrid extends GXTGridComponent<UIWorkItemStorage>
   public DoubleColumn<UIWorkItemStorage> amount;
   
   @Inject
+  private IntegerValueProviderFactory integerValueProviderFactory;
+  
+  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
-  
-  @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

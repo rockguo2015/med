@@ -37,13 +37,13 @@ public class UIPMWorkItemTeamFinishReportForm extends GXTFormComponent<UIPMWorkI
   public IValueProvider<UIPMWorkItemEvaluate> evaluate;
   
   @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIPMWorkItemTeamFinishReportData value = new UIPMWorkItemTeamFinishReportData();
   

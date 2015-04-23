@@ -76,19 +76,19 @@ public class WorkItemReturnStockRecordForm extends GXTFormComponent<UIWorkItemRe
   public CheckBoxItem print;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIWorkItemReturnStockRecord value = new UIWorkItemReturnStockRecord();
   

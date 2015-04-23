@@ -36,10 +36,10 @@ public class SettlementForm extends GXTFormComponent<UISettlement> implements II
   public TextAreaItem description;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UISettlement value = new UISettlement();
   

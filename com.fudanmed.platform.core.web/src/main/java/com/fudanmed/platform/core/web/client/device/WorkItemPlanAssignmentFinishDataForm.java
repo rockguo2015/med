@@ -29,7 +29,7 @@ public class WorkItemPlanAssignmentFinishDataForm extends GXTFormComponent<UIWor
   }
   
   public void initialize(final IPostInitializeAction handler) {
-    java.util.Collection<com.uniquesoft.gwt.client.common.async.IInitializerSupport> _initializerSupports = com.google.common.collect.Lists.newArrayList();comment = stringValueProviderFactory.createAsTextAreaItem("comment","comment");
+    java.util.Collection<com.uniquesoft.gwt.client.common.async.IInitializerSupport> _initializerSupports = com.google.common.collect.Lists.newArrayList();comment = stringValueProviderFactory.createAsTextAreaItem("comment","备注");
     widgetsRegistory.put("comment",comment);
     IPostInitializeAction postAction = new IPostInitializeAction() {
     								

@@ -35,13 +35,13 @@ public class WorkItemOutStockRecordListGrid extends GXTGridComponent<UIWorkItemO
   public StringColumn<UIWorkItemOutStockRecord> comment;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIWorkItemOutStockRecord value = new UIWorkItemOutStockRecord();
   

@@ -39,13 +39,13 @@ public class OnsitePositionForm extends GXTFormComponent<UIOnsitePosition> imple
   public CheckBoxItem inputNext;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
-  
-  @Inject
   private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIOnsitePosition value = new UIOnsitePosition();
   

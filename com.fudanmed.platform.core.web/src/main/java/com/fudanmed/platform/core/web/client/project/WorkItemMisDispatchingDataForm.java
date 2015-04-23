@@ -39,13 +39,13 @@ public class WorkItemMisDispatchingDataForm extends GXTFormComponent<WorkItemMis
   public TextAreaItem reportComment;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private WorkItemMisDispatchingData value = new WorkItemMisDispatchingData();
   

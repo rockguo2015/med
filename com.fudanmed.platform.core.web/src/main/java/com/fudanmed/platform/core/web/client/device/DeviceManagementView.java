@@ -18,6 +18,8 @@ import com.fudanmed.platform.core.web.client.device.DeviceCategoryAndTypeListPre
 import com.fudanmed.platform.core.web.client.device.DeviceCriteriaForm;
 import com.fudanmed.platform.core.web.client.device.DeviceListGrid;
 import com.fudanmed.platform.core.web.client.device.DeviceManagementPresenterView;
+import com.fudanmed.platform.core.web.client.device.DevicePMPlanAssignmentListPresenter;
+import com.fudanmed.platform.core.web.client.device.DevicePMPlanAssignmentListPresenterView;
 import com.fudanmed.platform.core.web.client.device.DevicePMPlanList4DevicePresenter;
 import com.fudanmed.platform.core.web.client.device.DevicePMPlanList4DevicePresenterView;
 import com.fudanmed.platform.core.web.client.device.DevicePropertyPresenter;
@@ -25,8 +27,6 @@ import com.fudanmed.platform.core.web.client.device.DevicePropertyPresenterView;
 import com.fudanmed.platform.core.web.client.device.DocumentStorageListPresenter;
 import com.fudanmed.platform.core.web.client.device.DocumentStorageListPresenterView;
 import com.fudanmed.platform.core.web.client.device.ExportDeviceCommand;
-import com.fudanmed.platform.core.web.client.device.PMWorkItemListPresenter;
-import com.fudanmed.platform.core.web.client.device.PMWorkItemListPresenterView;
 import com.fudanmed.platform.core.web.client.device.PictureListPresenter;
 import com.fudanmed.platform.core.web.client.device.PictureListPresenterView;
 import com.fudanmed.platform.core.web.client.device.UpdateDeviceDocumentStorageCommand;
@@ -39,7 +39,6 @@ import com.fudanmed.platform.core.web.shared.device.UIDeviceCategoryAndType;
 import com.fudanmed.platform.core.web.shared.device.UIDeviceCategoryOrTypeType;
 import com.fudanmed.platform.core.web.shared.device.UIDeviceCriteria;
 import com.fudanmed.platform.core.web.shared.device.UIDocumentStorage;
-import com.fudanmed.platform.core.web.shared.device.UIPMWorkItem;
 import com.fudanmed.platform.core.web.shared.organization.UIOnsitePosition;
 import com.google.common.base.Function;
 import com.google.common.base.Objects;
@@ -129,12 +128,6 @@ public class DeviceManagementView extends GWTAbstractView implements DeviceManag
     this.devicePMPlanList4DevicePresenter = devicePMPlanList4DevicePresenter;
   }
   
-  private PMWorkItemListPresenter workItemListPresenter;
-  
-  public void setWorkItemListPresenter(final PMWorkItemListPresenter workItemListPresenter) {
-    this.workItemListPresenter = workItemListPresenter;
-  }
-  
   private DocumentStorageListPresenter deviceDocumentStorageListPresenter;
   
   public void setDeviceDocumentStorageListPresenter(final DocumentStorageListPresenter deviceDocumentStorageListPresenter) {
@@ -157,6 +150,12 @@ public class DeviceManagementView extends GWTAbstractView implements DeviceManag
   
   public void setDeviceCategoryAndTypeListPresenter(final DeviceCategoryAndTypeListPresenter deviceCategoryAndTypeListPresenter) {
     this.deviceCategoryAndTypeListPresenter = deviceCategoryAndTypeListPresenter;
+  }
+  
+  private DevicePMPlanAssignmentListPresenter devicePMPlanAssignmentListPresenter;
+  
+  public void setDevicePMPlanAssignmentListPresenter(final DevicePMPlanAssignmentListPresenter devicePMPlanAssignmentListPresenter) {
+    this.devicePMPlanAssignmentListPresenter = devicePMPlanAssignmentListPresenter;
   }
   
   @Inject
@@ -552,52 +551,13 @@ public class DeviceManagementView extends GWTAbstractView implements DeviceManag
                                   DevicePMPlanList4DevicePresenterView _view_2 = DeviceManagementView.this.devicePMPlanList4DevicePresenter.getView();
                                   Widget _asWidget_2 = _view_2.asWidget();
                                   it.add(_asWidget_2, "PM\u4EFB\u52A1\u6E05\u5355");
-                                  ContentPanel _ContentPanel = DeviceManagementView.this.widgets.ContentPanel();
-                                  final Procedure1<ContentPanel> _function = new Procedure1<ContentPanel>() {
-                                      public void apply(final ContentPanel it) {
-                                        PMWorkItemListPresenterView _view = DeviceManagementView.this.workItemListPresenter.getView();
-                                        Widget _asWidget = _view.asWidget();
-                                        it.setWidget(_asWidget);
-                                        PMWorkItemListPresenterView _view_1 = DeviceManagementView.this.workItemListPresenter.getView();
-                                        final ActionContext<UIPMWorkItem> workItemAc = _view_1.getActionContext();
-                                        final Procedure1<SingleObjectActions> _function = new Procedure1<SingleObjectActions>() {
-                                            public void apply(final SingleObjectActions it) {
-                                              final Procedure1<UIPMWorkItem> _function = new Procedure1<UIPMWorkItem>() {
-                                                  public void apply(final UIPMWorkItem workItem) {
-                                                    RCPMWorkItemProxy _proxy = workItem.toProxy();
-                                                    showPMWorkItemInfoRequestHandler.execute(_proxy);
-                                                    
-                                                  }
-                                                };
-                                              it.onExecute(_function);
-                                            }
-                                          };
-                                        SingleObjectActions _onSingleObjectAction = SingleObjectActions.<UIPMWorkItem>onSingleObjectAction(workItemAc, _function);
-                                        TextButton _asButtonRequester = _onSingleObjectAction.asButtonRequester("\u4EFB\u52A1\u5355\u8BE6\u60C5");
-                                        it.addButton(_asButtonRequester);
-                                        final Procedure1<SingleObjectActions> _function_1 = new Procedure1<SingleObjectActions>() {
-                                            public void apply(final SingleObjectActions it) {
-                                              final Procedure1<UIPMWorkItem> _function = new Procedure1<UIPMWorkItem>() {
-                                                  public void apply(final UIPMWorkItem workItem) {
-                                                    RCPMWorkItemProxy _proxy = workItem.toProxy();
-                                                    showPMEvaluateInfoRequestHandler.execute(_proxy);
-                                                    
-                                                  }
-                                                };
-                                              it.onExecute(_function);
-                                            }
-                                          };
-                                        SingleObjectActions _onSingleObjectAction_1 = SingleObjectActions.<UIPMWorkItem>onSingleObjectAction(workItemAc, _function_1);
-                                        TextButton _asButtonRequester_1 = _onSingleObjectAction_1.asButtonRequester("\u670D\u52A1\u8BC4\u4EF7");
-                                        it.addButton(_asButtonRequester_1);
-                                      }
-                                    };
-                                  ContentPanel _doubleArrow = ObjectExtensions.<ContentPanel>operator_doubleArrow(_ContentPanel, _function);
-                                  it.add(_doubleArrow, "PM\u8BB0\u5F55");
+                                  DevicePMPlanAssignmentListPresenterView _view_3 = DeviceManagementView.this.devicePMPlanAssignmentListPresenter.getView();
+                                  Widget _asWidget_3 = _view_3.asWidget();
+                                  it.add(_asWidget_3, "PM\u8BB0\u5F55");
                                   Label _Label = DeviceManagementView.this.widgets.Label("\u7EF4\u4FEE\u8BB0\u5F55");
                                   it.add(_Label, "\u7EF4\u4FEE\u8BB0\u5F55");
-                                  ContentPanel _ContentPanel_1 = DeviceManagementView.this.widgets.ContentPanel();
-                                  final Procedure1<ContentPanel> _function_1 = new Procedure1<ContentPanel>() {
+                                  ContentPanel _ContentPanel = DeviceManagementView.this.widgets.ContentPanel();
+                                  final Procedure1<ContentPanel> _function = new Procedure1<ContentPanel>() {
                                       public void apply(final ContentPanel it) {
                                         DocumentStorageListPresenterView _view = DeviceManagementView.this.deviceDocumentStorageListPresenter.getView();
                                         Widget _asWidget = _view.asWidget();
@@ -632,10 +592,10 @@ public class DeviceManagementView extends GWTAbstractView implements DeviceManag
                                         it.addCommand(deviceDocumentAc, DeviceManagementView.this.deleteDeviceDocmentStorageCommand, "\u5220\u9664");
                                       }
                                     };
-                                  ContentPanel _doubleArrow_1 = ObjectExtensions.<ContentPanel>operator_doubleArrow(_ContentPanel_1, _function_1);
-                                  it.add(_doubleArrow_1, "\u5173\u8054\u6587\u6863");
-                                  ContentPanel _ContentPanel_2 = DeviceManagementView.this.widgets.ContentPanel();
-                                  final Procedure1<ContentPanel> _function_2 = new Procedure1<ContentPanel>() {
+                                  ContentPanel _doubleArrow = ObjectExtensions.<ContentPanel>operator_doubleArrow(_ContentPanel, _function);
+                                  it.add(_doubleArrow, "\u5173\u8054\u6587\u6863");
+                                  ContentPanel _ContentPanel_1 = DeviceManagementView.this.widgets.ContentPanel();
+                                  final Procedure1<ContentPanel> _function_1 = new Procedure1<ContentPanel>() {
                                       public void apply(final ContentPanel it) {
                                         PictureListPresenterView _view = DeviceManagementView.this.devicepictureListPresenter.getView();
                                         Widget _asWidget = _view.asWidget();
@@ -670,8 +630,8 @@ public class DeviceManagementView extends GWTAbstractView implements DeviceManag
                                         it.addCommand(deviceDocumentAc, DeviceManagementView.this.deleteDevicePictureCommand, "\u5220\u9664");
                                       }
                                     };
-                                  ContentPanel _doubleArrow_2 = ObjectExtensions.<ContentPanel>operator_doubleArrow(_ContentPanel_2, _function_2);
-                                  it.add(_doubleArrow_2, "\u8BBE\u5907\u56FE\u7247");
+                                  ContentPanel _doubleArrow_1 = ObjectExtensions.<ContentPanel>operator_doubleArrow(_ContentPanel_1, _function_1);
+                                  it.add(_doubleArrow_1, "\u8BBE\u5907\u56FE\u7247");
                                 }
                               };
                             TabPanel _doubleArrow_3 = ObjectExtensions.<TabPanel>operator_doubleArrow(_TabPanel, _function_3);

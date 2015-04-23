@@ -97,6 +97,7 @@ package com.fudanmed.platform.core.web feature device{
 		@Inject criteriaForm : PMWorkItemCriteriaForm
 		@Inject showWorkItemPlanAssignmentPropertyPresenterPropertyCommand : ShowWorkItemPlanAssignmentPropertyPresenterPropertyCommand
 		@Inject finishWorkItemPlanAssignmentCommand : FinishWorkItemPlanAssignmentCommand
+		@Inject engineerReportCommand : PMEngineerReportCommand
 		
 		pager : IPager 
 		
@@ -197,6 +198,7 @@ package com.fudanmed.platform.core.web feature device{
 										]
 									].asButtonRequester("完成"))
 								]
+								addCommand(assignmentAc.adapt[toProxy],engineerReportCommand)
 								securities.check(ui-requester.pendRequest)[v|
 									addButton(assignmentAc.onSingleObjectAction[
 										onExecute[UIPMWorkItemWorkerAssignment value|

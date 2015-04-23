@@ -44,13 +44,13 @@ public class RepairTask4SettlementListGrid extends GXTGridComponent<UIRepairTask
   public DoubleColumn<UIRepairTask> amount;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

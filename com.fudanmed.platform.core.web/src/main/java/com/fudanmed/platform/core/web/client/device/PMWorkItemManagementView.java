@@ -11,6 +11,7 @@ import com.fudanmed.platform.core.web.client.device.PMWorkItemPropertyPresenter;
 import com.fudanmed.platform.core.web.client.device.PMWorkItemPropertyPresenterView;
 import com.fudanmed.platform.core.web.client.device.PMWorkItemWorkerAssignmentListPresenter;
 import com.fudanmed.platform.core.web.client.device.PMWorkItemWorkerAssignmentListPresenterView;
+import com.fudanmed.platform.core.web.client.device.RemoveWorkItemPlanAssignmentCommand;
 import com.fudanmed.platform.core.web.client.device.ShowWorkItemPlanAssignmentPropertyPresenterPropertyCommand;
 import com.fudanmed.platform.core.web.client.device.WorkItemPlanAssignmentListPresenter;
 import com.fudanmed.platform.core.web.client.device.WorkItemPlanAssignmentListPresenterView;
@@ -68,7 +69,7 @@ public class PMWorkItemManagementView extends GWTAbstractView implements PMWorkI
   
   public void initialize(final IPostInitializeAction postInitialize) {
     com.uniquesoft.gwt.client.common.async.InitializerManager.initialize(
-    	com.google.common.collect.Lists.newArrayList(listGrid,criteriaForm,showWorkItemPlanAssignmentPropertyPresenterPropertyCommand),
+    	com.google.common.collect.Lists.newArrayList(listGrid,criteriaForm,showWorkItemPlanAssignmentPropertyPresenterPropertyCommand,removeWorkItemPlanAssignmentCommand),
     	new com.uniquesoft.gwt.client.common.async.IPostInitializeAction(){
     
     	public void initializeFinished(Void v) {
@@ -118,6 +119,9 @@ public class PMWorkItemManagementView extends GWTAbstractView implements PMWorkI
   @Inject
   private ShowWorkItemPlanAssignmentPropertyPresenterPropertyCommand showWorkItemPlanAssignmentPropertyPresenterPropertyCommand;
   
+  @Inject
+  private RemoveWorkItemPlanAssignmentCommand removeWorkItemPlanAssignmentCommand;
+  
   private IPager pager;
   
   private Widget con;
@@ -129,6 +133,7 @@ public class PMWorkItemManagementView extends GWTAbstractView implements PMWorkI
   public void initialize() {
     
     this.listGrid.asWidget();
+    this.listGrid.keepSelection();
     final ActionContext<UIPMWorkItem> ac = ActionExtensions.<UIPMWorkItem>createActionContext(this.listGrid);
     FramedPanel _FramedPanel = this.widgets.FramedPanel("PM\u4EFB\u52A1\u7BA1\u7406");
     final Procedure1<FramedPanel> _function = new Procedure1<FramedPanel>() {
@@ -333,6 +338,82 @@ public class PMWorkItemManagementView extends GWTAbstractView implements PMWorkI
                                       public void apply(final SingleObjectActions it) {
                                         final Procedure1<UIPMWorkItem> _function = new Procedure1<UIPMWorkItem>() {
                                             public void apply(final UIPMWorkItem selectedValue) {
+                                              RCPMWorkItemProxy _proxy = selectedValue.toProxy();
+                                              selectedPlansRequestRequestHandler.execute(_proxy);
+                                              
+                                            }
+                                          };
+                                        it.onExecute(_function);
+                                        final Function1<Void,Boolean> _function_1 = new Function1<Void,Boolean>() {
+                                            public Boolean apply(final Void it) {
+                                              final Function1<UIPMWorkItem,Boolean> _function = new Function1<UIPMWorkItem,Boolean>() {
+                                                  public Boolean apply(final UIPMWorkItem it) {
+                                                    UIPMWorkItemStatue _status = it.getStatus();
+                                                    boolean _equals = Objects.equal(_status, UIPMWorkItemStatue.planed);
+                                                    return Boolean.valueOf(_equals);
+                                                  }
+                                                };
+                                              Boolean _singleSelectedAnd = ActionExtensions.<UIPMWorkItem>singleSelectedAnd(PMWorkItemManagementView.this.listGrid, _function);
+                                              return _singleSelectedAnd;
+                                            }
+                                          };
+                                        it.onCheckEnable(_function_1);
+                                      }
+                                    };
+                                  SingleObjectActions _onSingleObjectAction = SingleObjectActions.<UIPMWorkItem>onSingleObjectAction(ac, _function);
+                                  TextButton _asButtonRequester = _onSingleObjectAction.asButtonRequester("\u8FFD\u52A0\u7EF4\u4FDD\u8BBE\u5907");
+                                  it.addButton(_asButtonRequester);
+                                }
+                              };
+                            PMWorkItemManagementView.this.securities.check(new Function0<IFunctionIdentifier>() {
+                              public IFunctionIdentifier apply() {
+                                return new edu.fudan.langlab.security.shared.FunctionIdentifier( "com.fudanmed.platform.core.web.client.device.PMWorkItemManagementPresenter.selectedPlansRequest" );
+                              }
+                            }.apply(), _function_2);
+                            final Procedure1<Void> _function_3 = new Procedure1<Void>() {
+                                public void apply(final Void v) {
+                                  final Procedure1<SingleObjectActions> _function = new Procedure1<SingleObjectActions>() {
+                                      public void apply(final SingleObjectActions it) {
+                                        final Procedure1<UIPMWorkItem> _function = new Procedure1<UIPMWorkItem>() {
+                                            public void apply(final UIPMWorkItem selectedValue) {
+                                              RCPMWorkItemProxy _proxy = selectedValue.toProxy();
+                                              modifyRequestRequestHandler.execute(_proxy);
+                                              
+                                            }
+                                          };
+                                        it.onExecute(_function);
+                                        final Function1<Void,Boolean> _function_1 = new Function1<Void,Boolean>() {
+                                            public Boolean apply(final Void it) {
+                                              final Function1<UIPMWorkItem,Boolean> _function = new Function1<UIPMWorkItem,Boolean>() {
+                                                  public Boolean apply(final UIPMWorkItem it) {
+                                                    UIPMWorkItemStatue _status = it.getStatus();
+                                                    boolean _equals = Objects.equal(_status, UIPMWorkItemStatue.planed);
+                                                    return Boolean.valueOf(_equals);
+                                                  }
+                                                };
+                                              Boolean _singleSelectedAnd = ActionExtensions.<UIPMWorkItem>singleSelectedAnd(PMWorkItemManagementView.this.listGrid, _function);
+                                              return _singleSelectedAnd;
+                                            }
+                                          };
+                                        it.onCheckEnable(_function_1);
+                                      }
+                                    };
+                                  SingleObjectActions _onSingleObjectAction = SingleObjectActions.<UIPMWorkItem>onSingleObjectAction(ac, _function);
+                                  TextButton _asButtonRequester = _onSingleObjectAction.asButtonRequester("\u4FEE\u6539/\u6D3E\u53D1");
+                                  it.addButton(_asButtonRequester);
+                                }
+                              };
+                            PMWorkItemManagementView.this.securities.check(new Function0<IFunctionIdentifier>() {
+                              public IFunctionIdentifier apply() {
+                                return new edu.fudan.langlab.security.shared.FunctionIdentifier( "com.fudanmed.platform.core.web.client.device.PMWorkItemManagementPresenter.modifyRequest" );
+                              }
+                            }.apply(), _function_3);
+                            final Procedure1<Void> _function_4 = new Procedure1<Void>() {
+                                public void apply(final Void v) {
+                                  final Procedure1<SingleObjectActions> _function = new Procedure1<SingleObjectActions>() {
+                                      public void apply(final SingleObjectActions it) {
+                                        final Procedure1<UIPMWorkItem> _function = new Procedure1<UIPMWorkItem>() {
+                                            public void apply(final UIPMWorkItem selectedValue) {
                                               final Procedure1<Void> _function = new Procedure1<Void>() {
                                                   public void apply(final Void it) {
                                                     RCPMWorkItemProxy _proxy = selectedValue.toProxy();
@@ -370,7 +451,7 @@ public class PMWorkItemManagementView extends GWTAbstractView implements PMWorkI
                               public IFunctionIdentifier apply() {
                                 return new edu.fudan.langlab.security.shared.FunctionIdentifier( "com.fudanmed.platform.core.web.client.device.PMWorkItemManagementPresenter.finishWorkItemRequest" );
                               }
-                            }.apply(), _function_2);
+                            }.apply(), _function_4);
                           }
                         };
                       ContentPanel _doubleArrow = ObjectExtensions.<ContentPanel>operator_doubleArrow(_ContentPanel, _function);
@@ -417,6 +498,7 @@ public class PMWorkItemManagementView extends GWTAbstractView implements PMWorkI
                                         return _function.apply(input);
                                       }
                                   });
+                                  it.addCommand(wiac, PMWorkItemManagementView.this.removeWorkItemPlanAssignmentCommand);
                                   it.addCommand(wiac, PMWorkItemManagementView.this.showWorkItemPlanAssignmentPropertyPresenterPropertyCommand);
                                 }
                               };

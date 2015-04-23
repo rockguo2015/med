@@ -48,16 +48,16 @@ public class CenterlizedDeliverTaskListGrid extends GXTGridComponent<UICenterliz
   public StringValueColumn<UICenterlizedDeliverTask,UICenterlizedDeliverTaskStatus> status;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   private UICenterlizedDeliverTask value = new UICenterlizedDeliverTask();
   

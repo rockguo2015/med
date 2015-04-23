@@ -51,13 +51,13 @@ public class WarehouseForm extends GXTFormComponent<UIWarehouse> implements IIni
   public AllMaintenanceTeamContentProvider relatedTeamsContentProvider;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
-  
-  @Inject
   private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   private UIWarehouse value = new UIWarehouse();
   

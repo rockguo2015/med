@@ -42,13 +42,13 @@ public class PMWorkItemWorkerAssignmentForm extends GXTFormComponent<UIPMWorkIte
   public TextAreaItem comment;
   
   @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
   private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIPMWorkItemWorkerAssignment value = new UIPMWorkItemWorkerAssignment();
   

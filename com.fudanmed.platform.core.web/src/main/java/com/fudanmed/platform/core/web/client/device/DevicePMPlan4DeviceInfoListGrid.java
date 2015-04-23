@@ -30,14 +30,16 @@ public class DevicePMPlan4DeviceInfoListGrid extends GXTGridComponent<UIDevicePM
   
   public StringColumn<UIDevicePMPlan> description;
   
+  public StringColumn<UIDevicePMPlan> comment;
+  
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDevicePMPlan value = new UIDevicePMPlan();
   
@@ -56,6 +58,8 @@ public class DevicePMPlan4DeviceInfoListGrid extends GXTGridComponent<UIDevicePM
     widgetsRegistory.put("status",status);
     description = stringValueProviderFactory.createAsStringColumn("description","维保内容",UIDevicePMPlan.DescriptionAccessor);
     widgetsRegistory.put("description",description);
+    comment = stringValueProviderFactory.createAsStringColumn("comment","维保记录",UIDevicePMPlan.CommentAccessor);
+    widgetsRegistory.put("comment",comment);
     IPostInitializeAction postAction = new IPostInitializeAction() {
     								
     								@Override
@@ -74,6 +78,7 @@ public class DevicePMPlan4DeviceInfoListGrid extends GXTGridComponent<UIDevicePM
     value.setPlanDate(planDate.getValue());
     value.setStatus(status.getValue());
     value.setDescription(description.getValue());
+    value.setComment(comment.getValue());
     return value;
   }
   
@@ -83,6 +88,7 @@ public class DevicePMPlan4DeviceInfoListGrid extends GXTGridComponent<UIDevicePM
     value.setPlanDate(planDate.getValue());
     value.setStatus(status.getValue());
     value.setDescription(description.getValue());
+    value.setComment(comment.getValue());
     return value;
   }
   
@@ -92,6 +98,7 @@ public class DevicePMPlan4DeviceInfoListGrid extends GXTGridComponent<UIDevicePM
     copyValue.setPlanDate(planDate.getValue());
     copyValue.setStatus(status.getValue());
     copyValue.setDescription(description.getValue());
+    copyValue.setComment(comment.getValue());
     return copyValue;
   }
   
@@ -101,12 +108,13 @@ public class DevicePMPlan4DeviceInfoListGrid extends GXTGridComponent<UIDevicePM
     planDate.setValue(value.getPlanDate());
     status.setValue(value.getStatus());
     description.setValue(value.getDescription());
+    comment.setValue(value.getComment());
     valueUpdated(value);return this;
   }
   
   public Iterable<ICanAsWidget> getAllProperties() {
     return com.google.common.collect.Lists.newArrayList(
-    					(ICanAsWidget)pmType,(ICanAsWidget)planDate,(ICanAsWidget)status,(ICanAsWidget)description
+    					(ICanAsWidget)pmType,(ICanAsWidget)planDate,(ICanAsWidget)status,(ICanAsWidget)description,(ICanAsWidget)comment
     					);
   }
   

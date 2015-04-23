@@ -22,10 +22,10 @@ public class RepairTaskStatByOrganizationTypeCriteriaDataListGrid extends GXTGri
   public StringValueColumn<UIRepairTaskStatByOrganizationTypeCriteriaData,Long> cnt;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIRepairTaskStatByOrganizationTypeCriteriaData value = new UIRepairTaskStatByOrganizationTypeCriteriaData();
   

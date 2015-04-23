@@ -41,13 +41,13 @@ public class TaskCriteriaForm extends GXTFormComponent<UITaskCriteria> implement
   public UITaskSourceTypeContentProvider taskSourceTypeContentProvider;
   
   @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
   
   private UITaskCriteria value = new UITaskCriteria();
   

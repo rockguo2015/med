@@ -50,6 +50,7 @@ public class DevicePMPlanSelectorPresenterServiceImpl extends BaseService implem
           }
         };
       RCDevicePMPlanCriteria c = ObjectExtensions.<RCDevicePMPlanCriteria>operator_doubleArrow(_createPagedCriteria, _function);
+      c.setLimit(Integer.valueOf(1000));
       final Function1<RCDevicePMPlan,UIDevicePMPlan> _function_1 = new Function1<RCDevicePMPlan,UIDevicePMPlan>() {
           public UIDevicePMPlan apply(final RCDevicePMPlan it) {
             UIDevicePMPlan _apply = DevicePMPlanSelectorPresenterServiceImpl.this.mapper.apply(it);

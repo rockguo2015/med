@@ -33,13 +33,13 @@ public class WorkItemProductSpecSummaryListGrid extends GXTGridComponent<UIWorkI
   public StringValueColumn<UIWorkItemProductSpecSummary,RCProduceSpecificationUnitProxy> unit;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
-  
-  @Inject
   private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  
+  @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIWorkItemProductSpecSummary value = new UIWorkItemProductSpecSummary();
   

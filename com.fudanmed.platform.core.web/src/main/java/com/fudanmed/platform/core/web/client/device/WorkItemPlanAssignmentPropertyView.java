@@ -37,9 +37,9 @@ public class WorkItemPlanAssignmentPropertyView extends GXTPropertyView<UIWorkIt
   
   public DatePropertyItem planDate;
   
-  public IValueViewer<String> pmComment;
-  
   public IValueViewer<UIDevicePMPlanStatus> smstatus;
+  
+  public IValueViewer<String> pmComment;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
@@ -72,10 +72,10 @@ public class WorkItemPlanAssignmentPropertyView extends GXTPropertyView<UIWorkIt
     widgetsRegistory.put("intervalInDays",intervalInDays);
     planDate = dateValueProviderFactory.createAsDateItem("planDate","PM计划日期");
     widgetsRegistory.put("planDate",planDate);
-    pmComment = defaultObjectSelectorFactory.createAsPropertyItem("pmComment","维保内容");
-    widgetsRegistory.put("pmComment",pmComment);
     smstatus = defaultObjectSelectorFactory.createAsPropertyItem("smstatus","状态");
     widgetsRegistory.put("smstatus",smstatus);
+    pmComment = defaultObjectSelectorFactory.createAsPropertyItem("pmComment","维保内容");
+    widgetsRegistory.put("pmComment",pmComment);
     IPostInitializeAction postAction = new IPostInitializeAction() {
     								
     								@Override
@@ -113,14 +113,14 @@ public class WorkItemPlanAssignmentPropertyView extends GXTPropertyView<UIWorkIt
     pmType.setValue(value.getPmType());
     intervalInDays.setValue(value.getIntervalInDays());
     planDate.setValue(value.getPlanDate());
-    pmComment.setValue(value.getPmComment());
     smstatus.setValue(value.getSmstatus());
+    pmComment.setValue(value.getPmComment());
     valueUpdated(value);return this;
   }
   
   public Iterable<ICanAsWidget> getAllProperties() {
     return com.google.common.collect.Lists.newArrayList(
-    					(ICanAsWidget)sid,(ICanAsWidget)name,(ICanAsWidget)specification,(ICanAsWidget)location,(ICanAsWidget)deviceType,(ICanAsWidget)pmType,(ICanAsWidget)intervalInDays,(ICanAsWidget)planDate,(ICanAsWidget)pmComment,(ICanAsWidget)smstatus
+    					(ICanAsWidget)sid,(ICanAsWidget)name,(ICanAsWidget)specification,(ICanAsWidget)location,(ICanAsWidget)deviceType,(ICanAsWidget)pmType,(ICanAsWidget)intervalInDays,(ICanAsWidget)planDate,(ICanAsWidget)smstatus,(ICanAsWidget)pmComment
     					);
   }
 }

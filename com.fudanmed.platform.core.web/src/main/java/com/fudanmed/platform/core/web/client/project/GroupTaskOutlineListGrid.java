@@ -38,10 +38,10 @@ public class GroupTaskOutlineListGrid extends GXTGridComponent<UIGroupTask> impl
   public DateColumn<UIGroupTask> finishTime;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIGroupTask value = new UIGroupTask();
   

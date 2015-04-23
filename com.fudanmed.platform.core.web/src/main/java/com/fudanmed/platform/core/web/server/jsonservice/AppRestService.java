@@ -803,6 +803,40 @@ public class AppRestService extends BaseService implements IAppRestService {
                     it.put("sid", _sid);
                     String _name = item.getName();
                     it.put("name", _name);
+                    int _switchResult = (int) 0;
+                    RCMeasureDeviceType _deviceType = item.getDeviceType();
+                    String _name_1 = _deviceType.getName();
+                    final String _switchValue = _name_1;
+                    boolean _matched = false;
+                    if (!_matched) {
+                      if (Objects.equal(_switchValue,"\u6C34\u8868")) {
+                        _matched=true;
+                        _switchResult = 1;
+                      }
+                    }
+                    if (!_matched) {
+                      if (Objects.equal(_switchValue,"\u7535\u8868")) {
+                        _matched=true;
+                        _switchResult = 2;
+                      }
+                    }
+                    if (!_matched) {
+                      if (Objects.equal(_switchValue,"\u6C14\u8868")) {
+                        _matched=true;
+                        _switchResult = 3;
+                      }
+                    }
+                    if (!_matched) {
+                      if (Objects.equal(_switchValue,"\u5CF0\u8C37\u7535\u8868")) {
+                        _matched=true;
+                        _switchResult = 4;
+                      }
+                    }
+                    if (!_matched) {
+                      _switchResult = 0;
+                    }
+                    final int dtype = _switchResult;
+                    it.put("deviceType", dtype);
                     RCMeasureValue _lastValue = item.getLastValue();
                     boolean _notEquals = (!Objects.equal(_lastValue, null));
                     if (_notEquals) {

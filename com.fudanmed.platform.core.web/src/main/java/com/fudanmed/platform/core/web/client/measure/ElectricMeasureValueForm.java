@@ -34,13 +34,13 @@ public class ElectricMeasureValueForm extends GXTFormComponent<UIElectricMeasure
   public TextItem measurePerson;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIElectricMeasureValue value = new UIElectricMeasureValue();
   

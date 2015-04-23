@@ -46,13 +46,13 @@ public class ReportListGrid extends GXTGridComponent<UIRepairTask> implements II
   public StringValueColumn<UIRepairTask,UIEvaluateState> evaluateState;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIRepairTask value = new UIRepairTask();
   

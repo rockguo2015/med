@@ -127,7 +127,7 @@ public class DeviceForm extends GXTFormComponent<UIDevice> implements IInitializ
   public TextItem ownerDepartmentName;
   
   @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
@@ -136,7 +136,7 @@ public class DeviceForm extends GXTFormComponent<UIDevice> implements IInitializ
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;

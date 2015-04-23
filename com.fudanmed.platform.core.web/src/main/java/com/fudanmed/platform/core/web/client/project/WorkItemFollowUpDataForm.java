@@ -33,10 +33,10 @@ public class WorkItemFollowUpDataForm extends GXTFormComponent<WorkItemFollowUpD
   public TextAreaItem comment;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private WorkItemFollowUpData value = new WorkItemFollowUpData();
   

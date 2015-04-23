@@ -42,13 +42,13 @@ public class StockTakingRecordDetailForm extends GXTFormComponent<UIStockTakingR
   public StringReadonlyItem comment;
   
   @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
-  
-  @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIStockTakingRecord value = new UIStockTakingRecord();
   

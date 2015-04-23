@@ -6,10 +6,10 @@ import com.fudanmed.platform.core.device.proxy.RCDeviceTypeProxy;
 import com.fudanmed.platform.core.web.client.device.AttributeSlotTreeListPresenter;
 import com.fudanmed.platform.core.web.client.device.DeviceCategoryAndTypeListPresenter;
 import com.fudanmed.platform.core.web.client.device.DeviceManagementView;
+import com.fudanmed.platform.core.web.client.device.DevicePMPlanAssignmentListPresenter;
 import com.fudanmed.platform.core.web.client.device.DevicePMPlanList4DevicePresenter;
 import com.fudanmed.platform.core.web.client.device.DevicePropertyPresenter;
 import com.fudanmed.platform.core.web.client.device.DocumentStorageListPresenter;
-import com.fudanmed.platform.core.web.client.device.PMWorkItemListPresenter;
 import com.fudanmed.platform.core.web.client.device.PictureListPresenter;
 import com.fudanmed.platform.core.web.client.organization.OnsiteLocationOutlinePresenter;
 import com.fudanmed.platform.core.web.shared.device.UIDevice;
@@ -57,8 +57,6 @@ public interface DeviceManagementPresenterView extends Viewer, IContextProvider<
   
   public abstract void setDevicePMPlanList4DevicePresenter(final DevicePMPlanList4DevicePresenter devicePMPlanList4DevicePresenter);
   
-  public abstract void setWorkItemListPresenter(final PMWorkItemListPresenter workItemListPresenter);
-  
   public abstract void setDeviceDocumentStorageListPresenter(final DocumentStorageListPresenter deviceDocumentStorageListPresenter);
   
   public abstract void setDevicepictureListPresenter(final PictureListPresenter devicepictureListPresenter);
@@ -66,4 +64,6 @@ public interface DeviceManagementPresenterView extends Viewer, IContextProvider<
   public abstract void setOnsiteLocationOutlinePresenter(final OnsiteLocationOutlinePresenter onsiteLocationOutlinePresenter);
   
   public abstract void setDeviceCategoryAndTypeListPresenter(final DeviceCategoryAndTypeListPresenter deviceCategoryAndTypeListPresenter);
+  
+  public abstract void setDevicePMPlanAssignmentListPresenter(final DevicePMPlanAssignmentListPresenter devicePMPlanAssignmentListPresenter);
 }

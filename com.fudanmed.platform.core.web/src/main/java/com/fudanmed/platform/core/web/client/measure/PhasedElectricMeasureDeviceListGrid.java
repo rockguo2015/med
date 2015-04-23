@@ -26,10 +26,10 @@ public class PhasedElectricMeasureDeviceListGrid extends GXTGridComponent<UIPhas
   public DoubleColumn<UIPhasedElectricMeasureDevice> factor;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIPhasedElectricMeasureDevice value = new UIPhasedElectricMeasureDevice();
   

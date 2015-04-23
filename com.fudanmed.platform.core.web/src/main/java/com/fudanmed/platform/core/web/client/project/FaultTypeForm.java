@@ -65,13 +65,13 @@ public class FaultTypeForm extends GXTFormComponent<UIFaultType> implements IIni
   public CheckBoxItem needAudit;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
-  
-  @Inject
   private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
+  
+  @Inject
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;

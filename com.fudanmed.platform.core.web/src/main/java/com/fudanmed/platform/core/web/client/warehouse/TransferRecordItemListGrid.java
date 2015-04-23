@@ -43,13 +43,13 @@ public class TransferRecordItemListGrid extends GXTGridComponent<UITransferRecor
   public StringValueColumn<UITransferRecordItem,RCProduceSpecificationUnitProxy> unit;
   
   @Inject
+  private IntegerValueProviderFactory integerValueProviderFactory;
+  
+  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
-  
-  @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

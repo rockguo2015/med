@@ -32,15 +32,15 @@ public class BarChart<T extends Object> {
   
   private Chart<T> chart = null;
   
-  private BarSeries<T> bar = null;
+  private BarSeries bar = null;
   
   public BarChart(final String xTitle, final String yTitle) {
     this.xTitle = xTitle;
     this.yTitle = yTitle;
   }
   
-  protected ListStore<T> store = new Function0<ListStore<T>>() {
-    public ListStore<T> apply() {
+  protected ListStore store = new Function0<ListStore>() {
+    public ListStore apply() {
       KeyProvider<T> _keyProvider = new KeyProvider<T>();
       ListStore<T> _listStore = new ListStore<T>(_keyProvider);
       return _listStore;

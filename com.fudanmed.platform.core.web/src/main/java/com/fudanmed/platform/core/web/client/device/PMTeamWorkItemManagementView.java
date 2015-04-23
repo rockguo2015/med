@@ -4,6 +4,7 @@ import com.fudanmed.platform.core.device.pm.proxy.RCPMWorkItemProxy;
 import com.fudanmed.platform.core.device.pm.proxy.RCPMWorkItemWorkerAssignmentProxy;
 import com.fudanmed.platform.core.device.pm.proxy.RCWorkItemPlanAssignmentProxy;
 import com.fudanmed.platform.core.web.client.device.FinishWorkItemPlanAssignmentCommand;
+import com.fudanmed.platform.core.web.client.device.PMEngineerReportCommand;
 import com.fudanmed.platform.core.web.client.device.PMTeamWorkItemManagementPresenterView;
 import com.fudanmed.platform.core.web.client.device.PMWorkItem4TeamListGrid;
 import com.fudanmed.platform.core.web.client.device.PMWorkItemCriteriaForm;
@@ -66,7 +67,7 @@ public class PMTeamWorkItemManagementView extends GWTAbstractView implements PMT
   
   public void initialize(final IPostInitializeAction postInitialize) {
     com.uniquesoft.gwt.client.common.async.InitializerManager.initialize(
-    	com.google.common.collect.Lists.newArrayList(listGrid,criteriaForm,showWorkItemPlanAssignmentPropertyPresenterPropertyCommand,finishWorkItemPlanAssignmentCommand),
+    	com.google.common.collect.Lists.newArrayList(listGrid,criteriaForm,showWorkItemPlanAssignmentPropertyPresenterPropertyCommand,finishWorkItemPlanAssignmentCommand,engineerReportCommand),
     	new com.uniquesoft.gwt.client.common.async.IPostInitializeAction(){
     
     	public void initializeFinished(Void v) {
@@ -112,6 +113,9 @@ public class PMTeamWorkItemManagementView extends GWTAbstractView implements PMT
   
   @Inject
   private FinishWorkItemPlanAssignmentCommand finishWorkItemPlanAssignmentCommand;
+  
+  @Inject
+  private PMEngineerReportCommand engineerReportCommand;
   
   private IPager pager;
   
@@ -398,7 +402,19 @@ public class PMTeamWorkItemManagementView extends GWTAbstractView implements PMT
                                             return new edu.fudan.langlab.security.shared.FunctionIdentifier( "com.fudanmed.platform.core.web.client.device.PMTeamWorkItemManagementPresenter.reportFinishRequest" );
                                           }
                                         }.apply(), _function);
-                                        final Procedure1<Void> _function_1 = new Procedure1<Void>() {
+                                        final Function1<UIPMWorkItemWorkerAssignment,RCPMWorkItemWorkerAssignmentProxy> _function_1 = new Function1<UIPMWorkItemWorkerAssignment,RCPMWorkItemWorkerAssignmentProxy>() {
+                                            public RCPMWorkItemWorkerAssignmentProxy apply(final UIPMWorkItemWorkerAssignment it) {
+                                              RCPMWorkItemWorkerAssignmentProxy _proxy = it.toProxy();
+                                              return _proxy;
+                                            }
+                                          };
+                                        ActionContext<RCPMWorkItemWorkerAssignmentProxy> _adapt = assignmentAc.<RCPMWorkItemWorkerAssignmentProxy>adapt(new Function<UIPMWorkItemWorkerAssignment,RCPMWorkItemWorkerAssignmentProxy>() {
+                                            public RCPMWorkItemWorkerAssignmentProxy apply(UIPMWorkItemWorkerAssignment input) {
+                                              return _function_1.apply(input);
+                                            }
+                                        });
+                                        it.addCommand(_adapt, PMTeamWorkItemManagementView.this.engineerReportCommand);
+                                        final Procedure1<Void> _function_2 = new Procedure1<Void>() {
                                             public void apply(final Void v) {
                                               final Procedure1<SingleObjectActions> _function = new Procedure1<SingleObjectActions>() {
                                                   public void apply(final SingleObjectActions it) {
@@ -435,7 +451,7 @@ public class PMTeamWorkItemManagementView extends GWTAbstractView implements PMT
                                           public IFunctionIdentifier apply() {
                                             return new edu.fudan.langlab.security.shared.FunctionIdentifier( "com.fudanmed.platform.core.web.client.device.PMTeamWorkItemManagementPresenter.pendRequest" );
                                           }
-                                        }.apply(), _function_1);
+                                        }.apply(), _function_2);
                                       }
                                     };
                                   ContentPanel _doubleArrow = ObjectExtensions.<ContentPanel>operator_doubleArrow(_ContentPanel, _function);

@@ -12,7 +12,8 @@ package com.fudanmed.platform.core.web feature device{
 	import com.uniquesoft.gwt.shared.command.IContextConsumer
 	import com.fudanmed.platform.core.web.client.organization.*
 	import com.fudanmed.platform.core.web.shared.organization.*
-	
+	import com.google.gwt.i18n.client.DateTimeFormat
+	import com.uniquesoft.uidl.validation.Validates
 	ui-enum UIPMWorkItemStatue for RCPMWorkItemStatue{
 		title{
 			planed = "新建"
@@ -41,7 +42,6 @@ package com.fudanmed.platform.core.web feature device{
 	
 		constraints PMWorkItemValidator{
 			rule Required on assignDate
-			rule Required on team
 		}
 	
 		ui-component PMWorkItemForm as GXTForm{
@@ -70,7 +70,7 @@ package com.fudanmed.platform.core.web feature device{
 				this.unForceFit
 				status.render=[context,value,sb|
 					if(
-						value == UIPMWorkItemStatue::teamFinished
+						value == UIPMWorkItemStatue::teamFinished ||value == UIPMWorkItemStatue::planed
 					){
 						sb.appendHtmlConstant("<B style='color:red;'>"+value.toString+"</B>")
 					}else{
@@ -236,6 +236,9 @@ package com.fudanmed.platform.core.web feature device{
 			op updateValue(uivalue : UIPMWorkItem) : void{
 				dao.update(resolve uivalue)[
 					mapper.transform(uivalue,it)
+					if(it.team!=null)
+						it.assignTeam
+					
 				]
 			}
 			op resolveDevicePMPlans(selectedPlans: Collection<RCDevicePMPlanProxy>) :Collection<UIDevicePMPlan>{
@@ -255,7 +258,8 @@ package com.fudanmed.platform.core.web feature device{
 					selectedPlans.forEach[it|
 						workItem.assignPlan(entities.^resolve(it,typeof(RCDevicePMPlan)))
 					]
-					workItem.assignTeam
+					if(workItem.team!=null)
+						workItem.assignTeam
 				]
 				
 			}
@@ -420,6 +424,7 @@ package com.fudanmed.platform.core.web feature device{
 		@Inject listGrid : PMWorkItem4DispatcherListGrid
 		@Inject criteriaForm : PMWorkItemCriteriaForm
 		@Inject showWorkItemPlanAssignmentPropertyPresenterPropertyCommand : ShowWorkItemPlanAssignmentPropertyPresenterPropertyCommand
+		@Inject removeWorkItemPlanAssignmentCommand : RemoveWorkItemPlanAssignmentCommand
 		pager : IPager 
 		
 		con: Widget
@@ -428,6 +433,7 @@ package com.fudanmed.platform.core.web feature device{
 		}		
 		layout{
 			listGrid.asWidget
+			listGrid.keepSelection
 			val ac = listGrid.createActionContext
 			
 			con = widgets.FramedPanel("PM任务管理")=>[
@@ -480,18 +486,30 @@ package com.fudanmed.platform.core.web feature device{
 									]
 								])
 							]
-//							securities.check(ui-requester.modifyRequest)[v|
-//								addButton(ac.onSingleObjectAction[
-//									onExecute[UIPMWorkItem selectedValue |
-//										fire view.modifyRequest(selectedValue.toProxy)
-//									]
-//									onCheckEnable[
-//										listGrid.singleSelectedAnd[
-//											it.status == UIPMWorkItemStatue::planed 
-//										]
-//									]
-//								].asButtonRequester("修改"))					
-//							]
+							securities.check(ui-requester.selectedPlansRequest)[v|
+								addButton(ac.onSingleObjectAction[
+									onExecute[UIPMWorkItem selectedValue |
+										fire view.selectedPlansRequest(selectedValue.toProxy)
+									]
+									onCheckEnable[
+										listGrid.singleSelectedAnd[
+											it.status == UIPMWorkItemStatue::planed 
+										]
+									]
+								].asButtonRequester("追加维保设备"))					
+							]
+							securities.check(ui-requester.modifyRequest)[v|
+								addButton(ac.onSingleObjectAction[
+									onExecute[UIPMWorkItem selectedValue |
+										fire view.modifyRequest(selectedValue.toProxy)
+									]
+									onCheckEnable[
+										listGrid.singleSelectedAnd[
+											it.status == UIPMWorkItemStatue::planed 
+										]
+									]
+								].asButtonRequester("修改/派发"))					
+							]
 							securities.check(ui-requester.finishWorkItemRequest)[v|
 								addButton(ac.onSingleObjectAction[
 									onExecute[UIPMWorkItem selectedValue |
@@ -532,6 +550,7 @@ package com.fudanmed.platform.core.web feature device{
 							add(widgets.ContentPanel=>[
 								widget = workItemPlanAssignmentListPresenter.getView().asWidget
 								val wiac = workItemPlanAssignmentListPresenter.getView().getActionContext().adapt[toProxy]
+								addCommand(wiac,removeWorkItemPlanAssignmentCommand)
 								addCommand(wiac,showWorkItemPlanAssignmentPropertyPresenterPropertyCommand)
 							],"维保设备清单")
 							add(workItemWorkerAssignmentListPresenter.getView().asWidget,"派工记录")
@@ -563,10 +582,15 @@ package com.fudanmed.platform.core.web feature device{
 		deviceType : proxy of RCDeviceType "设备类型"
 		
 		planDate : Date "PM计划日期"
+		finishDate:Date "完成日期"
 		pmType : proxy of RCDevicePMType "维保类别"
 		intervalInDays : Integer "维保周期(天)"
 		pmComment : String "维保内容"
 		smstatus : UIDevicePMPlanStatus "状态"
+		comment : String "维保记录"
+		
+		team : proxy of RCMaintenanceTeam "检修班组"
+		workers : proxy of RCEmployee[*] "检修人"
 	
 		map WorkItemPlanAssignmentMapper{
 			direct{
@@ -578,8 +602,14 @@ package com.fudanmed.platform.core.web feature device{
 				{pmType,entity.plan.spec.pmType} readonly,
 				{intervalInDays,entity.plan.spec.intervalInDays} readonly,
 				{planDate,entity.plan.planDate} readonly,
+				{finishDate,entity.plan.finishDate} readonly,
 				{pmComment,entity.plan.spec.description} readonly,
-				{smstatus,entity.plan.status} readonly
+				{smstatus,entity.plan.status} readonly,
+				{team,entity.workitem.team} readonly,
+				{comment,entity.plan.comment}
+			}
+			from entity{
+				ui.workers = entity.workitem.workerAssignment.^map[workers].flatten.^map[toProxy].toList
 			}
 		}
 	
@@ -587,11 +617,19 @@ package com.fudanmed.platform.core.web feature device{
 			binding{sid,name,specification,location,deviceType,pmType,planDate,intervalInDays,smstatus}
 			op initializeComponent():void{
 				this.asMultiSelectGrid
+				this.unForceFit
+			}
+		}
+		ui-component WorkItemPlanAssignment4DeviceListGrid as GXTGrid{
+			binding{pmType,intervalInDays,planDate,smstatus,finishDate,team,workers,pmComment,comment}
+			op initializeComponent():void{
+				this.asWidget
+				this.unForceFit
 			}
 		}
 		
 		ui-component WorkItemPlanAssignmentPropertyView as GXTPropertyView{
-			binding{sid,name,specification,location,deviceType,pmType,intervalInDays, planDate,pmComment,smstatus}
+			binding{sid,name,specification,location,deviceType,pmType,intervalInDays, planDate,smstatus,pmComment}
 		}
 	}
 	
@@ -604,7 +642,33 @@ package com.fudanmed.platform.core.web feature device{
 			]
 		}
 	}
-
+	ui-command RemoveWorkItemPlanAssignmentCommand for proxy of RCWorkItemPlanAssignment[*] "移除维保设备"{ 
+		execute{
+			widgets.ConfirmMessageBox("确认","确认移除")[
+				service.removeAssignment(value.toList,onSuccess[
+					fire eventbus.PMWorkItemsChanged
+				])
+			].show
+		}
+		service{
+			op removeAssignment(assignments : Collection<RCWorkItemPlanAssignmentProxy>):void{
+				val workitem = (resolve assignments.head).workitem;
+				println("here0---")
+				Validates::Assert(workitem.SMState == RCPMWorkItemSMState::planed,"派发后不能修改")
+				println("here1---")
+				assignments.forEach[assignment|
+					println("here2---")
+					(resolve assignment).workitem.deassignPlan((resolve assignment).plan)
+				]
+			}
+		}
+	}
+	
+	ui-command AppendWorkItemPlanAssignmentCommand for proxy of RCPMWorkItem "维保设备"{
+		execute{
+			
+		}
+	}
 	presenter WorkItemPlanAssignmentPropertyPresenter implements IContextConsumer<RCWorkItemPlanAssignmentProxy>{
 		
 		view interface{
@@ -668,10 +732,13 @@ package com.fudanmed.platform.core.web feature device{
 		view interface{
 			signal in setResults(results : UIWorkItemPlanAssignment[*])
 			op getActionContext():ActionContext<UIWorkItemPlanAssignment>
+			op getSelectedValues():Collection<UIWorkItemPlanAssignment>
 		}
 		
 		interaction{
 			context : proxy of RCPMWorkItem
+			assignment  : proxy of pm.RCPMWorkItemWorkerAssignment
+			unassignedOnly : Boolean
 			input prepare.setup(){
 				this.activate[
 					done
@@ -690,11 +757,37 @@ package com.fudanmed.platform.core.web feature device{
 				refresh
 			}
 			
+			input prepare.setup4UnassignedItems(context : proxy of RCPMWorkItem){
+				unassignedOnly = true
+				this.context = context
+				this.activate[
+					refresh
+					done
+				]
+			}
+			input prepare.setup4WorkerAssignment(context : proxy of pm.RCPMWorkItemWorkerAssignment){
+				this.assignment = context
+				this.activate[
+					refresh
+					done
+				]
+			}
 			input call.refresh(){
+				if(assignment!=null){
+						service.loadWorkItemPlanAssignment4WorkerList(assignment,onSuccess[items|
+							fire view.setResults(items)
+						])
+					
+				}
 				if(context!=null){
-					service.loadWorkItemPlanAssignmentList(context,onSuccess[items|
-						fire view.setResults(items)
-					])
+					if(!unassignedOnly.isLogicTrue)
+						service.loadWorkItemPlanAssignmentList(context,onSuccess[items|
+							fire view.setResults(items)
+						])
+					else
+						service.loadUnassignedWorkItemPlanAssignmentList(context,onSuccess[items|
+							fire view.setResults(items)
+						])
 				}
 			}
 			
@@ -708,6 +801,14 @@ package com.fudanmed.platform.core.web feature device{
 			
 			op loadWorkItemPlanAssignmentList(context : proxy of RCPMWorkItem) : UIWorkItemPlanAssignment[*]{
 				(resolve context).assignments.^map[mapper.transform(it)].unlazy
+			}
+			op loadUnassignedWorkItemPlanAssignmentList(context : proxy of RCPMWorkItem) : UIWorkItemPlanAssignment[*]{
+				(resolve context).assignments.filter[workerAssignment==null].^map[mapper.transform(it)].unlazy
+			}
+			op loadWorkItemPlanAssignment4WorkerList(context : proxy of pm.RCPMWorkItemWorkerAssignment) : UIWorkItemPlanAssignment[*]{
+				val workterssignment = resolve context;
+				(workterssignment).workitem.assignments.filter[it.workerAssignment==workterssignment].^map[mapper.transform(it)].unlazy
+//				(resolve context).assignments.filter[workerAssignment==null].^map[mapper.transform(it)].unlazy
 			}
 			
 		}
@@ -725,6 +826,9 @@ package com.fudanmed.platform.core.web feature device{
 		op getActionContext():ActionContext<UIWorkItemPlanAssignment>{
 			listGrid.createActionContext
 		}
+		op getSelectedValues():Collection<UIWorkItemPlanAssignment>{
+			listGrid.selectedObjects.toList
+		}
 		
 		interaction{
 			input view.setResults(results : UIWorkItemPlanAssignment[*]){
@@ -732,6 +836,75 @@ package com.fudanmed.platform.core.web feature device{
 			}
 		}
 	}
+	
+	presenter DevicePMPlanAssignmentListPresenter{
+		view interface{
+			signal in setResults(results : UIWorkItemPlanAssignment[*])
+			op getActionContext():ActionContext<UIWorkItemPlanAssignment>
+		}
+		
+		interaction{
+			context : proxy of RCDevice
+			input prepare.setup(){
+				this.activate[
+					done
+				]
+			}
+			input prepare.setup(context : proxy of RCDevice){
+				this.context = context
+				this.activate[
+					refresh
+					done
+				]
+			}
+			
+			input call.setDevice(context : proxy of RCDevice){
+				this.context = context
+				refresh
+			}
+			
+			input call.refresh(){
+				if(context!=null){
+					service.loadDevicePlanAssignmentList(context,onSuccess[items|
+						fire view.setResults(items)
+					])
+				}
+			}
+			
+			input eventbus.WorkItemPlanAssignmentsChanged(){
+				refresh
+			}
+		}
+		
+		service{
+			@Inject mapper : WorkItemPlanAssignmentMapper
+			@Inject dao : RCWorkItemPlanAssignmentDAO
+			op loadDevicePlanAssignmentList(context : proxy of RCDevice) : UIWorkItemPlanAssignment[*]{
+				dao.findByDevice(resolve context).^map[mapper.transform(it)].unlazy
+//				(resolve context).assignments.^map[mapper.transform(it)].unlazy
+			}
+			
+		}
+	}
+	
+	view DevicePMPlanAssignmentListView for DevicePMPlanAssignmentListPresenter{
+		con : Widget
+		@Inject listGrid : WorkItemPlanAssignment4DeviceListGrid
+		asWidget():Widget{
+			con
+		}
+		layout{
+			con =listGrid.asWidget
+		}
+		op getActionContext():ActionContext<UIWorkItemPlanAssignment>{
+			listGrid.createActionContext
+		}
+		interaction{
+			input view.setResults(results : UIWorkItemPlanAssignment[*]){
+				listGrid.objects = results
+			}
+		}
+	}	
 	
 	ui-command ShowDevicePMPlanCommand "PM计划查询" @pmShowDevicePMPlan{
 		factory devicePMPlanSelectorPresenter : DevicePMPlanSelectorPresenter
@@ -815,6 +988,7 @@ package com.fudanmed.platform.core.web feature device{
 	
 			op filter(uicriteria : UIDevicePMPlanCriteria) : IPagedResult<UIDevicePMPlan>{
 				var c = uicriteria.createPagedCriteria(typeof(RCDevicePMPlanCriteria),criteriaMapper,entities)=>[it.status = RCDevicePMPlanStatus::planed]
+				c.^limit = 1000
 				c.listAndTransform[mapper.apply(it)]
 			}
 			op assignPlansToWorkItem(workItem : proxy of RCPMWorkItem, selectedPlans : Collection<RCDevicePMPlanProxy>) : void{
@@ -945,13 +1119,28 @@ package com.fudanmed.platform.core.web feature device{
 				withExpander[value,sb|
 					sb.appendEscapedLines(value.description.nullsafe)
 				]
-				
+				planDate.render=[context,value,sb|
+					val d = DateTimeFormat::getFormat("yyyy/MM/dd").format(value)
+					if(value.addMonths(-2).time < today.time){
+						sb.appendHtmlConstant("<B style='color:red;'>"+d+"</B>")
+					}else{
+						sb.appendHtmlConstant(d)
+					}
+				]
 			]]
 			else listGridInitializer = [listGrid=>[
 				asWidget 
 				unForceFit
 				withExpander[value,sb|
 					sb.appendEscapedLines(value.description.nullsafe)
+				]
+				planDate.render=[context,value,sb|
+					val d = DateTimeFormat::getFormat("yyyy/MM/dd").format(value)
+					if(value.addMonths(-2).time < today.time){
+						sb.appendHtmlConstant("<B style='color:red;'>"+d+"</B>")
+					}else{
+						sb.appendHtmlConstant(d)
+					}
 				]
 				
 			]]

@@ -42,10 +42,10 @@ public class PMWorkItemWorkerAssignmentListGrid extends GXTGridComponent<UIPMWor
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   private UIPMWorkItemWorkerAssignment value = new UIPMWorkItemWorkerAssignment();
   

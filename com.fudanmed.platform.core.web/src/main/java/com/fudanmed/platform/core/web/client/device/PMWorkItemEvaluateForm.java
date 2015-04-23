@@ -54,16 +54,16 @@ public class PMWorkItemEvaluateForm extends GXTFormComponent<UIPMWorkItemEvaluat
   public TextAreaItem comment;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
+  
+  @Inject
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   private UIPMWorkItemEvaluate value = new UIPMWorkItemEvaluate();
   

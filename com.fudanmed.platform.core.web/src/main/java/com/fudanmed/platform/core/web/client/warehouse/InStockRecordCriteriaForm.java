@@ -24,10 +24,10 @@ public class InStockRecordCriteriaForm extends GXTFormComponent<UIInStockRecordC
   public DateItem dateTo;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIInStockRecordCriteria value = new UIInStockRecordCriteria();
   

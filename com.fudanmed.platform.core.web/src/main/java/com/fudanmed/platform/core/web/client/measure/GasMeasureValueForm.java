@@ -34,13 +34,13 @@ public class GasMeasureValueForm extends GXTFormComponent<UIGasMeasureValue> imp
   public TextItem measurePerson;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIGasMeasureValue value = new UIGasMeasureValue();
   

@@ -23,10 +23,10 @@ public class FaultTypeSimpleListGrid extends GXTGridComponent<UIFaultType> imple
   public StringValueColumn<UIFaultType,RCFaultLevelProxy> faultRiskLevel;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIFaultType value = new UIFaultType();
   

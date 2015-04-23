@@ -25,10 +25,10 @@ public class OrganizationListGrid extends GXTTreeGridComponent<UIOrganization> i
   public CollectionListColumn<UIOrganization,RCOnsitePositionProxy> positionsProxy;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   private UIOrganization value = new UIOrganization();
   

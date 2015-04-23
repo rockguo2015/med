@@ -26,10 +26,10 @@ public class AttributeSlotListGrid extends GXTTreeGridComponent<UIAttributeSlot>
   public StringValueColumn<UIAttributeSlot,RCValueProxy> slotValue;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIAttributeSlot value = new UIAttributeSlot();
   

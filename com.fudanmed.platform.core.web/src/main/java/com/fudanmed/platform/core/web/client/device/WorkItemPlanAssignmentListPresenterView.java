@@ -12,4 +12,6 @@ public interface WorkItemPlanAssignmentListPresenterView extends Viewer {
   public abstract void setResults(final Collection<UIWorkItemPlanAssignment> results);
   
   public abstract ActionContext<UIWorkItemPlanAssignment> getActionContext();
+  
+  public abstract Collection<UIWorkItemPlanAssignment> getSelectedValues();
 }

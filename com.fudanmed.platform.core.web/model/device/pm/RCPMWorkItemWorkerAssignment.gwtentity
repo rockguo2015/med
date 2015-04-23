@@ -194,12 +194,14 @@ package com.fudanmed.platform.core.web feature device{
 		}
 		
 		interaction{
+			part workItemPlanAssignmentListPresenter : WorkItemPlanAssignmentListPresenter
 			used4Update : boolean
 			parent : proxy of RCPMWorkItem
 			input call.setup4Create(
 				parent : proxy of RCPMWorkItem,
 				(CreateOrUpdatePMWorkItemWorkerAssignmentPresenter)=>void postInitializer
 			){
+				initPart(workItemPlanAssignmentListPresenter).setup4UnassignedItems(parent)[
 				used4Update = false
 				this.parent = parent
 				this.activate[
@@ -208,13 +210,14 @@ package com.fudanmed.platform.core.web feature device{
 							postInitializer.apply(this)
 						]
 					])
-				]
+				]]
 			}
 			
 			input call.setup4Update(
 				value : proxy of RCPMWorkItemWorkerAssignment,
 				(CreateOrUpdatePMWorkItemWorkerAssignmentPresenter)=>void postInitializer
 			){
+				initPart(workItemPlanAssignmentListPresenter).setup4UnassignedItems(parent)[
 				used4Update = true
 				this.activate[
 					service.loadTeamOrg4WorkItem(parent,onSuccess[
@@ -225,7 +228,7 @@ package com.fudanmed.platform.core.web feature device{
 							])
 						]
 					])
-				]
+				]]
 			}
 			input call.performCommit(CommitResultNotifier notifier) {
 				if(used4Update)
@@ -234,7 +237,7 @@ package com.fudanmed.platform.core.web feature device{
 						notifier.success
 					])
 				else{
-					service.createValue(parent,getView().value,onSuccess[
+					service.createValue(workItemPlanAssignmentListPresenter.getView().selectedValues,parent,getView().value,onSuccess[
 						fire eventbus.PMWorkItemsChanged()
 						notifier.success
 					])
@@ -250,8 +253,8 @@ package com.fudanmed.platform.core.web feature device{
 			op updateValue(uivalue : UIPMWorkItemWorkerAssignment) : void{
 				mapper.transform(uivalue,(resolve uivalue))
 			}
-			op createValue(parent : proxy of RCPMWorkItem, uivalue : UIPMWorkItemWorkerAssignment) : void{
-				(resolve parent).assignWorker[
+			op createValue(planAssignments:Collection<UIWorkItemPlanAssignment>,parent : proxy of RCPMWorkItem, uivalue : UIPMWorkItemWorkerAssignment) : void{
+				(resolve parent).assignWorker(planAssignments.^map[resolve it].toList)[
 					mapper.transform(uivalue,it)
 				]
 			}
@@ -268,7 +271,10 @@ package com.fudanmed.platform.core.web feature device{
 	view CreateOrUpdatePMWorkItemWorkerAssignmentView for CreateOrUpdatePMWorkItemWorkerAssignmentPresenter implements IHasSize, IHasTitle{
 		@Inject form : PMWorkItemWorkerAssignmentForm
 		initializer{
-			this += widgets.VLayout=>[add(form.asWidget, widgets.VLayoutData(1,-1,10))]
+			this += widgets.VLayout=>[
+				add(form.asWidget, widgets.VLayoutData(1,-1,10))
+				add(workItemPlanAssignmentListPresenter.getView.asWidget=>[it.height='300'], widgets.VLayoutData(1,1,10))
+			]
 		}
 		op getValue() : UIPMWorkItemWorkerAssignment{
 			form.value
@@ -284,7 +290,7 @@ package com.fudanmed.platform.core.web feature device{
 			form.value = value
 		}
 		op getSize():Size{
-			new Size(350,320)
+			new Size(800,520)
 		}
 		op getTitle():String{
 			'派工'
@@ -365,7 +371,7 @@ package com.fudanmed.platform.core.web feature device{
 			form.finishDate.value = today
 		}
 		op getSize():Size{
-			new Size(550,660)
+			new Size(600,660)
 		}
 		op getTitle():String{
 			'工单完工'

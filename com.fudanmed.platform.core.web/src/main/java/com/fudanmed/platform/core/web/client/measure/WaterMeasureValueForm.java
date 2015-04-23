@@ -34,13 +34,13 @@ public class WaterMeasureValueForm extends GXTFormComponent<UIWaterMeasureValue>
   public TextItem measurePerson;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIWaterMeasureValue value = new UIWaterMeasureValue();
   

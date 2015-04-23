@@ -37,10 +37,10 @@ public class WarehouseProductSpecSummaryListGrid extends GXTGridComponent<UIWare
   private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIWarehouseProductSpecSummary value = new UIWarehouseProductSpecSummary();
   

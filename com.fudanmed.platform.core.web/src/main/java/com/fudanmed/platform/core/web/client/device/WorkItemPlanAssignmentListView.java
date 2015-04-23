@@ -14,6 +14,8 @@ import edu.fudan.langlab.gxt.client.component.grid.SGroupingGrid;
 import edu.fudan.langlab.gxt.client.widget.IWidgetFactory;
 import edu.fudan.langlab.security.client.Securities;
 import java.util.Collection;
+import java.util.List;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 public class WorkItemPlanAssignmentListView extends GWTAbstractView implements WorkItemPlanAssignmentListPresenterView {
   @Inject
@@ -56,6 +58,12 @@ public class WorkItemPlanAssignmentListView extends GWTAbstractView implements W
   public ActionContext<UIWorkItemPlanAssignment> getActionContext() {
     ActionContext<UIWorkItemPlanAssignment> _createActionContext = ActionExtensions.<UIWorkItemPlanAssignment>createActionContext(this.listGrid);
     return _createActionContext;
+  }
+  
+  public Collection<UIWorkItemPlanAssignment> getSelectedValues() {
+    Iterable<UIWorkItemPlanAssignment> _selectedObjects = this.listGrid.getSelectedObjects();
+    List<UIWorkItemPlanAssignment> _list = IterableExtensions.<UIWorkItemPlanAssignment>toList(_selectedObjects);
+    return _list;
   }
   
   public void setResults(final Collection<UIWorkItemPlanAssignment> results) {

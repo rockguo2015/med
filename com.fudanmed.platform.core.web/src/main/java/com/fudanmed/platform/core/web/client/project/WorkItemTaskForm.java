@@ -65,19 +65,19 @@ public class WorkItemTaskForm extends GXTFormComponent<UIWorkItemTask> implement
   public CheckBoxItem print;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
-  
-  @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIWorkItemTask value = new UIWorkItemTask();
   

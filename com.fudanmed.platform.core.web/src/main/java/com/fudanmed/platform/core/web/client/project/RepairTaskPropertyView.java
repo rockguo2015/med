@@ -73,10 +73,10 @@ public class RepairTaskPropertyView extends GXTPropertyView<UIRepairTask> implem
   public IValueViewer<Boolean> settlementState;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIRepairTask value = new UIRepairTask();
   

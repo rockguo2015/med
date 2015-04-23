@@ -27,10 +27,10 @@ public class OnsitePositionListGrid extends GXTTreeGridComponent<UIOnsitePositio
   public StringValueColumn<UIOnsitePosition,RCOnsitePositionProxy> parent;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIOnsitePosition value = new UIOnsitePosition();
   

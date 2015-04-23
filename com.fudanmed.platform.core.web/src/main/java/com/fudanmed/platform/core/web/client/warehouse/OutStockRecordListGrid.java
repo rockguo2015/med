@@ -40,13 +40,13 @@ public class OutStockRecordListGrid extends GXTGridComponent<UIOutStockRecord> i
   public StringColumn<UIOutStockRecord> comment;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIOutStockRecord value = new UIOutStockRecord();
   

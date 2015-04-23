@@ -86,7 +86,7 @@ public class CreateOrUpdatePMWorkItemWorkerAssignmentReportView extends ErrorNot
   }
   
   public Size getSize() {
-    Size _size = new Size(550, 660);
+    Size _size = new Size(600, 660);
     return _size;
   }
   

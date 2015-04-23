@@ -158,5 +158,6 @@ public class WorkItemPlanAssignmentListGrid extends GXTGridComponent<UIWorkItemP
   
   public void initializeComponent() {
     this.asMultiSelectGrid();
+    this.unForceFit();
   }
 }

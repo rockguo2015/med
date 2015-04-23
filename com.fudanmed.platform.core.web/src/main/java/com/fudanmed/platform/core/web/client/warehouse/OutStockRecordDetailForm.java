@@ -42,13 +42,13 @@ public class OutStockRecordDetailForm extends GXTFormComponent<UIOutStockRecord>
   public StringReadonlyItem comment;
   
   @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
-  
-  @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIOutStockRecord value = new UIOutStockRecord();
   

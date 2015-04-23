@@ -3,10 +3,13 @@ package com.fudanmed.platform.core.web.shared.device;
 import com.fudanmed.platform.core.device.pm.proxy.RCDevicePMTypeProxy;
 import com.fudanmed.platform.core.device.pm.proxy.RCWorkItemPlanAssignmentProxy;
 import com.fudanmed.platform.core.device.proxy.RCDeviceTypeProxy;
+import com.fudanmed.platform.core.domain.proxy.RCEmployeeProxy;
+import com.fudanmed.platform.core.domain.proxy.RCMaintenanceTeamProxy;
 import com.fudanmed.platform.core.domain.proxy.RCOnsitePositionProxy;
 import com.fudanmed.platform.core.web.shared.device.UIDevicePMPlanStatus;
 import com.uniquesoft.gwt.shared.GWTEntity;
 import com.uniquesoft.gwt.shared.common.IObjectFieldAccessor;
+import java.util.Collection;
 import java.util.Date;
 
 public class UIWorkItemPlanAssignment extends GWTEntity {
@@ -136,6 +139,27 @@ public class UIWorkItemPlanAssignment extends GWTEntity {
     				}
     			};
   
+  private Date finishDate;
+  
+  public Date getFinishDate() {
+    return this.finishDate;
+  }
+  
+  public void setFinishDate(final Date finishDate) {
+    this.finishDate = finishDate;
+  }
+  
+  public final static String P_FinishDate = "finishDate";
+  
+  public static IObjectFieldAccessor<UIWorkItemPlanAssignment,Date> FinishDateAccessor = new IObjectFieldAccessor<UIWorkItemPlanAssignment,Date>(){
+    				public java.util.Date getValue(UIWorkItemPlanAssignment object){
+    					return object.getFinishDate();
+    				}
+    				public void setValue(UIWorkItemPlanAssignment object,java.util.Date value){
+    					object.setFinishDate(value);
+    				}
+    			};
+  
   private RCDevicePMTypeProxy pmType;
   
   public RCDevicePMTypeProxy getPmType() {
@@ -217,6 +241,69 @@ public class UIWorkItemPlanAssignment extends GWTEntity {
     				}
     				public void setValue(UIWorkItemPlanAssignment object,com.fudanmed.platform.core.web.shared.device.UIDevicePMPlanStatus value){
     					object.setSmstatus(value);
+    				}
+    			};
+  
+  private String comment;
+  
+  public String getComment() {
+    return this.comment;
+  }
+  
+  public void setComment(final String comment) {
+    this.comment = comment;
+  }
+  
+  public final static String P_Comment = "comment";
+  
+  public static IObjectFieldAccessor<UIWorkItemPlanAssignment,String> CommentAccessor = new IObjectFieldAccessor<UIWorkItemPlanAssignment,String>(){
+    				public String getValue(UIWorkItemPlanAssignment object){
+    					return object.getComment();
+    				}
+    				public void setValue(UIWorkItemPlanAssignment object,String value){
+    					object.setComment(value);
+    				}
+    			};
+  
+  private RCMaintenanceTeamProxy team;
+  
+  public RCMaintenanceTeamProxy getTeam() {
+    return this.team;
+  }
+  
+  public void setTeam(final RCMaintenanceTeamProxy team) {
+    this.team = team;
+  }
+  
+  public final static String P_Team = "team";
+  
+  public static IObjectFieldAccessor<UIWorkItemPlanAssignment,RCMaintenanceTeamProxy> TeamAccessor = new IObjectFieldAccessor<UIWorkItemPlanAssignment,RCMaintenanceTeamProxy>(){
+    				public com.fudanmed.platform.core.domain.proxy.RCMaintenanceTeamProxy getValue(UIWorkItemPlanAssignment object){
+    					return object.getTeam();
+    				}
+    				public void setValue(UIWorkItemPlanAssignment object,com.fudanmed.platform.core.domain.proxy.RCMaintenanceTeamProxy value){
+    					object.setTeam(value);
+    				}
+    			};
+  
+  private Collection<RCEmployeeProxy> workers = com.google.common.collect.Lists.newArrayList();
+  
+  public Collection<RCEmployeeProxy> getWorkers() {
+    return this.workers;
+  }
+  
+  public void setWorkers(final Collection<RCEmployeeProxy> workers) {
+    this.workers = workers;
+  }
+  
+  public final static String P_Workers = "workers";
+  
+  public static IObjectFieldAccessor<UIWorkItemPlanAssignment,Collection<RCEmployeeProxy>> WorkersAccessor = new IObjectFieldAccessor<UIWorkItemPlanAssignment,Collection<RCEmployeeProxy>>(){
+    				public java.util.Collection<com.fudanmed.platform.core.domain.proxy.RCEmployeeProxy> getValue(UIWorkItemPlanAssignment object){
+    					return object.getWorkers();
+    				}
+    				public void setValue(UIWorkItemPlanAssignment object,java.util.Collection<com.fudanmed.platform.core.domain.proxy.RCEmployeeProxy> value){
+    					object.setWorkers(value);
     				}
     			};
   

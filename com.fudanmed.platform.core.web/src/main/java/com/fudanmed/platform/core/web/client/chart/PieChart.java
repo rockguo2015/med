@@ -29,8 +29,8 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class PieChart<T extends Object> {
-  protected ListStore<T> store = new Function0<ListStore<T>>() {
-    public ListStore<T> apply() {
+  protected ListStore store = new Function0<ListStore>() {
+    public ListStore apply() {
       KeyProvider<T> _keyProvider = new KeyProvider<T>();
       ListStore<T> _listStore = new ListStore<T>(_keyProvider);
       return _listStore;
@@ -39,8 +39,8 @@ public class PieChart<T extends Object> {
   
   private Chart<T> chart = null;
   
-  private PieSeries<T> series = new Function0<PieSeries<T>>() {
-    public PieSeries<T> apply() {
+  private PieSeries series = new Function0<PieSeries>() {
+    public PieSeries apply() {
       PieSeries<T> _pieSeries = new PieSeries<T>();
       return _pieSeries;
     }

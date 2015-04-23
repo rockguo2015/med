@@ -44,13 +44,13 @@ public class PhasedElectricMeasureValueForm extends GXTFormComponent<UIPhasedEle
   public TextItem measurePerson;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIPhasedElectricMeasureValue value = new UIPhasedElectricMeasureValue();
   
