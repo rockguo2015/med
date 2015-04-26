@@ -13,6 +13,7 @@ import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
+import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.uniquesoft.gwt.client.ClientUi;
 import com.uniquesoft.gwt.client.common.RequestHandler1;
 import com.uniquesoft.gwt.client.common.action.ActionContext;
@@ -86,6 +87,8 @@ public class CheckOrganizationQueryListView extends GWTAbstractView implements C
                       PlainHTMLTD _td = HTMLTagsExt.td(it);
                       final Procedure1<PlainHTMLTD> _function = new Procedure1<PlainHTMLTD>() {
                           public void apply(final PlainHTMLTD it) {
+                            FieldLabel _asWidget = CheckOrganizationQueryListView.this.criteriaForm.info.asWidget();
+                            ClientUi.operator_add(it, _asWidget);
                           }
                         };
                       ObjectExtensions.<PlainHTMLTD>operator_doubleArrow(_td, _function);

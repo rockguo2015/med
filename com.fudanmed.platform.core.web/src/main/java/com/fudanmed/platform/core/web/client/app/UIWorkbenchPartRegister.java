@@ -197,6 +197,7 @@ public class UIWorkbenchPartRegister {
   @Inject
   private ShowInHospitalLocationManagementCommand showInHospitalLocationManagementCommand;
   
+  @Inject
   private ShowCheckOrganizationManagementCommand showCheckOrganizationManagementCommand;
   
   @Inject
@@ -790,5 +791,6 @@ public class UIWorkbenchPartRegister {
     this.workbenchManager.registerCommand(deliverCategory, this.showDLTaskManagementCommand);
     this.workbenchManager.registerCommand(deliverCategory, this.showCenterlizedDeliverTaskManagementCommand);
     this.workbenchManager.registerCommand(deliverCategory, this.showInHospitalLocationManagementCommand);
+    this.workbenchManager.registerCommand(deliverCategory, this.showCheckOrganizationManagementCommand);
   }
 }

@@ -13,11 +13,13 @@ public class CheckOrganizationCriteriaMapper extends AbstractDataTypeMapper<UICh
   private IConvertService convertService;
   
   public void copyToEntity(final UICheckOrganizationCriteria from, final DLCheckOrganizationCriteria to) {
+    to.setInfo(convertService.toValue(java.lang.String.class,from.getInfo()));
     
   }
   
   public UICheckOrganizationCriteria copyFromEntity(final UICheckOrganizationCriteria result, final DLCheckOrganizationCriteria entity) {
     if(entity==null) return null;
+    result.setInfo(convertService.toValue(java.lang.String.class,entity.getInfo()));
     return result;
     
   }

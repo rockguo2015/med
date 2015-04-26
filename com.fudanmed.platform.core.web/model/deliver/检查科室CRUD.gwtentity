@@ -183,12 +183,12 @@ package com.fudanmed.platform.core.web feature deliver{
 
 
 	ui-criteria UICheckOrganizationCriteria for DLCheckOrganizationCriteria{
-		
+		info : String "科室信息"
 		map CheckOrganizationCriteriaMapper{
-			direct{}
+			direct{info}
 		}
 		ui-component CheckOrganizationCriteriaForm as GXTForm{
-			binding{}
+			binding{info}
 		}
 	}
 	
@@ -245,7 +245,7 @@ package com.fudanmed.platform.core.web feature deliver{
 				add(
 					TABLE=>[
 						tr=>[
-							td=>[]
+							td=>[it += criteriaForm.info.asWidget]
 							td=>[it += widgets.TextButton("查找")=>[
 								setWidth("80px")
 								addSelectHandler[

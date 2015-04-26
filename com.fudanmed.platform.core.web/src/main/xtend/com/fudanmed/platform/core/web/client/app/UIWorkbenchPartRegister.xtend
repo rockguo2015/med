@@ -147,6 +147,7 @@ class UIWorkbenchPartRegister {
 	private ShowDevicePMPlanCommand showDevicePMPlanCommand
 	@Inject
 	private ShowInHospitalLocationManagementCommand showInHospitalLocationManagementCommand
+	@Inject
 	private ShowCheckOrganizationManagementCommand showCheckOrganizationManagementCommand
 //	@Inject
 //	private ShowTeacherManagementCommand showTeacherManagementCommand
@@ -449,7 +450,7 @@ class UIWorkbenchPartRegister {
 		workbenchManager.registerCommand(deliverCategory,showDLTaskManagementCommand)
 		workbenchManager.registerCommand(deliverCategory,showCenterlizedDeliverTaskManagementCommand)
 		workbenchManager.registerCommand(deliverCategory,showInHospitalLocationManagementCommand)
-//		workbenchManager.registerCommand(deliverCategory,showCheckOrganizationManagementCommand)
+		workbenchManager.registerCommand(deliverCategory,showCheckOrganizationManagementCommand)
 //		workbenchManager.registerCommand(statCategory,showTeacherManagementCommand)
 		
 	}	
