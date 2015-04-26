@@ -50,10 +50,10 @@ public class WorkItemPlanAssignmentListGrid extends GXTGridComponent<UIWorkItemP
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIWorkItemPlanAssignment value = new UIWorkItemPlanAssignment();
   

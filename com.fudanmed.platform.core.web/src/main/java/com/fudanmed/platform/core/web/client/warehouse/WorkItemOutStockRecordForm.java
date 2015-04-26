@@ -88,13 +88,13 @@ public class WorkItemOutStockRecordForm extends GXTFormComponent<UIWorkItemOutSt
   public CheckBoxItem fitPrint;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;

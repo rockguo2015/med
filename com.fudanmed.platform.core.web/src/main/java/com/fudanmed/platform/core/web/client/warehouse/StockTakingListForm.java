@@ -36,10 +36,10 @@ public class StockTakingListForm extends GXTFormComponent<UIStockTakingList> imp
   public TextAreaItem comment;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIStockTakingList value = new UIStockTakingList();
   

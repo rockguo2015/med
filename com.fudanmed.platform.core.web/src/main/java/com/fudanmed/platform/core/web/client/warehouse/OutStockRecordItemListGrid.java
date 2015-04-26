@@ -37,10 +37,10 @@ public class OutStockRecordItemListGrid extends GXTGridComponent<UIOutStockRecor
   public StringValueColumn<UIOutStockRecordItem,RCProduceSpecificationUnitProxy> unit;
   
   @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;

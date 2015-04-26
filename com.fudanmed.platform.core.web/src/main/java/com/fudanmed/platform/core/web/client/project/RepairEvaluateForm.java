@@ -36,10 +36,10 @@ public class RepairEvaluateForm extends GXTFormComponent<UIRepairEvaluate> imple
   public TextAreaItem comment;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIRepairEvaluate value = new UIRepairEvaluate();
   

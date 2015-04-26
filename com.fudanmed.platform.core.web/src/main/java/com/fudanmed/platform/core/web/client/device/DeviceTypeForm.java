@@ -37,13 +37,13 @@ public class DeviceTypeForm extends GXTFormComponent<UIDeviceType> implements II
   public TextItem code;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDeviceType value = new UIDeviceType();
   

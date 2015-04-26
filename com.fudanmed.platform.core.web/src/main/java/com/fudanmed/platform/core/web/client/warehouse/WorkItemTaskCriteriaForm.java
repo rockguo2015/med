@@ -31,13 +31,13 @@ public class WorkItemTaskCriteriaForm extends GXTFormComponent<UIWorkItemTaskCri
   public CurrentUserStockTeamProvider teamContentProvider;
   
   @Inject
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  
+  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIWorkItemTaskCriteria value = new UIWorkItemTaskCriteria();
   

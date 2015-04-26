@@ -49,13 +49,13 @@ public class EmployeeForm extends GXTFormComponent<UIEmployee> implements IIniti
   public CheckBoxItem inputNext;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   private UIEmployee value = new UIEmployee();
   

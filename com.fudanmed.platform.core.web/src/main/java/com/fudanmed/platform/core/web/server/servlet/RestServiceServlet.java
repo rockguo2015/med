@@ -54,6 +54,17 @@ public class RestServiceServlet extends HttpServlet {
     }
   }.apply();
   
+  public boolean isEncode(final String s, final String encoding) {
+    try {
+      byte[] _bytes = s.getBytes(encoding);
+      String _string = new String(_bytes, encoding);
+      boolean _equals = s.equals(_string);
+      return _equals;
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
   public String getRequiredParameter(final HttpServletRequest request, final String key) {
     String _xblockexpression = null;
     {
@@ -217,11 +228,17 @@ public class RestServiceServlet extends HttpServlet {
         public JSONObject apply(final HttpServletRequest req, final HttpServletResponse resp) {
           final Function1<Void,JSONObject> _function = new Function1<Void,JSONObject>() {
               public JSONObject apply(final Void it) {
-                IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
-                String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
-                String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "description");
-                JSONObject _pendWorkItem = _appRestService.pendWorkItem(_requiredParameter, _requiredParameter_1);
-                return _pendWorkItem;
+                try {
+                  IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
+                  String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
+                  String _parameter = req.getParameter("description");
+                  byte[] _bytes = _parameter.getBytes("iso8859-1");
+                  String _string = new String(_bytes, "utf-8");
+                  JSONObject _pendWorkItem = _appRestService.pendWorkItem(_requiredParameter, _string);
+                  return _pendWorkItem;
+                } catch (Exception _e) {
+                  throw Exceptions.sneakyThrow(_e);
+                }
               }
             };
           JSONObject _stateAwareExecute = RestServiceServlet.this.stateAwareExecute(_function);
@@ -233,14 +250,20 @@ public class RestServiceServlet extends HttpServlet {
         public JSONObject apply(final HttpServletRequest req, final HttpServletResponse resp) {
           final Function1<Void,JSONObject> _function = new Function1<Void,JSONObject>() {
               public JSONObject apply(final Void it) {
-                IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
-                String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
-                String _parameter = req.getParameter("description");
-                String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
-                String _parameter_1 = req.getParameter("deviceNumber");
-                String[] _parameterValues = req.getParameterValues("photoIds");
-                JSONObject _cancelPendWorkItem = _appRestService.cancelPendWorkItem(_requiredParameter, _parameter, _requiredParameter_1, _parameter_1, _parameterValues);
-                return _cancelPendWorkItem;
+                try {
+                  IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
+                  String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
+                  String _parameter = req.getParameter("description");
+                  byte[] _bytes = _parameter.getBytes("iso8859-1");
+                  String _string = new String(_bytes, "utf-8");
+                  String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
+                  String _parameter_1 = req.getParameter("deviceNumber");
+                  String[] _parameterValues = req.getParameterValues("photoIds");
+                  JSONObject _cancelPendWorkItem = _appRestService.cancelPendWorkItem(_requiredParameter, _string, _requiredParameter_1, _parameter_1, _parameterValues);
+                  return _cancelPendWorkItem;
+                } catch (Exception _e) {
+                  throw Exceptions.sneakyThrow(_e);
+                }
               }
             };
           JSONObject _stateAwareExecute = RestServiceServlet.this.stateAwareExecute(_function);
@@ -252,11 +275,17 @@ public class RestServiceServlet extends HttpServlet {
         public JSONObject apply(final HttpServletRequest req, final HttpServletResponse resp) {
           final Function1<Void,JSONObject> _function = new Function1<Void,JSONObject>() {
               public JSONObject apply(final Void it) {
-                IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
-                String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
-                String _parameter = req.getParameter("description");
-                JSONObject _outsourceWorkItem = _appRestService.outsourceWorkItem(_requiredParameter, _parameter);
-                return _outsourceWorkItem;
+                try {
+                  IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
+                  String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
+                  String _parameter = req.getParameter("description");
+                  byte[] _bytes = _parameter.getBytes("iso8859-1");
+                  String _string = new String(_bytes, "utf-8");
+                  JSONObject _outsourceWorkItem = _appRestService.outsourceWorkItem(_requiredParameter, _string);
+                  return _outsourceWorkItem;
+                } catch (Exception _e) {
+                  throw Exceptions.sneakyThrow(_e);
+                }
               }
             };
           JSONObject _stateAwareExecute = RestServiceServlet.this.stateAwareExecute(_function);
@@ -268,14 +297,20 @@ public class RestServiceServlet extends HttpServlet {
         public JSONObject apply(final HttpServletRequest req, final HttpServletResponse resp) {
           final Function1<Void,JSONObject> _function = new Function1<Void,JSONObject>() {
               public JSONObject apply(final Void it) {
-                IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
-                String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
-                String _parameter = req.getParameter("description");
-                String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
-                String _parameter_1 = req.getParameter("deviceNumber");
-                String[] _parameterValues = req.getParameterValues("photoIds");
-                JSONObject _finishOutsourceWorkItem = _appRestService.finishOutsourceWorkItem(_requiredParameter, _parameter, _requiredParameter_1, _parameter_1, _parameterValues);
-                return _finishOutsourceWorkItem;
+                try {
+                  IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
+                  String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
+                  String _parameter = req.getParameter("description");
+                  byte[] _bytes = _parameter.getBytes("iso8859-1");
+                  String _string = new String(_bytes, "utf-8");
+                  String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
+                  String _parameter_1 = req.getParameter("deviceNumber");
+                  String[] _parameterValues = req.getParameterValues("photoIds");
+                  JSONObject _finishOutsourceWorkItem = _appRestService.finishOutsourceWorkItem(_requiredParameter, _string, _requiredParameter_1, _parameter_1, _parameterValues);
+                  return _finishOutsourceWorkItem;
+                } catch (Exception _e) {
+                  throw Exceptions.sneakyThrow(_e);
+                }
               }
             };
           JSONObject _stateAwareExecute = RestServiceServlet.this.stateAwareExecute(_function);
@@ -287,12 +322,18 @@ public class RestServiceServlet extends HttpServlet {
         public JSONObject apply(final HttpServletRequest req, final HttpServletResponse resp) {
           final Function1<Void,JSONObject> _function = new Function1<Void,JSONObject>() {
               public JSONObject apply(final Void it) {
-                IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
-                String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
-                String _parameter = req.getParameter("description");
-                String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
-                JSONObject _misdispatchWorkItem = _appRestService.misdispatchWorkItem(_requiredParameter, _parameter, _requiredParameter_1);
-                return _misdispatchWorkItem;
+                try {
+                  IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
+                  String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
+                  String _parameter = req.getParameter("description");
+                  byte[] _bytes = _parameter.getBytes("iso8859-1");
+                  String _string = new String(_bytes, "utf-8");
+                  String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
+                  JSONObject _misdispatchWorkItem = _appRestService.misdispatchWorkItem(_requiredParameter, _string, _requiredParameter_1);
+                  return _misdispatchWorkItem;
+                } catch (Exception _e) {
+                  throw Exceptions.sneakyThrow(_e);
+                }
               }
             };
           JSONObject _stateAwareExecute = RestServiceServlet.this.stateAwareExecute(_function);
@@ -304,12 +345,18 @@ public class RestServiceServlet extends HttpServlet {
         public JSONObject apply(final HttpServletRequest req, final HttpServletResponse resp) {
           final Function1<Void,JSONObject> _function = new Function1<Void,JSONObject>() {
               public JSONObject apply(final Void it) {
-                IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
-                String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
-                String _parameter = req.getParameter("description");
-                String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
-                JSONObject _followupWorkItem = _appRestService.followupWorkItem(_requiredParameter, _parameter, _requiredParameter_1);
-                return _followupWorkItem;
+                try {
+                  IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
+                  String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
+                  String _parameter = req.getParameter("description");
+                  byte[] _bytes = _parameter.getBytes("iso8859-1");
+                  String _string = new String(_bytes, "utf-8");
+                  String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
+                  JSONObject _followupWorkItem = _appRestService.followupWorkItem(_requiredParameter, _string, _requiredParameter_1);
+                  return _followupWorkItem;
+                } catch (Exception _e) {
+                  throw Exceptions.sneakyThrow(_e);
+                }
               }
             };
           JSONObject _stateAwareExecute = RestServiceServlet.this.stateAwareExecute(_function);
@@ -321,14 +368,20 @@ public class RestServiceServlet extends HttpServlet {
         public JSONObject apply(final HttpServletRequest req, final HttpServletResponse resp) {
           final Function1<Void,JSONObject> _function = new Function1<Void,JSONObject>() {
               public JSONObject apply(final Void it) {
-                IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
-                String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
-                String _parameter = req.getParameter("description");
-                String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
-                String _parameter_1 = req.getParameter("deviceNumber");
-                String[] _parameterValues = req.getParameterValues("photoIds");
-                JSONObject _finishWorkItem = _appRestService.finishWorkItem(_requiredParameter, _parameter, _requiredParameter_1, _parameter_1, _parameterValues);
-                return _finishWorkItem;
+                try {
+                  IAppRestService _appRestService = RestServiceServlet.this.getAppRestService(req);
+                  String _requiredParameter = RestServiceServlet.this.getRequiredParameter(req, "id");
+                  String _parameter = req.getParameter("description");
+                  byte[] _bytes = _parameter.getBytes("iso8859-1");
+                  String _string = new String(_bytes, "utf-8");
+                  String _requiredParameter_1 = RestServiceServlet.this.getRequiredParameter(req, "reportTime");
+                  String _parameter_1 = req.getParameter("deviceNumber");
+                  String[] _parameterValues = req.getParameterValues("photoIds");
+                  JSONObject _finishWorkItem = _appRestService.finishWorkItem(_requiredParameter, _string, _requiredParameter_1, _parameter_1, _parameterValues);
+                  return _finishWorkItem;
+                } catch (Exception _e) {
+                  throw Exceptions.sneakyThrow(_e);
+                }
               }
             };
           JSONObject _stateAwareExecute = RestServiceServlet.this.stateAwareExecute(_function);
@@ -380,6 +433,7 @@ public class RestServiceServlet extends HttpServlet {
   }
   
   public void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
+    req.setCharacterEncoding("UTF-8");
     HttpRequestThreadLocal.set(req);
     String _requestURI = req.getRequestURI();
     String _requestURI_1 = req.getRequestURI();
@@ -425,11 +479,11 @@ public class RestServiceServlet extends HttpServlet {
     int _lastIndexOf = _requestURI_1.lastIndexOf("/");
     int _plus = (_lastIndexOf + 1);
     final String serviceName = _requestURI.substring(_plus);
-    String _plus_1 = ("invoke rest service:" + serviceName);
-    RestServiceServlet.logger.info(_plus_1);
     ServletOutputStream _outputStream = response.getOutputStream();
     OutputStreamWriter _outputStreamWriter = new OutputStreamWriter(_outputStream, "UTF-8");
     final OutputStreamWriter writer = _outputStreamWriter;
+    String _plus_1 = ("invoke rest service:" + serviceName);
+    RestServiceServlet.logger.info(_plus_1);
     try {
       boolean _and = false;
       boolean _isMultipartContent = ServletFileUpload.isMultipartContent(request);

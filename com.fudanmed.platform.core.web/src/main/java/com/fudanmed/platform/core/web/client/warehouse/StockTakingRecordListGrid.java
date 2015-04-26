@@ -32,13 +32,13 @@ public class StockTakingRecordListGrid extends GXTGridComponent<UIStockTakingRec
   public StringColumn<UIStockTakingRecord> comment;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIStockTakingRecord value = new UIStockTakingRecord();
   

@@ -31,10 +31,10 @@ public class WaterMeasureValueListGrid extends GXTGridComponent<UIWaterMeasureVa
   private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIWaterMeasureValue value = new UIWaterMeasureValue();
   

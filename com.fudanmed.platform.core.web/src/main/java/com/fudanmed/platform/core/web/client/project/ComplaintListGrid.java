@@ -27,13 +27,13 @@ public class ComplaintListGrid extends GXTGridComponent<UIComplaint> implements 
   public StringColumn<UIComplaint> contents;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIComplaint value = new UIComplaint();
   

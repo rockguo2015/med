@@ -34,13 +34,13 @@ public class GeneralTaskTreeList extends GXTTreeGridComponent<UIGeneralTask> imp
   public StringValueColumn<UIGeneralTask,RCEmployeeProxy> operator;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIGeneralTask value = new UIGeneralTask();
   

@@ -32,13 +32,13 @@ public class StockTakingRecordItemReadonlyListGrid extends GXTGridComponent<UISt
   public StringValueColumn<UIStockTakingRecordItem,RCProduceSpecificationUnitProxy> unit;
   
   @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   private UIStockTakingRecordItem value = new UIStockTakingRecordItem();
   

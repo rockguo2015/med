@@ -31,10 +31,10 @@ public class GasMeasureValueListGrid extends GXTGridComponent<UIGasMeasureValue>
   private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIGasMeasureValue value = new UIGasMeasureValue();
   

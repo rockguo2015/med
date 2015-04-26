@@ -35,13 +35,13 @@ public class WorkItemTaskOutlineListGrid extends GXTGridComponent<UIWorkItemTask
   public DateTimeColumn<UIWorkItemTask> finishDateTime;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIWorkItemTask value = new UIWorkItemTask();
   

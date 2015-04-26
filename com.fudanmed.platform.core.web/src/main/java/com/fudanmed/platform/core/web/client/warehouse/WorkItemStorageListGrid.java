@@ -63,13 +63,13 @@ public class WorkItemStorageListGrid extends GXTGridComponent<UIWorkItemStorage>
   private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIWorkItemStorage value = new UIWorkItemStorage();
   

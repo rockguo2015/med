@@ -87,13 +87,13 @@ public class RepairTaskStatisticDataListGrid extends GXTGrid4LargeDataComponent<
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  
+  @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIRepairTaskStatisticData value = new UIRepairTaskStatisticData();
   

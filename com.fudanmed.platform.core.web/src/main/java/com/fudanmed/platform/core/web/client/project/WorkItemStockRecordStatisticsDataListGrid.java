@@ -73,13 +73,13 @@ public class WorkItemStockRecordStatisticsDataListGrid extends GXTGrid4LargeData
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIWorkItemStockRecordStatisticsData value = new UIWorkItemStockRecordStatisticsData();
   

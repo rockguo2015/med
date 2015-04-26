@@ -36,10 +36,10 @@ public class RepairTask4SettlementCriteriaForm extends GXTFormComponent<UIRepair
   public AllOrganizationContentProvider reportOrgContentProvider;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIRepairTask4SettlementCriteria value = new UIRepairTask4SettlementCriteria();
   

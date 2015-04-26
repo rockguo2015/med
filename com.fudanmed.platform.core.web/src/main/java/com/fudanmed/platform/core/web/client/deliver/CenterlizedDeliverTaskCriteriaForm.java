@@ -41,10 +41,10 @@ public class CenterlizedDeliverTaskCriteriaForm extends GXTFormComponent<UICente
   public UITaskSourceTypeContentProvider taskSourceTypeContentProvider;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;

@@ -23,10 +23,10 @@ public class DevicePMPlanListGrid extends GXTGridComponent<UIDevicePMPlan> imple
   public StringValueColumn<UIDevicePMPlan,UIDevicePMPlanStatus> status;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIDevicePMPlan value = new UIDevicePMPlan();
   

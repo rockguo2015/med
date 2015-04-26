@@ -49,13 +49,13 @@ public class EmployeeListGrid extends GXTGridComponent<UIEmployee> implements II
   private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  
+  @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIEmployee value = new UIEmployee();
   

@@ -130,16 +130,16 @@ public class DeviceForm extends GXTFormComponent<UIDevice> implements IInitializ
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   private UIDevice value = new UIDevice();
   

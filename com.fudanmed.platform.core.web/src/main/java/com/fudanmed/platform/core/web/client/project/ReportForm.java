@@ -88,10 +88,10 @@ public class ReportForm extends GXTFormComponent<UIRepairTask> implements IIniti
   public AllFaultEmergencyLevelContentProvider faultEmergencyLevelContentProvider;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;

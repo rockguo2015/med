@@ -61,10 +61,10 @@ public class GroupTaskListGrid extends GXTGridComponent<UIGroupTask> implements 
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIGroupTask value = new UIGroupTask();
   

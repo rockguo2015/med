@@ -32,6 +32,9 @@ class RestServiceServlet extends HttpServlet{
 	private static Log logger = LogFactory::
 			getLog(typeof(RestServiceServlet));
 	
+	def isEncode(String s, String encoding){
+		s.equals(new String(s.getBytes(encoding),encoding))
+	}
 	def getRequiredParameter(HttpServletRequest request, String key){
 		val value = request.getParameter(key)
 		if(value==null) throw new JSONServiceException("missing parameter:"+key)
@@ -112,7 +115,7 @@ class RestServiceServlet extends HttpServlet{
 			stateAwareExecute[
 				getAppRestService(req).pendWorkItem(
 					req.getRequiredParameter("id"),
-					req.getRequiredParameter("description")
+					new String(req.getParameter("description").getBytes("iso8859-1"),"utf-8")
 				)
 			]
 		]	
@@ -120,7 +123,7 @@ class RestServiceServlet extends HttpServlet{
 			stateAwareExecute[
 				getAppRestService(req).cancelPendWorkItem(
 					req.getRequiredParameter("id"),
-					req.getParameter("description"),
+					new String(req.getParameter("description").getBytes("iso8859-1"),"utf-8"),
 					req.getRequiredParameter("reportTime"),
 					req.getParameter("deviceNumber"),
 					req.getParameterValues("photoIds")
@@ -131,7 +134,7 @@ class RestServiceServlet extends HttpServlet{
 			stateAwareExecute[
 				getAppRestService(req).outsourceWorkItem(
 					req.getRequiredParameter("id"),
-					req.getParameter("description")
+					new String(req.getParameter("description").getBytes("iso8859-1"),"utf-8")
 				)
 			]
 		]	
@@ -139,7 +142,7 @@ class RestServiceServlet extends HttpServlet{
 			stateAwareExecute[
 				getAppRestService(req).finishOutsourceWorkItem(
 					req.getRequiredParameter("id"),
-					req.getParameter("description"),
+					new String(req.getParameter("description").getBytes("iso8859-1"),"utf-8"),
 					req.getRequiredParameter("reportTime"),
 					req.getParameter("deviceNumber"),
 					req.getParameterValues("photoIds")
@@ -150,7 +153,7 @@ class RestServiceServlet extends HttpServlet{
 			stateAwareExecute[
 				getAppRestService(req).misdispatchWorkItem(
 					req.getRequiredParameter("id"),
-					req.getParameter("description"),
+					new String(req.getParameter("description").getBytes("iso8859-1"),"utf-8"),
 					req.getRequiredParameter("reportTime")
 				)
 			]
@@ -159,7 +162,7 @@ class RestServiceServlet extends HttpServlet{
 			stateAwareExecute[
 				getAppRestService(req).followupWorkItem(
 					req.getRequiredParameter("id"),
-					req.getParameter("description"),
+					new String(req.getParameter("description").getBytes("iso8859-1"),"utf-8"),
 					req.getRequiredParameter("reportTime")
 				)
 			]
@@ -168,7 +171,7 @@ class RestServiceServlet extends HttpServlet{
 			stateAwareExecute[
 				getAppRestService(req).finishWorkItem(
 					req.getRequiredParameter("id"),
-					req.getParameter("description"),
+					new String(req.getParameter("description").getBytes("iso8859-1"),"utf-8"),
 					req.getRequiredParameter("reportTime"),
 					req.getParameter("deviceNumber"),
 					req.getParameterValues("photoIds")
@@ -206,9 +209,11 @@ class RestServiceServlet extends HttpServlet{
 	
 	override doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8")
 		HttpRequestThreadLocal::set(req);
 		val serviceName = req.getRequestURI().substring(req.getRequestURI().lastIndexOf("/")+1);
 		logger.info("invoke rest service:"+serviceName)
+		
 		val writer = new OutputStreamWriter(resp.getOutputStream(),"UTF-8");					
 		resp.setContentType("application/json");
 		try{
@@ -227,9 +232,8 @@ class RestServiceServlet extends HttpServlet{
 	override doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		val serviceName = request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1);
-		logger.info("invoke rest service:"+serviceName)
 		val writer = new OutputStreamWriter(response.getOutputStream(),"UTF-8");					
-		
+		logger.info("invoke rest service:"+serviceName)
 		try{
 			if (ServletFileUpload::isMultipartContent(request) && 'upload'.equals(serviceName)){
 			 	val List<FileItem> multiparts = new ServletFileUpload (new DiskFileItemFactory ()).

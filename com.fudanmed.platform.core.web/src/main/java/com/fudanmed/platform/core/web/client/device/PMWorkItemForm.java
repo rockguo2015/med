@@ -48,10 +48,10 @@ public class PMWorkItemForm extends GXTFormComponent<UIPMWorkItem> implements II
   public AllMaintenanceTeamContentProvider teamContentProvider;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;

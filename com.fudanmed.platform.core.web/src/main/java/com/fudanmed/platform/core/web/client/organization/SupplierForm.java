@@ -70,16 +70,16 @@ public class SupplierForm extends GXTFormComponent<UISupplier> implements IIniti
   public CheckBoxItem inputNext;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
+  
+  @Inject
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   private UISupplier value = new UISupplier();
   

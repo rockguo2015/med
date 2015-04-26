@@ -47,13 +47,13 @@ public class WorkItemReturnStockRecordDetailForm extends GXTFormComponent<UIWork
   public StringReadonlyItem reportSid;
   
   @Inject
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  
+  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIWorkItemReturnStockRecord value = new UIWorkItemReturnStockRecord();
   

@@ -35,10 +35,10 @@ public class SettlementListGrid extends GXTGridComponent<UISettlement> implement
   private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UISettlement value = new UISettlement();
   

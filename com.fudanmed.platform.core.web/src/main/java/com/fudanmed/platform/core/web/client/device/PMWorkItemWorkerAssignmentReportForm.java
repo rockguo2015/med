@@ -44,13 +44,13 @@ public class PMWorkItemWorkerAssignmentReportForm extends GXTFormComponent<UIPMW
   public IValueProvider<UIPMWorkItemEvaluate> evaluate;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;

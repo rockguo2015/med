@@ -42,13 +42,13 @@ public class FaultTypeListGrid extends GXTGridComponent<UIFaultType> implements 
   private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIFaultType value = new UIFaultType();
   

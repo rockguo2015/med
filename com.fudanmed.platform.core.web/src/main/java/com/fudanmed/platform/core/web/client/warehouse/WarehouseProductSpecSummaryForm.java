@@ -47,10 +47,10 @@ public class WarehouseProductSpecSummaryForm extends GXTFormComponent<UIWarehous
   public TextItem productSid;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private IntegerValueProviderFactory integerValueProviderFactory;

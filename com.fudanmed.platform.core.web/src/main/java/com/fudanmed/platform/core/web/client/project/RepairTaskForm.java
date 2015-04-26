@@ -118,13 +118,13 @@ public class RepairTaskForm extends GXTFormComponent<UIRepairTask> implements II
   public AllFaultEmergencyLevelContentProvider faultEmergencyLevelContentProvider;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;

@@ -14,5 +14,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="target/shrctbp-1.0.0/WEB-INF/classes"/>
+	<classpathentry kind="output" path="target/fudanmedcoreweb-1.0.0/WEB-INF/classes"/>
 </classpath>

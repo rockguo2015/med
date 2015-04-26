@@ -40,10 +40,10 @@ public class StockTakingListListGrid extends GXTGridComponent<UIStockTakingList>
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIStockTakingList value = new UIStockTakingList();
   

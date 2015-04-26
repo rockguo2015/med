@@ -42,13 +42,13 @@ public class DevicePMPlan4ConfirmListGrid extends GXTGridComponent<UIDevicePMPla
   public StringColumn<UIDevicePMPlan> description;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIDevicePMPlan value = new UIDevicePMPlan();
   

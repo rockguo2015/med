@@ -95,13 +95,13 @@ public class InStockRecordForm extends GXTFormComponent<UIInStockRecord> impleme
   public CheckBoxItem print;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;

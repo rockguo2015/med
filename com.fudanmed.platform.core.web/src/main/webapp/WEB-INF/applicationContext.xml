@@ -59,6 +59,7 @@
  				<value>com.fudanmed.platform.core.domain.impl</value>
  				<value>com.fudanmed.platform.core.warehouse.impl</value>
  				<value>com.fudanmed.platform.core.measure.impl</value>
+ 				<value>com.fudanmed.platform.core.deliver.impl</value>
  				
 			</list>
 		</property>		

@@ -47,9 +47,6 @@ public class RepairTask4SettlementListGrid extends GXTGridComponent<UIRepairTask
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
-  
-  @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
@@ -57,6 +54,9 @@ public class RepairTask4SettlementListGrid extends GXTGridComponent<UIRepairTask
   
   @Inject
   private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  
+  @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIRepairTask value = new UIRepairTask();
   

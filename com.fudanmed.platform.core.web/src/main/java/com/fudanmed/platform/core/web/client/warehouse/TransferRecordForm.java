@@ -85,13 +85,13 @@ public class TransferRecordForm extends GXTFormComponent<UITransferRecord> imple
   public CheckBoxItem print;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;

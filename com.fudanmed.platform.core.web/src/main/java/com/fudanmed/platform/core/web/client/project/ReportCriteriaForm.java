@@ -31,13 +31,13 @@ public class ReportCriteriaForm extends GXTFormComponent<UIReportCriteria> imple
   public AllOrganizationContentProvider reportOrgContentProvider;
   
   @Inject
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  
+  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   private UIReportCriteria value = new UIReportCriteria();
   

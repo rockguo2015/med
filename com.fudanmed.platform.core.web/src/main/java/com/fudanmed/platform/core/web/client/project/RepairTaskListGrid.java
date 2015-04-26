@@ -65,10 +65,10 @@ public class RepairTaskListGrid extends GXTGridComponent<UIRepairTask> implement
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIRepairTask value = new UIRepairTask();
   

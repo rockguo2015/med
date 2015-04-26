@@ -36,10 +36,10 @@ public class WorkItemStockStatisticsCriteriaForm extends GXTFormComponent<UIWork
   public AllMaintenanceTeamContentProvider teamContentProvider;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIWorkItemStockStatisticsCriteria value = new UIWorkItemStockStatisticsCriteria();
   

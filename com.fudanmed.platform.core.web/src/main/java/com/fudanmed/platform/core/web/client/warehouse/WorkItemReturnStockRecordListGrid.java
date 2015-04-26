@@ -35,13 +35,13 @@ public class WorkItemReturnStockRecordListGrid extends GXTGridComponent<UIWorkIt
   public StringColumn<UIWorkItemReturnStockRecord> comment;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIWorkItemReturnStockRecord value = new UIWorkItemReturnStockRecord();
   

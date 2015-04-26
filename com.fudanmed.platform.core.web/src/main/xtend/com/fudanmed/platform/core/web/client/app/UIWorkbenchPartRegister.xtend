@@ -50,6 +50,8 @@ import com.fudanmed.platform.core.web.client.project.UpdateEBoardMessageCommand
 import com.fudanmed.platform.core.web.client.deliver.ShowDLTaskManagementCommand
 import com.fudanmed.platform.core.web.client.deliver.ShowCenterlizedDeliverTaskManagementCommand
 import com.fudanmed.platform.core.web.client.device.ShowDevicePMPlanCommand
+import com.fudanmed.platform.core.web.client.deliver.ShowInHospitalLocationManagementCommand
+import com.fudanmed.platform.core.web.client.deliver.ShowCheckOrganizationManagementCommand
 
 //import com.fudanmed.platform.core.web.client.organization.ShowTeacherManagementCommand
 
@@ -143,6 +145,9 @@ class UIWorkbenchPartRegister {
 	private ShowCenterlizedDeliverTaskManagementCommand showCenterlizedDeliverTaskManagementCommand
 	@Inject 
 	private ShowDevicePMPlanCommand showDevicePMPlanCommand
+	@Inject
+	private ShowInHospitalLocationManagementCommand showInHospitalLocationManagementCommand
+	private ShowCheckOrganizationManagementCommand showCheckOrganizationManagementCommand
 //	@Inject
 //	private ShowTeacherManagementCommand showTeacherManagementCommand
 
@@ -443,6 +448,8 @@ class UIWorkbenchPartRegister {
 		
 		workbenchManager.registerCommand(deliverCategory,showDLTaskManagementCommand)
 		workbenchManager.registerCommand(deliverCategory,showCenterlizedDeliverTaskManagementCommand)
+		workbenchManager.registerCommand(deliverCategory,showInHospitalLocationManagementCommand)
+//		workbenchManager.registerCommand(deliverCategory,showCheckOrganizationManagementCommand)
 //		workbenchManager.registerCommand(statCategory,showTeacherManagementCommand)
 		
 	}	

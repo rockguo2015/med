@@ -46,16 +46,16 @@ public class WorkItemCancelPendDataForm extends GXTFormComponent<WorkItemCancelP
   public DoubleItem price;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
-  
-  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
+  private BooleanValueProviderFactory booleanValueProviderFactory;
+  
+  @Inject
   private DateValueProviderFactory dateValueProviderFactory;
+  
+  @Inject
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   private WorkItemCancelPendData value = new WorkItemCancelPendData();
   

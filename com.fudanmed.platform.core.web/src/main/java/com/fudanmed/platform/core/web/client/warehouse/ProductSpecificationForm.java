@@ -88,13 +88,13 @@ public class ProductSpecificationForm extends GXTFormComponent<UIProductSpecific
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
-  
-  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private IntegerValueProviderFactory integerValueProviderFactory;
+  
+  @Inject
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   private UIProductSpecification value = new UIProductSpecification();
   

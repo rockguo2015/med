@@ -32,10 +32,10 @@ public class WarehouseListGrid extends GXTGridComponent<UIWarehouse> implements 
   public CollectionListColumn<UIWarehouse,RCMaintenanceTeamProxy> relatedTeams;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
   
   @Inject
-  private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;

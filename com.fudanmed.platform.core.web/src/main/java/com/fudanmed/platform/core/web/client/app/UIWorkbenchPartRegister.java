@@ -2,7 +2,9 @@ package com.fudanmed.platform.core.web.client.app;
 
 import com.fudanmed.platform.core.web.client.app.resource.MedImages;
 import com.fudanmed.platform.core.web.client.deliver.ShowCenterlizedDeliverTaskManagementCommand;
+import com.fudanmed.platform.core.web.client.deliver.ShowCheckOrganizationManagementCommand;
 import com.fudanmed.platform.core.web.client.deliver.ShowDLTaskManagementCommand;
+import com.fudanmed.platform.core.web.client.deliver.ShowInHospitalLocationManagementCommand;
 import com.fudanmed.platform.core.web.client.device.DeviceManagementPresenter;
 import com.fudanmed.platform.core.web.client.device.DevicePMSpecificationManagementPresenter;
 import com.fudanmed.platform.core.web.client.device.DeviceTypeCategoryManagementPresenter;
@@ -191,6 +193,11 @@ public class UIWorkbenchPartRegister {
   
   @Inject
   private ShowDevicePMPlanCommand showDevicePMPlanCommand;
+  
+  @Inject
+  private ShowInHospitalLocationManagementCommand showInHospitalLocationManagementCommand;
+  
+  private ShowCheckOrganizationManagementCommand showCheckOrganizationManagementCommand;
   
   @Inject
   private HeaderPresenter headerPresenter;
@@ -782,5 +789,6 @@ public class UIWorkbenchPartRegister {
     this.workbenchManager.registerCommand(measureCategory, this.showMeasureDeviceValueManagementPresenterCommand);
     this.workbenchManager.registerCommand(deliverCategory, this.showDLTaskManagementCommand);
     this.workbenchManager.registerCommand(deliverCategory, this.showCenterlizedDeliverTaskManagementCommand);
+    this.workbenchManager.registerCommand(deliverCategory, this.showInHospitalLocationManagementCommand);
   }
 }

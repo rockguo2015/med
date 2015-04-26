@@ -37,13 +37,13 @@ public class OrganizationForm extends GXTFormComponent<UIOrganization> implement
   public CheckBoxItem inputNext;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   private UIOrganization value = new UIOrganization();
   

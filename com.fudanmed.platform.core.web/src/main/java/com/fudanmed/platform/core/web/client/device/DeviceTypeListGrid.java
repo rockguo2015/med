@@ -24,10 +24,10 @@ public class DeviceTypeListGrid extends GXTGridComponent<UIDeviceType> implement
   public IntegerColumn<UIDeviceType> depreciationYears;
   
   @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   private UIDeviceType value = new UIDeviceType();
   

@@ -49,13 +49,13 @@ public class InStockRecordItemForm extends GXTFormComponent<UIInStockRecordItem>
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
-  
-  @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
   private IntegerValueProviderFactory integerValueProviderFactory;
+  
+  @Inject
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   private UIInStockRecordItem value = new UIInStockRecordItem();
   

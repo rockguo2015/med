@@ -51,13 +51,13 @@ public class CenterlizedDeliverTaskListGrid extends GXTGridComponent<UICenterliz
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DefaultObjectsSelectorFactory defaultObjectsSelectorFactory;
+  
+  @Inject
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UICenterlizedDeliverTask value = new UICenterlizedDeliverTask();
   

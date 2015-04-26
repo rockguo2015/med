@@ -27,13 +27,13 @@ public class PMDefaultIntervalAssociationEditListGrid extends GXTGridComponent<U
   public StringColumn<UIPMDefaultIntervalAssociation> description;
   
   @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
+  
+  @Inject
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   private UIPMDefaultIntervalAssociation value = new UIPMDefaultIntervalAssociation();
   

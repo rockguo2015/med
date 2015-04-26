@@ -43,10 +43,10 @@ public class PhasedElectricMeasureValueListGrid extends GXTGridComponent<UIPhase
   private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIPhasedElectricMeasureValue value = new UIPhasedElectricMeasureValue();
   

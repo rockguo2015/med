@@ -46,10 +46,10 @@ public class InStockRecordListGrid extends GXTGridComponent<UIInStockRecord> imp
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIInStockRecord value = new UIInStockRecord();
   

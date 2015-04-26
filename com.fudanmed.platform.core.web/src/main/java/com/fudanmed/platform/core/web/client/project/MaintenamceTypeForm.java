@@ -37,13 +37,13 @@ public class MaintenamceTypeForm extends GXTFormComponent<UIMaintenamceType> imp
   public CheckBoxItem inputNext;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   private UIMaintenamceType value = new UIMaintenamceType();
   

@@ -31,10 +31,10 @@ public class DeviceCriteriaForm extends GXTFormComponent<UIDeviceCriteria> imple
   public ReadonlyItem<RCOnsitePositionProxy> location;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDeviceCriteria value = new UIDeviceCriteria();
   

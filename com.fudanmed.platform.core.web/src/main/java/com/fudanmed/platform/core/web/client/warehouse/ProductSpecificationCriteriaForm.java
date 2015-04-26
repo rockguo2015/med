@@ -27,10 +27,10 @@ public class ProductSpecificationCriteriaForm extends GXTFormComponent<UIProduct
   public TopLevelProductCategoryProvider categoryContentProvider;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIProductSpecificationCriteria value = new UIProductSpecificationCriteria();
   

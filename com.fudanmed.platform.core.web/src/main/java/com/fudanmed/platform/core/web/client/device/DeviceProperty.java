@@ -69,10 +69,10 @@ public class DeviceProperty extends GXTPropertyView<UIDevice> implements IInitia
   public IValueViewer<String> comment;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DoubleValueProviderFactory doubleValueProviderFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;

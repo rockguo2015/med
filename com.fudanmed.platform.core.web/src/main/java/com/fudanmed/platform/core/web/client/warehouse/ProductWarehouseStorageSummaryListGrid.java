@@ -39,10 +39,10 @@ public class ProductWarehouseStorageSummaryListGrid extends GXTGridComponent<UIP
   public StringValueColumn<UIProductWarehouseStorageSummary,RCProduceSpecificationUnitProxy> unit;
   
   @Inject
-  private IntegerValueProviderFactory integerValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
   private StringValueProviderFactory stringValueProviderFactory;

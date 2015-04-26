@@ -36,10 +36,10 @@ public class PMWorkItemCriteriaForm extends GXTFormComponent<UIPMWorkItemCriteri
   public AllMaintenanceTeamContentProvider teamContentProvider;
   
   @Inject
-  private DateValueProviderFactory dateValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private DateValueProviderFactory dateValueProviderFactory;
   
   private UIPMWorkItemCriteria value = new UIPMWorkItemCriteria();
   

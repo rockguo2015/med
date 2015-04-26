@@ -40,10 +40,10 @@ public class DevicePMSpecification4DeviceListGrid extends GXTGridComponent<UIDev
   private DateValueProviderFactory dateValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIDevicePMSpecification value = new UIDevicePMSpecification();
   

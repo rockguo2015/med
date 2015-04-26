@@ -40,13 +40,13 @@ public class GroupTaskCriteriaForm extends GXTFormComponent<UIGroupTaskCriteria>
   public AllOrganizationContentProvider reportOrgContentProvider;
   
   @Inject
-  private BooleanValueProviderFactory booleanValueProviderFactory;
-  
-  @Inject
   private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DateValueProviderFactory dateValueProviderFactory;
+  
+  @Inject
+  private BooleanValueProviderFactory booleanValueProviderFactory;
   
   private UIGroupTaskCriteria value = new UIGroupTaskCriteria();
   

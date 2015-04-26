@@ -63,13 +63,13 @@ public class WorkItemStorage4SettlementListGrid extends GXTGridComponent<UIWorkI
   private IntegerValueProviderFactory integerValueProviderFactory;
   
   @Inject
-  private StringValueProviderFactory stringValueProviderFactory;
+  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
   
   @Inject
   private DoubleValueProviderFactory doubleValueProviderFactory;
   
   @Inject
-  private DefaultObjectSelectorFactory defaultObjectSelectorFactory;
+  private StringValueProviderFactory stringValueProviderFactory;
   
   private UIWorkItemStorage4Settlement value = new UIWorkItemStorage4Settlement();
   
