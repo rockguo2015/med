@@ -1,2 +1,5 @@
 .DS_Store
 *.java._trace
+target/
+*.smap
+logs/
