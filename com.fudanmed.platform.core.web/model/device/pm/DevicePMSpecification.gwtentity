@@ -10,7 +10,7 @@ package com.fudanmed.platform.core.web feature device{
 	import com.fudanmed.platform.core.device.pm.*
 	import com.fudanmed.platform.core.entityextension.*
 	import com.fudanmed.platform.core.web.*
-
+ 
 	ui-entity UIDevicePMSpecification for RCDevicePMSpecification{
 		device : proxy of RCDevice "维保设备"
 		

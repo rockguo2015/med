@@ -1,5 +1,7 @@
 target/
 logs/
-src/
+src/main/gwt-unitCache/
+src/main/fudanmedcoreweb/
+src/main/WEB-INF/deploy/
 
 

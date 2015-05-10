@@ -13,7 +13,7 @@ package com.fudanmed.platform.core.web feature project{
 	import com.fudanmed.platform.core.web.shared.project.*
 	import com.fudanmed.platform.core.web.client.project.*
 	import com.fudanmed.platform.core.web.server.^service.project.*
-	
+	 
 	ui-entity UIWorkItemStockRecordStatisticsData for RCWorkItemStockRecordItem{
 		
 		team : proxy of RCMaintenanceTeam "维修班组"

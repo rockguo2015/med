@@ -19,7 +19,7 @@ package com.fudanmed.platform.core.web feature deliver{
 	import com.fudanmed.platform.core.web.shared.deliver.*
 	import com.fudanmed.platform.core.web.client.deliver.*
 	import com.fudanmed.platform.core.web.client.organization.*
-	
+	 
 	ui-command ShowInHospitalLocationManagementCommand "病区信息维护"{
 		factory managementPresenter : InHospitalLocationManagementPresenter
 		execute{

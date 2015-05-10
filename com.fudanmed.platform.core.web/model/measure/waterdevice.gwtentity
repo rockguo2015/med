@@ -13,7 +13,7 @@ package com.fudanmed.platform.core.web feature measure{
 	import com.sencha.gxt.widget.core.client.grid.*
 	import com.uniquesoft.gwt.client.common.action.ActionContext
 	import  com.fudanmed.platform.core.web.shared.measure.*
-	
+	 
 	ui-entity UIWaterMeasureDevice for RCWaterMeasureDevice{
 		sid : String "编号"
 		name:String "名称"

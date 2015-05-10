@@ -2,7 +2,7 @@ package com.fudanmed.platform.core.web feature project{
 	
 
 	import com.google.gwt.user.client.^ui.HTML
-
+ 
 	import java.util.*
 	import edu.fudan.langlab.uidl.domain.app.*
 	import com.google.gwt.user.client.^ui.*	

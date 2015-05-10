@@ -6,7 +6,7 @@ package com.fudanmed.platform.core.web feature project{
 	import com.fudanmed.platform.core.web.*
 	import com.fudanmed.platform.core.common.*
 	import com.fudanmed.platform.core.domain.*
-	
+	 
 	import com.fudanmed.platform.core.web.shared.organization.*
 	import com.fudanmed.platform.core.web.client.organization.*
 	import com.fudanmed.platform.core.web.server.^service.organization.*

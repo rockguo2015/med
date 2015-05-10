@@ -16,7 +16,7 @@ package com.fudanmed.platform.core.web feature device{
 			entities.all(typeof(RCDevicePMType)).sortBy[codeid]
 		}
 	}
-	
+
 	signal PMDefaultIntervalAssociationsChanged
 	ui-entity UIPMDefaultIntervalAssociation for RCPMDefaultIntervalAssociation{
 		type : proxy of RCDevicePMType "维保类别"

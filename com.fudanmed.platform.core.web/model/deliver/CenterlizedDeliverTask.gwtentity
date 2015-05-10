@@ -20,7 +20,7 @@ package com.fudanmed.platform.core.web feature deliver{
 	import com.fudanmed.platform.core.web.client.deliver.*
 	
 	
-	
+	 
 	ui-datatype UIPlanDateTime for DLPlanDateTime{
 		planDate : Date "计划日期"
 		planTime : Date "计划时间"
