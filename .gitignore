@@ -2,3 +2,4 @@
 *._trace
 *.smap
 logs/
+target/
