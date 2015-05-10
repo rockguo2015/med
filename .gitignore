@@ -1,5 +1,5 @@
 .DS_Store
-*.java._trace
+*._trace
 target/
 *.smap
 logs/
