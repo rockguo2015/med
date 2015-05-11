@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.AllAquireTypeContentProviderService
+path: 990B573220D71DB4684554734CFF1FFA.gwt.rpc

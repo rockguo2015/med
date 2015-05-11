@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemFollowUpPresenterService
+path: 9DC908546C06D40F39A3250FD4B7753B.gwt.rpc

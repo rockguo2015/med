@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.RemoveWorkItemPlanAssignmentCommandService
+path: 5186CA68BFD1AF7FAF414EAA98C20A85.gwt.rpc

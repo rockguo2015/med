@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.GroupTaskStatByTeamListPresenterService
+path: 2BF26E0124B2ABF3C68AF44BDF3B02EE.gwt.rpc

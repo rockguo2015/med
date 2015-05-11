@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.DeliverEmergencyContentProviderService
+path: F37C3A60DA2121AC0805DFBA36F79509.gwt.rpc

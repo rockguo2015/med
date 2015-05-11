@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.organization.OnsiteLocationOutlinePresenterService
+path: 4862DC000E5A0886B58CB622530C52C9.gwt.rpc

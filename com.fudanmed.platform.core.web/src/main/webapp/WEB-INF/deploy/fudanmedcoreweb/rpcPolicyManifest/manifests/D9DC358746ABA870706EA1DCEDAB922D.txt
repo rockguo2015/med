@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemPendPresenterService
+path: DCC72809F6B5F73AAADE300296BE27E0.gwt.rpc

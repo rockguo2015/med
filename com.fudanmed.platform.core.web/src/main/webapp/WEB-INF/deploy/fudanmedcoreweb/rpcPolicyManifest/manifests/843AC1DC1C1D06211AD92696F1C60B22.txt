@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.NumberValueEditorPresenterService
+path: CB7EE28D5A16A8603F3212E439DFDA8A.gwt.rpc

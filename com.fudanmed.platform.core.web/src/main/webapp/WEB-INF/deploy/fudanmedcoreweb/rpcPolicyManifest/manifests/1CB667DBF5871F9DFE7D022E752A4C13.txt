@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.ExportWorkItemStockRecordStatisticsCommandService
+path: FF6DFFC2C0DC9A0113EFC110F8314E68.gwt.rpc

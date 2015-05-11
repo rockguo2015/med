@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.organization.FaultLevelColorAdaptorListPresenterService
+path: 9FA3790F57F561598EA14538F18A2BD7.gwt.rpc

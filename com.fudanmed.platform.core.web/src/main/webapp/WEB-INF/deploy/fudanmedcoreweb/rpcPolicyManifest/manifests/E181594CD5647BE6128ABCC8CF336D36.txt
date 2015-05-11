@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.CenterlizedDeliverTaskDispatchCommandService
+path: CEF2A5AFADDC709761CE45066544D5A0.gwt.rpc

@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.CreateOrUpdateDeliverMaterialCategoryPresenterService
+path: 99B62795794FFFF8242D921B46D3BE62.gwt.rpc

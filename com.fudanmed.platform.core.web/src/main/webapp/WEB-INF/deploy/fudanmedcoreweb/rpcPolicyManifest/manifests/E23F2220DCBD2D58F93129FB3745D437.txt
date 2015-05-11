@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.CreateOrUpdateComplaintPresenterService
+path: 6EC2A3C17BA61056467C21453FBE7BEC.gwt.rpc

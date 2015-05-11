@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.SettlementListPresenterService
+path: 42E68D7F59EF3E68516958C522D64A90.gwt.rpc

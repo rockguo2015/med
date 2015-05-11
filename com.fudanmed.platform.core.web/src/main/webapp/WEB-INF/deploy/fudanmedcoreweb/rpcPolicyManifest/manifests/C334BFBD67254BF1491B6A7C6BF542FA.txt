@@ -1,0 +1,2 @@
+serviceClass: edu.fudan.langlab.uidl.domain.code.client.web.CodeManagementPresenterService
+path: 982BC0FA6E3B34AB31490FB082E76AF8.gwt.rpc

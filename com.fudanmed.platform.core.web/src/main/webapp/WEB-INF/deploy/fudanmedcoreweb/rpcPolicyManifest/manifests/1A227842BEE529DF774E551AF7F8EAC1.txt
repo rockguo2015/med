@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.organization.AllEmployeesContentProviderService
+path: 276DC10DE89472CDD8AF34DF03F38B2B.gwt.rpc

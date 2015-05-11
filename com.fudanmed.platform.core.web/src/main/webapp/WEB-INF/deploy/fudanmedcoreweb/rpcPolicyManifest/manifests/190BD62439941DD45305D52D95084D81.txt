@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.TaskQueryListPresenterService
+path: FBF5C8F3C5B77E2ACD7675992A758E09.gwt.rpc

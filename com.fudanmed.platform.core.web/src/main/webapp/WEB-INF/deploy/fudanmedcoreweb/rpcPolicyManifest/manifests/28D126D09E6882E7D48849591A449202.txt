@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.warehouse.WorkItemStockRecordManagementPresenterService
+path: 021ED1E647A02EBD7A01BF6340282DC3.gwt.rpc

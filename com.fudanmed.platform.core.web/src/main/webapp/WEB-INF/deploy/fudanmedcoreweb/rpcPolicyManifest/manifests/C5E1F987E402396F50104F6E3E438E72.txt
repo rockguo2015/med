@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.UpdateEBoardMessageCommandService
+path: 61B34851381925A3E972357C352BE8CC.gwt.rpc

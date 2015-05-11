@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemStorage4SettlementListPresenterService
+path: A98D3F4BDA57B2EB87CDA0D03EFEDDB3.gwt.rpc

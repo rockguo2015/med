@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.PopulatePMPlantoAllDeviceCommandService
+path: A95753C1CDBA412A22924E795F63C999.gwt.rpc

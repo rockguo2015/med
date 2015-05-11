@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.DeleteDevicePMPlanCommandService
+path: 09558E92A90C863856CA559D65127E70.gwt.rpc

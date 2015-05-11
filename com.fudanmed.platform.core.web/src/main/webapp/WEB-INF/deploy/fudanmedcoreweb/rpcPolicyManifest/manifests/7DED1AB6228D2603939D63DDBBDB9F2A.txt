@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemCancelPendPresenterService
+path: 9F64536FFACDC4B41905E6187C2E5FB1.gwt.rpc

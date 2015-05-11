@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.InHospitalPatientContentProviderService
+path: B65D8CF4907355BD897D823189C491C4.gwt.rpc

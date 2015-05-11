@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.warehouse.WorkItemOutStockRecordListPresenterService
+path: 42FCFF6D2855E7513D41DFBB31A84A0B.gwt.rpc

@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.AttributeSlotTreeListPresenterService
+path: 6E4ED16574050869EFA10A016132C21B.gwt.rpc

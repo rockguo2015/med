@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.GroupTaskManagementPresenterService
+path: D99757325CA3BD987F7CD7E96609EB2C.gwt.rpc

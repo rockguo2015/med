@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemMisDispatchingPresenterService
+path: A7DA86E52436A62D596DF6871C76992E.gwt.rpc

@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.UploadDevicePresenterService
+path: 1C016BAB71D069AAD5D445A4870241CB.gwt.rpc

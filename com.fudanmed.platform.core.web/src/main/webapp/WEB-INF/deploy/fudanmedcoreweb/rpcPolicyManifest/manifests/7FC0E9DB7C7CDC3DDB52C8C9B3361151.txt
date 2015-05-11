@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.DocumentStorageListPresenterService
+path: D67652738541AE4556C90FBB6B678B10.gwt.rpc

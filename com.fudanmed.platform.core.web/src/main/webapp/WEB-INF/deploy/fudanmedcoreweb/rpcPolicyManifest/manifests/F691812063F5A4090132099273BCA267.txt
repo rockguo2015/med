@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.GroupTaskFinishReportPresenterService
+path: D115FD803F2C5194D6A958C198FF95F0.gwt.rpc

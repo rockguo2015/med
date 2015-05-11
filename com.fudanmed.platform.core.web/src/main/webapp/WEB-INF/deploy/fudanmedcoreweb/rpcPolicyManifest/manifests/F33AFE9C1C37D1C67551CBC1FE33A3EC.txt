@@ -1,0 +1,2 @@
+serviceClass: edu.fudan.langlab.uidl.domain.app.client.security.RoleFunctionAssignmentPresenterService
+path: 5A8451CBC8E85B68799CB8E7AFD63FD4.gwt.rpc

@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.RepairDispatchPresenterService
+path: BEB0B006FD32A57B33C247DA6772188F.gwt.rpc

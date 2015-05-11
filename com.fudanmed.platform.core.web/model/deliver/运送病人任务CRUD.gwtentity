@@ -1,0 +1,277 @@
+package com.fudanmed.platform.core.web feature deliver{
+	
+	import java.util.*
+	import edu.fudan.langlab.uidl.domain.app.*
+	import edu.fudan.langlab.domain.organization.*
+	import edu.fudan.langlab.uidl.domain.app.client.web.*
+	import com.uniquesoft.gwt.client.common.*
+	import com.uniquesoft.gwt.client.common.widgets.*
+	import edu.fudan.langlab.csv.shared.*
+	import com.fudanmed.platform.core.web.shared.deliver.*
+	import com.fudanmed.platform.core.web.shared.common.*
+	import com.fudanmed.platform.core.web.client.common.*
+	import com.fudanmed.platform.core.web.client.deliver.*
+	import com.fudanmed.platform.core.common.*
+	import com.fudanmed.platform.core.domain.*
+	import com.fudanmed.platform.core.deliver.*
+	import com.fudanmed.platform.core.deliver.^proxy.*
+	import com.fudanmed.platform.core.web.*
+	import com.fudanmed.platform.core.web.shared.deliver.*
+	import com.fudanmed.platform.core.web.client.deliver.*
+
+	//PatientCheckDeliver
+	//CenterlizedDeliverTask
+	
+	content-provider InHospitalPatientContentProvider for proxy of DLInHospitalPatient{
+		contents{
+			entities.all(typeof(DLInHospitalPatient))
+		}
+	}
+	
+	content-provider CheckOrganizationContentProvider for proxy of DLCheckOrganization{
+		contents{
+			entities.all(typeof(DLCheckOrganization))
+		}
+	}
+	
+	content-provider DeliverPatientCheckTypeContentProvider for proxy of DLDeliverPatientCheckType{
+		contents{
+			entities.all(typeof(DLDeliverPatientCheckType))
+		}
+	}
+	
+	content-provider PatientDeliverMethodContentProvider for proxy of DLPatientDeliverMethod{
+		contents{
+			entities.all(typeof(DLPatientDeliverMethod))
+		}
+	}
+	
+	content-provider DeliverEmergencyContentProvider for proxy of DLDeliverEmergency{
+		contents{
+			entities.all(typeof(DLDeliverEmergency))
+		}
+	}
+	
+	ui-entity UIPatientCheckDeliver for DLPatientCheckDeliver{
+		patient : proxy of DLInHospitalPatient "病人"
+		checkOrganization : proxy of DLCheckOrganization "检查科室"
+		checkType : proxy of DLDeliverPatientCheckType "检查项目"
+		deliverMethod : proxy of DLPatientDeliverMethod "接送方式"
+		emergency : proxy of DLDeliverEmergency "紧急度"
+
+		map PatientCheckDeliverMapper validate by PatientCheckDeliverValidator{
+			direct{patient,checkOrganization,checkType,deliverMethod,emergency}
+		}
+	
+		constraints PatientCheckDeliverValidator{
+			rule Required on patient
+			rule Required on checkOrganization
+			rule Required on checkType
+			rule Required on deliverMethod
+			rule Required on emergency
+		}
+	
+		ui-component PatientCheckDeliverForm as GXTForm{
+			binding{
+				patient as ComboBoxItem content from InHospitalPatientContentProvider,
+				checkOrganization as ComboBoxItem content from CheckOrganizationContentProvider,
+				checkType as ComboBoxItem content from DeliverPatientCheckTypeContentProvider,
+				deliverMethod as ComboBoxItem content from PatientDeliverMethodContentProvider,
+				emergency as ComboBoxItem content from DeliverEmergencyContentProvider
+			}
+			con : Widget
+			op asWidget() : Widget{
+				con = con.lazy[
+					widgets.VLayout=>[
+						addFill(patient.asWidget)
+						addFill(checkOrganization.asWidget)
+						addFill(checkType.asWidget)
+						addFill(deliverMethod.asWidget)
+						addFill(emergency.asWidget)
+					]
+				]
+			}			
+		}
+	
+		ui-component PatientCheckDeliverListGrid as GXTGrid{
+			binding{patient,checkOrganization,checkType,deliverMethod,emergency}
+		}
+	
+	}
+	
+
+	ui-entity UICenterlizedDeliverTask4Patient for DLCenterlizedDeliverTask{
+		planDate : Date "计划日期"
+		planTime : Date "计划时间"
+		
+		patients : UIPatientCheckDeliver[*] "检查项目列表"
+		
+		map CenterlizedDeliverTask4PatientMapper{
+			direct{{planDate,entity.planDateTime.planDate},{planTime,entity.planDateTime.planTime}}
+		}
+		
+		ui-component CenterlizedDeliverTask4PatientForm as GXTForm{
+			@Inject patientCheckDeliverListGrid : PatientCheckDeliverListGrid
+			@Inject patientCheckDeliverForm : PatientCheckDeliverForm
+			
+			binding{planDate as DateItem,planTime as TimeItem, patients as ListGridBasedItem(patientCheckDeliverListGrid)}
+			op createWidget() : Widget{
+				patients.setObjectCreater[
+					patientCheckDeliverForm.valueAsNew
+				]
+				widgets.VLayout=>[
+					addFill(
+						TABLE=>[
+							tr=>[
+								td=>[it+=patientCheckDeliverForm.patient.asWidget]
+								td=>[it+=patientCheckDeliverForm.emergency.asWidget]
+							]
+							tr=>[
+								td=>[it+= planDate.asWidget]
+								td=>[it+= planTime.asWidget]
+							]
+//							tr=>[
+//								td=>[it+=patients.asWidget=>[height=100]]
+//							]
+						]
+					)
+					addFill(widgets.FieldSet("检查项目")=>[
+						widget = TABLE=>[
+							tr=>[
+								td=>[it+=patientCheckDeliverForm.checkType.asWidget]
+								td=>[it+=patientCheckDeliverForm.checkOrganization.asWidget]
+							]
+							tr=>[
+								td=>[it+=patientCheckDeliverForm.deliverMethod.asWidget]
+							]
+							tr=>[
+								td=>[colSpan=3 it+=patients.asWidget=>[height=200]]
+							]
+						]
+					])
+//					add(widgets.HLayout=>[
+//						add(patientCheckDeliverForm.asWidget,widgets.HLayoutData(0.3,1))
+//						add(patients.asWidget,widgets.HLayoutData(0.7,1))
+//					],widgets.VLayoutData(1,350))
+				]
+			}
+			
+			op getPatientDeliverList():Collection<UIPatientCheckDeliver>{
+				patientCheckDeliverListGrid.objects.unlazy
+			}		
+		}
+	}
+
+	signal CenterlizedDeliverTasksChanged
+	
+	ui-command CreateCenterlizedDeliverTaskCommand "病人运送"{
+		factory createOrUpdateCenterlizedDeliverTaskPresenter : CreateOrUpdateCenterlizedDeliverTask4PatientPresenter
+		execute{
+			createOrUpdateCenterlizedDeliverTaskPresenter.get.setup4Create()[
+				popup(it)
+			]
+		}
+	}
+	ui-command UpdateCenterlizedDeliverTaskCommand require proxy of DLCenterlizedDeliverTask "修改"{
+		factory createOrUpdateCenterlizedDeliverTaskPresenter : CreateOrUpdateCenterlizedDeliverTask4PatientPresenter
+		execute{
+			createOrUpdateCenterlizedDeliverTaskPresenter.get.setup4Update(value)[
+				popup(it)
+			]
+		}
+	}
+	ui-command DeleteCenterlizedDeliverTaskCommand require proxy of DLCenterlizedDeliverTask "删除"{
+		execute{
+			widgets.ConfirmMessageBox("确认删除","确认删除:"+value.name)[
+				service.delete(value,onSuccess[
+					fire eventbus.CenterlizedDeliverTasksChanged
+				])
+			].show
+		}
+		service{
+			@Inject dao : DLCenterlizedDeliverTaskDAO
+			op delete(value : proxy of DLCenterlizedDeliverTask):void{
+				dao.delete(resolve value)
+			}
+		}
+	}
+
+	presenter CreateOrUpdateCenterlizedDeliverTask4PatientPresenter for UICenterlizedDeliverTask4Patient{
+		view interface{
+			op getPatientDeliverList():Collection<UIPatientCheckDeliver>
+		}
+		
+		interaction{
+			commiter : (CommitResultNotifier)=>void
+			input prepare.setup4Create(){
+				commiter=[notifier|
+					service.createValue(getView().value,getView().patientDeliverList,onSuccess[
+						fire eventbus.CenterlizedDeliverTasksChanged()
+						notifier.success
+					])
+				]
+				this.activate[
+					done
+				]
+			}
+			
+			input prepare.setup4Update(value : proxy of DLCenterlizedDeliverTask){
+				commiter=[notifier|
+					service.updateValue(getView().value,onSuccess[
+						fire eventbus.CenterlizedDeliverTasksChanged()
+						notifier.success
+					])
+				]
+				this.activate[
+					service.loadValue(value,onSuccess[
+						getView().setValue(it)
+						done
+					])
+				]
+			}
+			
+			input form-commit {
+				commiter.apply(notifier)
+			}			
+		}
+		
+		service{
+			@Inject mapper : CenterlizedDeliverTask4PatientMapper
+			@Inject dao : DLCenterlizedDeliverTaskDAO
+			
+			@Inject patientMapper : PatientCheckDeliverMapper
+			@Inject patientDao : DLPatientCheckDeliverDAO
+			op loadValue(pvalue : proxy of DLCenterlizedDeliverTask) : UICenterlizedDeliverTask4Patient{
+//				mapper.transform(resolve pvalue)
+			}
+			op updateValue(uivalue : UICenterlizedDeliverTask4Patient) : void{
+//				mapper.transform(uivalue,(resolve uivalue))
+			}
+			op createValue(uivalue : UICenterlizedDeliverTask4Patient,patients:Collection<UIPatientCheckDeliver>) : void{
+				patients.forEach[patient|
+					val entitypatient = patientDao.create[
+						patientMapper.transform(patient,it)
+					]
+					dao.createPatientCheckDeliverTask(entitypatient)[
+						mapper.transform(uivalue,it)
+					]
+				]
+//				dao.create[
+//					mapper.transform(uivalue,it)
+//				]
+			}
+		}
+	}
+	
+	view CreateOrUpdateCenterlizedDeliverTask4PatientView<CenterlizedDeliverTask4PatientForm> 
+		for CreateOrUpdateCenterlizedDeliverTask4PatientPresenter ui-size:(800,450) ui-title:"病人运送信息维护"{
+		initializer{
+			this += widgets.DialogContent(form.asWidget)
+		}
+		op getPatientDeliverList():Collection<UIPatientCheckDeliver>{
+			form.getPatientDeliverList
+		}
+	}
+
+		
+}

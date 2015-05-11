@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.warehouse.CurrentUserStockTeamProviderService
+path: 7132F6FCDD14C87E8B5302034D4AD017.gwt.rpc
