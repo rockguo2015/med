@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.ComplaintListPresenterService
-path: CB3382ED96C7CB624E750B3B36642817.gwt.rpc

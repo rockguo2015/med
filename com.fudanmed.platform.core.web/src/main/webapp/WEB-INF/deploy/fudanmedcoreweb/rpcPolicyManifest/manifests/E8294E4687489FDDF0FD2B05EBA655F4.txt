@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.CreateOrUpdateEBoardMessagePresenterService
-path: C5B4D90A58DF93268A8661513FB7B75C.gwt.rpc

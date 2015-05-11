@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemStockStatisticListPresenterService
-path: 71826DBE9F3B4050E13CC4E4EB8A23C9.gwt.rpc

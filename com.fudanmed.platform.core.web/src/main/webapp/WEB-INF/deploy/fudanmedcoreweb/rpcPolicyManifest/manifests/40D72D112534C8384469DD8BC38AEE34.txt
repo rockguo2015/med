@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.deliver.CreateOrUpdateDeliverPatientCheckCategoryPresenterService
-path: 3BA57D24FEE261E65937FA11FA0910EF.gwt.rpc

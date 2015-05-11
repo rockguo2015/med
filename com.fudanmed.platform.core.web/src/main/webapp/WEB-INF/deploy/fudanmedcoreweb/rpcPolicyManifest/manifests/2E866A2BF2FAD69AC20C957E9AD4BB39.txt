@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.DeletePMDefaultIntervalAssociationCommandService
-path: FF2CDEAC69EC2AD9DFDFBC8DF20B0D07.gwt.rpc

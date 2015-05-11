@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.GroupTaskMisDispatchReportPresenterService
-path: 752EEE12476D13CF50426C682130BD12.gwt.rpc

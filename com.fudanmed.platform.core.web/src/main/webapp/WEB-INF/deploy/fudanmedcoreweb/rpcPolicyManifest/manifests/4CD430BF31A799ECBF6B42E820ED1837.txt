@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.measure.CreateOrUpdateWaterMeasureDevicePresenterService
-path: 540D8A936DB7D8106BF4D589A0BF9F1B.gwt.rpc

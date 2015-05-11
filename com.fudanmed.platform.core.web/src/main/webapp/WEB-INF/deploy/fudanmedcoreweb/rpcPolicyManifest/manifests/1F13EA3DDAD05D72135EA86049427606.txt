@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.organization.CreateOrUpdateOnsitePositionPresenterService
-path: 8D3ACEE52ED136AAD9965BC087165CEB.gwt.rpc

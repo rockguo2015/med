@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.common.ServerSideTimeService
-path: 7392FAF67649960607F7D5B1267B4E6E.gwt.rpc

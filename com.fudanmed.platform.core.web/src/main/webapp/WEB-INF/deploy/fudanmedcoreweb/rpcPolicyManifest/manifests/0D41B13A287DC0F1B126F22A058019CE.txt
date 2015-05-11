@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.CreateOrUpdateWorkItemTaskPresenterService
-path: AA2F45BC7993A930F39FDED65AA2F0CC.gwt.rpc

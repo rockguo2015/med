@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.measure.DeletePhasedElectricMeasureDeviceCommandService
-path: 7CF79E789E3F11B0BD063E46C5C6D5F0.gwt.rpc

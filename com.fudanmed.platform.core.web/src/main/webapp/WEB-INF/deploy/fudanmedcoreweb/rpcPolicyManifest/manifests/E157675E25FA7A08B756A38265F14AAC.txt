@@ -1,2 +1,0 @@
-serviceClass: edu.fudan.langlab.uidl.domain.app.client.login.LoginPresenterService
-path: 7726516645A5BF5EBB9FD2B4F4C6B495.gwt.rpc

@@ -3,3 +3,4 @@
 *.smap
 logs/
 target/
+.gwt/

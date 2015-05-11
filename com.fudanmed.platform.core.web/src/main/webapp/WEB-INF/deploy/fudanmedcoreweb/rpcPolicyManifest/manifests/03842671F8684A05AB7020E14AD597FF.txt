@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.PMWorkItemPropertyPresenterService
-path: 8DB510D452E5227A794607CBB9D069DA.gwt.rpc

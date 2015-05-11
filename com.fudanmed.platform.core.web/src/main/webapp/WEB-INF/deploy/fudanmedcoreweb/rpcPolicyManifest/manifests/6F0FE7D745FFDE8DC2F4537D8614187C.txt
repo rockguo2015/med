@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.measure.DeleteGasMeasureDeviceCommandService
-path: B0B5A1BC7DE96D1166DE6B3F97F8EA4E.gwt.rpc

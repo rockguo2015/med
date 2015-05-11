@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.CreateOrUpdateReportPresenterService
-path: 0235292FF17A15597F1A45A1E119BB9E.gwt.rpc

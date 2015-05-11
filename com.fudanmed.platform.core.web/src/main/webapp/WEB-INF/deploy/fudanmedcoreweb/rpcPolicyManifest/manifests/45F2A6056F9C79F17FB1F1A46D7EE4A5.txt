@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.measure.DeleteWaterMeasureDeviceCommandService
-path: 050E866D9FF7B9E21EB17DBA186A88E2.gwt.rpc

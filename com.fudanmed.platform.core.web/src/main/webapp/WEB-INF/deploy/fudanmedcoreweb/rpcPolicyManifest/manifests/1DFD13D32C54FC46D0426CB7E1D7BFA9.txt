@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemOutsourcePresenterService
-path: BB71A36E76D8DA34A108C89E078A99AA.gwt.rpc

@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.RepairTaskManagementPresenterService
-path: B1BA3BF6C2A9700C0E64F10A4E73A072.gwt.rpc

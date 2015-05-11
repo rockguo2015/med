@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.deliver.CreateOrUpdateCheckOrganizationPresenterService
-path: 230741F8F871CECDF60BFA6E6BD4B590.gwt.rpc

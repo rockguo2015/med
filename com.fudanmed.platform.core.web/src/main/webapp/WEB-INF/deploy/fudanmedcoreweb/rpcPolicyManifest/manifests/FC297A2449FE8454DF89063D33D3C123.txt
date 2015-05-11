@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.deliver.CenterlizedDeliverTaskQueryListPresenterService
-path: 68A5E76A88FD44ED38D12411EBE7DDD0.gwt.rpc

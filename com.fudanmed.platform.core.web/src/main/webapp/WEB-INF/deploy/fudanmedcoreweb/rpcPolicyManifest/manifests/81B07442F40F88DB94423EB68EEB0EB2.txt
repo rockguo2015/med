@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemTaskListPresenterService
-path: A201739652F384F58BE326093DA0568F.gwt.rpc

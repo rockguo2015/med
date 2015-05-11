@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.DeleteDeviceDocumentStorageCommandService
-path: 15DA4824C9BC37C5999E090420191301.gwt.rpc

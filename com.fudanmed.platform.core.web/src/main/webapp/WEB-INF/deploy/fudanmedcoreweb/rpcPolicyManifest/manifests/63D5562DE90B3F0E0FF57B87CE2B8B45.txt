@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.CreateOrUpdateSettlementPresenterService
-path: F9AFF2505BCEC94629F06F688B52E015.gwt.rpc

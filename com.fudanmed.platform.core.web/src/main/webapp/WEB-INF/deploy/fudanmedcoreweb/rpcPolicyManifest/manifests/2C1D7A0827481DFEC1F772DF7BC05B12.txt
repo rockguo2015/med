@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.workbench.SystemParameterPresenterService
-path: 8DE7E29377EBC750671B20C86D7A39D1.gwt.rpc

@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.warehouse.InStockRecordListPresenterService
-path: 5FCFCF0A613CA5E67BA5A0C591042A7B.gwt.rpc

@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.CreateCompositeTypePresenterService
-path: D026986FCAF7FF3217C9428A84EA3274.gwt.rpc

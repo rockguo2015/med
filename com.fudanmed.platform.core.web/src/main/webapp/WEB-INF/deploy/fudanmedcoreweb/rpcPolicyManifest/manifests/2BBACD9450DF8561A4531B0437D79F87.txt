@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.deliver.DeleteDeliverPatientCheckTypeCommandService
-path: B610F70103DEE46F724DFFCBEFB004A0.gwt.rpc

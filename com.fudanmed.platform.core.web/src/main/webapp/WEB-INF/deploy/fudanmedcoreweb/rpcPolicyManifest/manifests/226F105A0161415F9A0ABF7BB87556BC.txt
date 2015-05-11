@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.deliver.InHospitalLocationQueryListPresenterService
-path: F64A403C0738FA22A90F880A79A520FD.gwt.rpc

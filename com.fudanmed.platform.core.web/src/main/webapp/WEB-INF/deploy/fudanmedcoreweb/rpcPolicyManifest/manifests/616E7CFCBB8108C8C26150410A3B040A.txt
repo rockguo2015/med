@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemStockRecordItemStat4ProductEntryListPresenterService
-path: B628A519D634ED7769A56C267ED2A15B.gwt.rpc

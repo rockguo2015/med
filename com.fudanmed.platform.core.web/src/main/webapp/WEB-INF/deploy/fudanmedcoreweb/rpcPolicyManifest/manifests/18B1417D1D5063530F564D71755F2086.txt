@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.AllWorkTypeContentProviderService
-path: 230A5FDAE6015D2D13D3FF24A5D88FCF.gwt.rpc

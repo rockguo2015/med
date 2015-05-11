@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.deliver.DeleteCheckOrganizationCommandService
-path: DD10EC080EE8CB47E199CB6BDDEBB591.gwt.rpc
