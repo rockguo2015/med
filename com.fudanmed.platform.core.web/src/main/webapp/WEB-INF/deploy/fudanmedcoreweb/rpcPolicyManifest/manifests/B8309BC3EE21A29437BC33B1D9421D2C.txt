@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.warehouse.CreateOrUpdateStockTakingListPresenterService
+path: 8C63776DFE59DE0D2694F032F38B179B.gwt.rpc

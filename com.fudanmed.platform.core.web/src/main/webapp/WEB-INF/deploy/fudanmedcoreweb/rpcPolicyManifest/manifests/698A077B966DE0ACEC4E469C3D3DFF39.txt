@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.CreateOrUpdateNumberWithUnitTypePresenterService
+path: 8EA853AE4D21146D3787BDFD6990710E.gwt.rpc

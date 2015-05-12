@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemTask4WorkersStatListPresenterService
+path: 8E026FAF1EB8AA205264F745E07DFDAC.gwt.rpc

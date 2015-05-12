@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.CreateOrUpdateInHospitalLocationPresenterService
+path: A72D4A2581DF91B9999AF699190F7DD6.gwt.rpc

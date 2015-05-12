@@ -1,0 +1,11 @@
+.DS_Store
+*._trace
+*.smap
+logs/
+target/
+gwt-unitCache/
+webapp/fudanmedcoreweb/
+webapp/WEB-INF/deploy/
+
+
+

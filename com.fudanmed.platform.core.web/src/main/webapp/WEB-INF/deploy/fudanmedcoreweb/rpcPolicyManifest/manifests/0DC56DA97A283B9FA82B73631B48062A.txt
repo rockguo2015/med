@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.PMWorkItemEvaluatePropertyViewPresenterService
+path: 4360A50685114341C224D9B95C9E567A.gwt.rpc

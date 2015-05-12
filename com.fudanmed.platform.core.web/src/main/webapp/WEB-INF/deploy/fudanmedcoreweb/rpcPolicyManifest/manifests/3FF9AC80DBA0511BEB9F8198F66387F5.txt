@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.organization.SupplierManagementPresenterService
+path: 596A07B427ED80B8C6B71A74C8C3F59B.gwt.rpc

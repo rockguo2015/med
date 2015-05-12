@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.measure.GasMeasureDeviceListPresenterService
+path: ECA2B59CC4EE11B23BB77AE4718068D5.gwt.rpc

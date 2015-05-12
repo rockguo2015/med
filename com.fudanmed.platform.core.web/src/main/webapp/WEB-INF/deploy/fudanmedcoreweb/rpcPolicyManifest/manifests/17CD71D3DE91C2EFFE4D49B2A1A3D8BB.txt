@@ -1,0 +1,2 @@
+serviceClass: edu.fudan.langlab.uidl.domain.app.client.security.CreateOrUpdateAppFunctionAssignmentPresenterService
+path: 88650E1F8B29CEEF64F4153CDFD041A7.gwt.rpc

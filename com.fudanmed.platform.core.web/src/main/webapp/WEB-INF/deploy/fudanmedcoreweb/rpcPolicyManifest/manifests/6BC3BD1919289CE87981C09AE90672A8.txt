@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.CreateOrUpdatePMDefaultIntervalAssociationPresenterService
+path: D9FAD0213ABD4777158138CD218A2054.gwt.rpc

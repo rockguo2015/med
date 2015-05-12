@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.DeliverMaterialTypeQueryListPresenterService
+path: 23BBC45C0EEBD7DCAE0366CF9E6BA789.gwt.rpc

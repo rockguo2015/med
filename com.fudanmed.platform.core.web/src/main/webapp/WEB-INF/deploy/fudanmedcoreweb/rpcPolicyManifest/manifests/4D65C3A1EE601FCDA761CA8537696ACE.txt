@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.warehouse.ProductStoreTransactionListPresenterService
+path: EC8930378252CD2E5F7D367F5C601D0F.gwt.rpc

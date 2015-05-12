@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.organization.ChangePasswdPresenterService
+path: 85DBE0BC0C786F0B301ED1C7368C6D8C.gwt.rpc

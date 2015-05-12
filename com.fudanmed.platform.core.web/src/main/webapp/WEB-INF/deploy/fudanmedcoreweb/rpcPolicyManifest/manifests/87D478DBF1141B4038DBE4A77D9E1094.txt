@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.warehouse.CreateOrUpdateProductSpecificationPresenterService
+path: 59C2BD9DA89F48CFAA4E26638A533F10.gwt.rpc

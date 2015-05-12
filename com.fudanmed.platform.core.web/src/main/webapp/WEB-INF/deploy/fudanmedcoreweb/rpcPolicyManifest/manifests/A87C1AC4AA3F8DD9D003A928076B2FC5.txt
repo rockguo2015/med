@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.PrintPMWorkItemAssignmentCommandService
+path: 430EEBB6C4562E18E490CB87A4A6ACBD.gwt.rpc

@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.warehouse.WorkItemTaskManagementPresenterService
+path: FFE75AFB3DF645F5E7DE188EEF80E6FF.gwt.rpc

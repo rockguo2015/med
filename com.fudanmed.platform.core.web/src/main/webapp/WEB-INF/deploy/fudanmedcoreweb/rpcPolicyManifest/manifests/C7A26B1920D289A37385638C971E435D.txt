@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.warehouse.AllProductTypeContentProviderService
+path: 29F435C08DF8E510FA0181D9F77574C7.gwt.rpc

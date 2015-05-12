@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.warehouse.StockTakingInputQuantityPresenterService
+path: 35F6C212670C4F3789819E021E81C8F6.gwt.rpc

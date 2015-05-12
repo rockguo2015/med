@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.CreateOrUpdatePartTypeSelectDataPresenterService
+path: 5BBEDE1663E3886BB0FD583185DA5A25.gwt.rpc

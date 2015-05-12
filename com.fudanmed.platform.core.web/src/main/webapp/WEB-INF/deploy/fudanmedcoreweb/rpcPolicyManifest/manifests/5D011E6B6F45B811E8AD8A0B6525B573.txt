@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.WorkItemPlanAssignmentPropertyPresenterService
+path: 2EA4E518E8F8EE75C1C39AB3B471694D.gwt.rpc

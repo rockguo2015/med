@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.CheckOrganizationQueryListPresenterService
+path: CAAB1289A3B4B344C403079987AA5FC5.gwt.rpc

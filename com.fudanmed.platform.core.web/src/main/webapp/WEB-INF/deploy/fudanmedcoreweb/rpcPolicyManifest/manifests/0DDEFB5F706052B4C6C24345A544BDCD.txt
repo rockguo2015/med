@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.CreateOrUpdateRepairEvaluatePresenterService
+path: C54866B6352F276DED479926A47C973C.gwt.rpc

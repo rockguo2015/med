@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.organization.CreateOrUpdateEmployeePresenterService
+path: F53AF1C311533CDE2B06F9579703539D.gwt.rpc

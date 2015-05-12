@@ -1,0 +1,2 @@
+serviceClass: edu.fudan.langlab.uidl.domain.app.client.security.SelectRoles4UserPresenterService
+path: 3ED50AD1A4BF645D74C8A77DDBF179BB.gwt.rpc

@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.WorkItemFinishReportPresenterService
+path: 80D08C6468503017322F5B0FA457E6C9.gwt.rpc

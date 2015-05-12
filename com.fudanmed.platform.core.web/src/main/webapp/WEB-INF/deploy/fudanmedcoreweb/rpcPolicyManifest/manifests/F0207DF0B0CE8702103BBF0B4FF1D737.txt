@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.DeliverPatientCheckTypeContentProviderService
+path: 28A85C7482CC1E7EBEFB6D4CC9010099.gwt.rpc

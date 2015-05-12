@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.EBoardPresenterService
+path: 6BF433BD8293E425F3D7301955DA0F07.gwt.rpc

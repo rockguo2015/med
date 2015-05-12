@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.device.PMTeamWorkItemManagementPresenterService
+path: 148F6456D0ECC87DB672AFDE9A13A0A6.gwt.rpc

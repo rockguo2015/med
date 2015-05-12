@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.project.FaultReportSourceContentProviderService
+path: 70D922BD5CDB4E52836F0A313EA1357D.gwt.rpc

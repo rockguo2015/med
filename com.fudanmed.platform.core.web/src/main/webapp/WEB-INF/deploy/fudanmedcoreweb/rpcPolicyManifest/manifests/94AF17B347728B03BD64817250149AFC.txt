@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.measure.WaterMeasureValueQueryListPresenterService
+path: 4279C3BC8E151AB70544B0BBCF1847A2.gwt.rpc

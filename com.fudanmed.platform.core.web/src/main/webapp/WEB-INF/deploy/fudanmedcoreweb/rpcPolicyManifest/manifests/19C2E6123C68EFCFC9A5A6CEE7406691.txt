@@ -1,0 +1,2 @@
+serviceClass: com.fudanmed.platform.core.web.client.deliver.CheckOrganizationContentProviderService
+path: 608AF49CE59BA8D4CBCE420E2A0EE641.gwt.rpc
