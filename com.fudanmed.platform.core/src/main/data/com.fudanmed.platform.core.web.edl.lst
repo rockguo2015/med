@@ -265,6 +265,11 @@ create AppFunction()=>[
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.repairReportManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.client.project.RepairTaskManagementPresenter.cancelRequest'
+	it.name := '取消报修'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.repairReportManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.client.project.RepairTaskManagementPresenter.modifyRequest'
 	it.name := '修改报修'
 ]
