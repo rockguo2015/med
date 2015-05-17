@@ -4,7 +4,6 @@
 logs/
 target/
 gwt-unitCache/
-rc/main/webapp/fudanmedcoreweb/
+src/main/webapp/fudanmedcoreweb/
 src/main/webapp/WEB-INF/deploy/
-
 
