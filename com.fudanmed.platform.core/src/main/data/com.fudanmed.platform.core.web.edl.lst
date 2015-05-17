@@ -285,6 +285,16 @@ create AppFunction()=>[
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.groupTaskManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.CreateWorkItemPictureCommand'
+	it.name := '图片上传'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.groupTaskManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.ViewWorkItemPictureCommand'
+	it.name := '查看图片'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.groupTaskManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.client.project.GroupTaskManagementPresenter.createWorkItemTaskRequest'
 	it.name := '工单派工'
 ]
@@ -351,16 +361,6 @@ create AppFunction()=>[
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.measureDeviceValueManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.DeleteMeasureValueCommand'
-	it.name := '删除'
-]
-create AppFunction()=>[
-	it.parentFunctionId := 'com.fudanmed.platform.core.web.measureDeviceManagementPresenter'
-	it.functionId := 'com.fudanmed.platform.core.web.CreateMeasureDeviceCommand'
-	it.name := '新建'
-]
-create AppFunction()=>[
-	it.parentFunctionId := 'com.fudanmed.platform.core.web.measureDeviceManagementPresenter'
-	it.functionId := 'com.fudanmed.platform.core.web.DeleteMeasureDeviceCommand'
 	it.name := '删除'
 ]
 create AppFunction()=>[
@@ -538,12 +538,17 @@ create AppFunction()=>[
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.pm'
 	it.functionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
-	it.name := 'PM计划管理'
+	it.name := 'PM设备管理'
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.pm'
 	it.functionId := 'com.fudanmed.platform.core.web.pmWorkItemManagementPresenter'
 	it.name := 'PM任务管理'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.pm'
+	it.functionId := 'com.fudanmed.platform.core.web.pmShowDevicePMPlan'
+	it.name := 'PM计划查询'
 ]
 create AppFunction()=>[
 	it.functionId := 'com.fudanmed.platform.core.web.statistics'
@@ -614,6 +619,21 @@ create AppFunction()=>[
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.productCategoryManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.CreatePMDefaultIntervalAssociationCommand'
+	it.name := '新建'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.productCategoryManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.UpdatePMDefaultIntervalAssociationCommand'
+	it.name := '修改'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.productCategoryManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.DeletePMDefaultIntervalAssociationCommand'
+	it.name := '删除'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.productCategoryManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.client.device.PMDefaultIntervalAssociationListPresenter.setPMSpecRequest'
 	it.name := '设置默认PM计划'
 ]
@@ -638,9 +658,19 @@ create AppFunction()=>[
 	it.name := '延迟'
 ]
 create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.pmShowDevicePMPlan'
+	it.functionId := 'com.fudanmed.platform.core.web.ShowDevicePMPlanCommand'
+	it.name := 'PM计划查询'
+]
+create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.pmWorkItemManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.client.device.PMWorkItemManagementPresenter.createRequest'
 	it.name := '新建PM任务'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.pmWorkItemManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.client.device.PMWorkItemManagementPresenter.modifyRequest'
+	it.name := '修改/派发'
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.pmWorkItemManagementPresenter'
@@ -648,24 +678,44 @@ create AppFunction()=>[
 	it.name := 'PM任务结单'
 ]
 create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.pmTeamWorkItemManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.FinishWorkItemPlanAssignmentCommand'
+	it.name := '已维保'
+]
+create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.client.device.DevicePMSpecificationManagementPresenter.createRequest'
-	it.name := '新建PM计划'
+	it.name := '新建PM计划类型'
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.client.device.DevicePMSpecificationManagementPresenter.deleteRequest'
-	it.name := '删除PM计划'
+	it.name := '删除PM计划类型'
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.client.device.DevicePMSpecificationManagementPresenter.modifyRequest'
-	it.name := '修改PM计划'
+	it.name := '修改PM计划类型'
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.client.device.DevicePMSpecificationManagementPresenter.initPM4DeviceRequest'
 	it.name := '生成PM任务'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.CreateDevicePMPlanCommand'
+	it.name := '新建PM计划'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.UpdateDevicePMPlanCommand'
+	it.name := '修改PM计划'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.DeleteDevicePMPlanCommand'
+	it.name := '删除PM计划'
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceManagementPresenter'
@@ -691,6 +741,11 @@ create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
 	it.functionId := 'com.fudanmed.platform.core.web.client.device.DeviceTypeCategoryManagementPresenter.modifyRequest'
 	it.name := '修改设备大类'
+]
+create AppFunction()=>[
+	it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+	it.functionId := 'com.fudanmed.platform.core.web.PopulatePMPlantoAllDeviceCommand'
+	it.name := 'PM初始化'
 ]
 create AppFunction()=>[
 	it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
