@@ -193,43 +193,179 @@ package com.fudanmed.platform.core.warehouse{
 				it.name := 'pname3'
 			]
 		}
+
 		inject sequenceService : RCSequenceService
 		update initCtaskSequence{
 			sequenceService.computeConfig.centerilzedTaskSequence := 0
 		}
-		
-//		inject inHospitalPatientDAO : DLInHospitalPatientDAO
-//		inject inHospitalLocationDAO : DLInHospitalLocationDAO
-//		update upgradeDLInHospitalPatient{
-//			val pos := #[from RCOnsitePosition as e ].list.iterator
-//			val inHospitalLocation1 := inHospitalLocationDAO.^create[
-//				it.code := '00001'
-//				it.name := '1病区'
-//				it.location := pos.^next
+		update pmFunctions{
+			
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.client.device.DevicePMSpecificationManagementPresenter.createRequest'].uniqueResult=>[
+				it.name := '新建PM计划类型'
+			]
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.client.device.DevicePMSpecificationManagementPresenter.deleteRequest'].uniqueResult=>[
+				it.name := '删除PM计划类型'
+			]
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.client.device.DevicePMSpecificationManagementPresenter.modifyRequest'].uniqueResult=>[
+				it.name := '修改PM计划类型'
+			]
+			
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.PopulatePMPlantoAllDeviceCommand'
+				it.name := 'PM初始化'
+			]
+			
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.CreateDevicePMPlanCommand'
+				it.name := '新建PM计划'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.UpdateDevicePMPlanCommand'
+				it.name := '修改PM计划'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.DeleteDevicePMPlanCommand'
+				it.name := '删除PM计划'
+			]
+			
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.pmWorkItemManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.client.device.PMWorkItemManagementPresenter.modifyRequest'
+				it.name := '修改/派发'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.pm'
+				it.functionId := 'com.fudanmed.platform.core.web.ShowDevicePMPlanCommand'
+				it.name := 'PM计划查询'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.productCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.CreatePMDefaultIntervalAssociationCommand'
+				it.name := '新建'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.productCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.UpdatePMDefaultIntervalAssociationCommand'
+				it.name := '修改'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.productCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.DeletePMDefaultIntervalAssociationCommand'
+				it.name := '删除'
+			]		
+		}
+//		update pmFunctions_20150514_1{
+//			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.ShowDevicePMPlanCommand'].uniqueResult=>[
+//				it.parentFunctionId := 'com.fudanmed.platform.core.web.pm'
 //			]
-//			val inHospitalLocation2 := inHospitalLocationDAO.^create[
-//				it.code := '00002'
-//				it.name := '2病区'
-//				it.location := pos.^next
-//			]
-//			val inHospitalLocation3 := inHospitalLocationDAO.^create[
-//				it.code := '00003'
-//				it.name := '3病区'
-//				it.location := pos.^next
-//			]
-//			inHospitalPatientDAO.findByCode('0000001')=>[
-//				it.location := inHospitalLocation1
-//				it.bedNumber := '01'
-//			]
-//			inHospitalPatientDAO.findByCode('0000002')=>[
-//				it.location := inHospitalLocation2
-//				it.bedNumber := '02'
-//			]
-//			inHospitalPatientDAO.findByCode('0000003')=>[
-//				it.location := inHospitalLocation3
-//				it.bedNumber := '03'
-//			]
+//			
 //		}
+
+		update pmFunctions_20150515{
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'].uniqueResult=>[
+				it.name := '设备PM计划管理'
+			]
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.pmWorkItemManagementPresenter'].uniqueResult=>[
+				it.name := 'PM调度工作台'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.BatchInitializePMPlanPresenterCommand'
+				it.name := '批量生成PM计划'
+			]
+			
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.CreatePMDefaultIntervalAssociationCommand'].uniqueResult=>[
+				it.name := it.name + '[X]'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.CreatePMDefaultIntervalAssociationCommand'
+				it.name := '新建PM计划'
+			]
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.UpdatePMDefaultIntervalAssociationCommand'].uniqueResult=>[
+				it.name := it.name + '[X]'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.UpdatePMDefaultIntervalAssociationCommand'
+				it.name := '修改PM计划'
+			]
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.DeletePMDefaultIntervalAssociationCommand'].uniqueResult=>[
+				it.name := it.name + '[X]'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.DeletePMDefaultIntervalAssociationCommand'
+				it.name := '删除PM计划'
+			]
+			
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.pmTeamWorkItemManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.FinishWorkItemPlanAssignmentCommand'
+				it.name := '已维保'
+			]				
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.client.device.PMDefaultIntervalAssociationListPresenter.setPMSpecRequest'].uniqueResult=>[
+				it.name := it.name + '[X]'
+			]
+			
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.CreateDeviceTypeDocumentStorageCommand'
+				it.name := '上传设备文档'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.UpdateDeviceTypeDocumentStorageCommand'
+				it.name := '修改设备文档'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.DeleteDeviceTypeDocumentStorageCommand'
+				it.name := '删除设备文档'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.CreateDeviceTypePictureCommand'
+				it.name := '上传设备图片'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.UpdateDeviceTypePictureCommand'
+				it.name := '修改设备图片'
+			]
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.deviceTypeCategoryManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.DeleteDeviceTypePictureCommand'
+				it.name := '删除设备图片'
+			]			
+			//com.fudanmed.platform.core.web.devicePMSpecificationManagementPresenter
+		}
+		
+		update pmFunctions_20150515_1{
+			#[from AppFunction as e where e.name = '设置默认PM计划'].uniqueResult=>[
+				it.name := it.name + '[X]'
+			]
+			
+			// @pmTeamWorkItemManagementPresenter
+		}
+		update pmFunctions_20150515_2{
+			create AppFunction()=>[
+				it.parentFunctionId := 'com.fudanmed.platform.core.web.pmTeamWorkItemManagementPresenter'
+				it.functionId := 'com.fudanmed.platform.core.web.UIPMWorkItemWorkerAssignment'
+				it.name := '执行记录'
+			]				
+			
+			// @pmTeamWorkItemManagementPresenter
+		}
+		update pmFunctions_20150515_3{
+			#[from AppFunction as e where e.functionId = 'com.fudanmed.platform.core.web.CreateDevicePMPlanCommand'].uniqueResult=>[
+				it.name := it.name + '[X]'
+			]
+		}
 	}
 	
 	

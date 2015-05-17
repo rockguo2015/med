@@ -150,11 +150,11 @@ package com.fudanmed.platform.core.warehouse{
 			val productStorages := if(!isReturnOp) getAllProductStorage(productSpec) else getAllProductStorage(productSpec).toList.reverse
 			productStorages.^map[storage|
 				val quantityToTake := Math::^min(quantity -takes.reduce[Integer i1, Integer i2|i1+i2].nullsafe,storage.quantity)
-				if(quantity!=0){
-					println("take from "+storage.productEntry.sid + " "+quantityToTake)
-					println(quantity -takes.reduce[Integer i1, Integer i2|i1+i2].nullsafe)
-					println(storage.quantity)
-				}
+//				if(quantity!=0){
+//					println("take from "+storage.productEntry.sid + " "+quantityToTake)
+//					println(quantity -takes.reduce[Integer i1, Integer i2|i1+i2].nullsafe)
+//					println(storage.quantity)
+//				}
 				takes.^add(quantityToTake)
 				new RCRecordItem()=>[
 					it.productEntry := storage.productEntry
