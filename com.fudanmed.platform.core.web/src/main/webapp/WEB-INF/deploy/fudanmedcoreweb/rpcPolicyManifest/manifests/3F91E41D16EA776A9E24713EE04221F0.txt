@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.ExportWorkItemStockRecordItemStat4ProductEntryCriteriaDataCommandService
-path: 22A205D72154B71046E066E68B3F459F.gwt.rpc

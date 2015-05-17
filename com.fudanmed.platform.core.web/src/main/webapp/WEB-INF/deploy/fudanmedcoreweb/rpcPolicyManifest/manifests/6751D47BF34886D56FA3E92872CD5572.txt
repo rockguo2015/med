@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.organization.AllEmployeesAsyncContentProviderService
-path: 676C5A0074915BA379BFFAF31DBE7AAE.gwt.rpc

@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.RangeValueEditorPresenterService
-path: 72B2BBFE90A4BAFA1891D3F7C03C27F3.gwt.rpc

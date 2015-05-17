@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.organization.CreateOrUpdateFaultLevelColorAdaptorPresenterService
-path: 486E8013101A533E4E25B52F4EDAAAD2.gwt.rpc

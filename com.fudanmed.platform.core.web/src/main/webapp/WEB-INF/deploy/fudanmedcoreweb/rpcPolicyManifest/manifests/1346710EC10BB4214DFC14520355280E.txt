@@ -1,2 +1,0 @@
-serviceClass: edu.fudan.langlab.uidl.domain.code.client.web.UICodeTypeContentProviderService
-path: A00FF495DA7FBA5D30D204969D3CDAB1.gwt.rpc

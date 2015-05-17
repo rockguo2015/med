@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.DevicePMSpecificationManagementPresenterService
-path: A9CCE9FF359B25AD3D011238E93D41DF.gwt.rpc

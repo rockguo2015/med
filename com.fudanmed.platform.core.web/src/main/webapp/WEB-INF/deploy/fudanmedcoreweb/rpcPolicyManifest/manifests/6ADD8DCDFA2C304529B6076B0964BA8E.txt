@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.DateValueEditorPresenterService
-path: AAB76A89C2243C9272A83C535D01AFA4.gwt.rpc

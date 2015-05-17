@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.organization.AllOnsitePositionAyncContentProviderService
-path: 6D4FC39110D3DE8B2C8223FBCF128CD8.gwt.rpc

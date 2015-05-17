@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.deliver.CreateOrUpdateDeliverMaterialTypePresenterService
-path: 3D5B144068F45E35D5C86974D0AFAA56.gwt.rpc

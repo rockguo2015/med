@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.measure.PhasedElectricMeasureValueQueryListPresenterService
-path: 5C7728DF49E7751C1ABD62DB202CD847.gwt.rpc

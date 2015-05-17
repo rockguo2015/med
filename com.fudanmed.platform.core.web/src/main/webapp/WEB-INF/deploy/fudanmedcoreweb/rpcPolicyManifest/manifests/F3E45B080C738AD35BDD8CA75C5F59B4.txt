@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.CreateOrUpdateDeviceTypeCategoryPresenterService
-path: 647E5D09F53F846BA5A288B1BF244C95.gwt.rpc

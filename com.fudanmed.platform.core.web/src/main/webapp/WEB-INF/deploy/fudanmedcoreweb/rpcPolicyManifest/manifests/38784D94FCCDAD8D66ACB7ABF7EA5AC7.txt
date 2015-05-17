@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.organization.AllFaultEmergencyLevelContentProviderService
-path: 87BE6C1E2C3AFAE60A51F463B0245794.gwt.rpc

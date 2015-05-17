@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.warehouse.CreateOrUpdateTransferRecordPresenterService
-path: 39E3DAA43F150FB7F4170FD71AA05C70.gwt.rpc

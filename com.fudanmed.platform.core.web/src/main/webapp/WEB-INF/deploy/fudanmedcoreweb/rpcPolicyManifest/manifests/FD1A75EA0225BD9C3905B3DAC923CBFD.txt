@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.ReportManagementPresenterService
-path: 7FBB599453C4B4EE52EB5978F41B0A05.gwt.rpc

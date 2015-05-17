@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.DeleteDevicePictureCommandService
-path: F1B0FE732CC936228247390A4B9BCC8A.gwt.rpc

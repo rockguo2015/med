@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.deliver.DeleteInHospitalLocationCommandService
-path: 884AED132D0DE4727E360A195FA87534.gwt.rpc

@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.organization.OnsitePositionUploaderPresenterService
-path: FE9C46DF0BEA900019C38B9F50E0FB8B.gwt.rpc

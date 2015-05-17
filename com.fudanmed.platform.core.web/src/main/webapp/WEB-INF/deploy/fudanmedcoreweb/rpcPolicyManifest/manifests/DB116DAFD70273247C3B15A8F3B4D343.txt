@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.project.ExportRepairTaskStatisticDataCommandService
-path: 49C2A79A2440EB11895435E570282F1E.gwt.rpc

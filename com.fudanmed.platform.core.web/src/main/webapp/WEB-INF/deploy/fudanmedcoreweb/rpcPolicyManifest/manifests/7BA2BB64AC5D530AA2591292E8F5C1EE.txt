@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.workbench.HeaderPresenterService
-path: DF1AD79F676257B5C90C95F1F1555DDC.gwt.rpc

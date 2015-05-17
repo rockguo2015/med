@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.ExportDeviceCommandService
-path: 4FDA351869B196AC8F8B7AFF127ED0AC.gwt.rpc

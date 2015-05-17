@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.CreatePMWorkItemTeamFinishReportPresenterService
-path: C72EE0ECA6B88A2493F812F7A26D77EB.gwt.rpc

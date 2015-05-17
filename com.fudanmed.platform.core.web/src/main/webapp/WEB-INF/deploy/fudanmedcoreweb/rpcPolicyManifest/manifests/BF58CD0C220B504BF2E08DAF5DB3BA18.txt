@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.DevicePMPlanAssignmentListPresenterService
-path: 4F70F85D81A91FFF2149236D31CBE123.gwt.rpc

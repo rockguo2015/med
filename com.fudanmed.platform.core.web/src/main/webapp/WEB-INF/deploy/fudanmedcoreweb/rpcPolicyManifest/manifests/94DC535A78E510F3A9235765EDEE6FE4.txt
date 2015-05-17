@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.organization.ChangeEmployeeDepartmentPresenterService
-path: 2E2C8CBD7C00649205D20E47C0A04FF4.gwt.rpc

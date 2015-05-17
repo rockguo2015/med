@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.CreateOrUpdateDocumentStoragePresenterService
-path: 321EEF814D335D428D613FB3F78160F4.gwt.rpc

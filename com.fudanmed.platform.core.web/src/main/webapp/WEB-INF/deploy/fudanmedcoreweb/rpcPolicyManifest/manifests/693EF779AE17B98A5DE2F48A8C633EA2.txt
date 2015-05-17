@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.organization.AllMaintenanceTeamContentProviderService
-path: 181A17734E20D999A54183695F8778CA.gwt.rpc

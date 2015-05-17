@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.AttributeSlotEditPresenterService
-path: A1DCDF71AC85913428855E0088EA6BDE.gwt.rpc

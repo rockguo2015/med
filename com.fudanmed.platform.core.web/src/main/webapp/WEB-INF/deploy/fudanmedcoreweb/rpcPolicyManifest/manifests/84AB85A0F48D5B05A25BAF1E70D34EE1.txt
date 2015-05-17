@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.measure.GasMeasureValueQueryListPresenterService
-path: 665C8C3003797E1B68BA3BB8D80062BF.gwt.rpc

@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.deliver.DeleteDeliverMaterialTypeCommandService
-path: 18CF32A9B10D5BF833DC3C99DADFF916.gwt.rpc

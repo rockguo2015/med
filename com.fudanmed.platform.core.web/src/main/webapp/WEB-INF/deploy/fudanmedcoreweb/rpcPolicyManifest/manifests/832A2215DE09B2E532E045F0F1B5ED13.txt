@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.ShowImagePresenterService
-path: F690E46F0BEEEDE153E3880293F1FB6F.gwt.rpc

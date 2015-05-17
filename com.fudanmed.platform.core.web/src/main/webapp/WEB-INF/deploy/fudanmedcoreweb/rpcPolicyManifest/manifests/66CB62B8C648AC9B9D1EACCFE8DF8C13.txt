@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.PictureBrowsePresenterService
-path: A031E00D9517DC1A542A55EF4A405A7E.gwt.rpc

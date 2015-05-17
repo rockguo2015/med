@@ -1,2 +1,0 @@
-serviceClass: com.fudanmed.platform.core.web.client.device.CreateOrUpdatePMWorkItemWorkerAssignmentPresenterService
-path: 08347110E34AE3F2EEBA59EB48D02A80.gwt.rpc
