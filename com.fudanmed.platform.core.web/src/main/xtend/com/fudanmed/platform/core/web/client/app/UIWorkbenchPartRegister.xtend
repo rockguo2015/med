@@ -54,6 +54,8 @@ import com.fudanmed.platform.core.web.client.deliver.ShowInHospitalLocationManag
 import com.fudanmed.platform.core.web.client.deliver.ShowCheckOrganizationManagementCommand
 import com.fudanmed.platform.core.web.client.deliver.ShowDeliverPatientCheckTypeManagementCommand
 import com.fudanmed.platform.core.web.client.deliver.ShowDeliverMaterialCategoryManagementCommand
+import com.fudanmed.platform.core.web.client.deliver.ShowDeliverOrganizationManagementCommand
+		
 
 //import com.fudanmed.platform.core.web.client.organization.ShowTeacherManagementCommand
 
@@ -155,7 +157,8 @@ class UIWorkbenchPartRegister {
 	private ShowDeliverPatientCheckTypeManagementCommand showDeliverPatientCheckTypeManagementCommand
 	@Inject
 	private ShowDeliverMaterialCategoryManagementCommand showDeliverMaterialCategoryManagementCommand
-	
+	@Inject
+	private ShowDeliverOrganizationManagementCommand showDeliverOrganizationManagementCommand
 //	@Inject
 //	private ShowTeacherManagementCommand showTeacherManagementCommand
 
@@ -460,7 +463,7 @@ class UIWorkbenchPartRegister {
 		workbenchManager.registerCommand(deliverCategory,showCheckOrganizationManagementCommand)
 		workbenchManager.registerCommand(deliverCategory,showDeliverPatientCheckTypeManagementCommand)
 		workbenchManager.registerCommand(deliverCategory,showDeliverMaterialCategoryManagementCommand)
-		
+		workbenchManager.registerCommand(deliverCategory,showDeliverOrganizationManagementCommand)
 //		workbenchManager.registerCommand(statCategory,showTeacherManagementCommand)
 		
 	}	

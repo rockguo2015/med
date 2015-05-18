@@ -19,8 +19,6 @@ package com.fudanmed.platform.core.web feature deliver{
 	import com.fudanmed.platform.core.web.shared.deliver.*
 	import com.fudanmed.platform.core.web.client.deliver.*
 	
-	
-	
 	ui-datatype UIPlanDateTime for DLPlanDateTime{
 		planDate : Date "计划日期"
 		planTime : Date "计划时间"
@@ -204,21 +202,22 @@ package com.fudanmed.platform.core.web feature deliver{
 		con: Widget
 		@Inject centerlizedDeliverTaskDispatchCommand : CenterlizedDeliverTaskDispatchCommand
 		@Inject createCenterlizedDeliverTaskCommand : CreateCenterlizedDeliverTaskCommand
+		@Inject deliverTaskDispatchCommand : DeliverTaskDispatchCommand
 		asWidget() : Widget{
 			con
 		}	
 		layout{
 			val ac = queryListPresenter.getView().actionContext
+			val dispatchAC =  ac.adapt[toProxy]
 			con = widgets.FramedPanel("中央运送管理")=>[
 				widget = queryListPresenter.getView().asWidget
 				addCommand(ac,centerlizedDeliverTaskDispatchCommand)
+				addCommand([|dispatchAC.onlySelected],deliverTaskDispatchCommand)
 				addCommand(createCenterlizedDeliverTaskCommand)
-				
 			]
 		}
 		
 	} 
-	
 	ui-command CenterlizedDeliverTaskDispatchCommand for UICenterlizedDeliverTask "派发" @dlCenterlizedDeliverTaskManagementPresenter{
 		execute{
 			widgets.ConfirmMessageBox("确认","确认派发")[

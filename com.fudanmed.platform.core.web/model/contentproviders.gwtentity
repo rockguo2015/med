@@ -3,7 +3,7 @@ package com.fudanmed.platform.core.web feature organization{
 	import java.util.*
 	import edu.fudan.langlab.domain.organization.*
 	import com.uniquesoft.gwt.shared.common.pager.*
-	
+	import com.fudanmed.platform.core.deliver.*
 	import com.fudanmed.platform.core.common.*
 	import com.fudanmed.platform.core.domain.*
 	import com.uniquesoft.gwt.client.common.widgets.contentprovider.*
@@ -96,14 +96,32 @@ package com.fudanmed.platform.core.web feature organization{
 				dao.allOnJobEmployees
 			else
 				entities.get(typeof(RCOrganization),filter.org.id).onJobEmployees
-		}
-	}
-	
+		}	
+	}	
 	content-provider AllFaultEmergencyLevelContentProvider for proxy of RCFaultEmergencyLevel{
 		contents{
 			entities.all(typeof(RCFaultEmergencyLevel))
 		}
 	}
+	
+	content-provider AllDeliverOrganizationContentProvider for proxy of DLDeliverOrganization{
+		contents{
+			entities.all(typeof(DLDeliverOrganization))
+		}
+	}
+	content-provider AllDeliverEmployeeContentProvider for proxy of RCEmployee{
+		@Inject dao : RCEmployeeDAO
+		
+		criteria{
+			org : proxy of RCOrganization
+		}
+		contents{
+			if(filter.org==null)
+				dao.allOnJobEmployees
+			else
+				entities.get(typeof(RCOrganization),filter.org.id).onJobEmployees
+		}	
+	}		
 //	content-provider AllSupplierTypeContentProvider for proxy of RCSupplierType{
 //		contents{
 //			entities.all(typeof(RCSupplierType))

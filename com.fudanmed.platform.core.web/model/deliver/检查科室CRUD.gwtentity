@@ -147,7 +147,7 @@ package com.fudanmed.platform.core.web feature deliver{
 		}
 	}
 	
-	view CreateOrUpdateCheckOrganizationView<CheckOrganizationForm> for CreateOrUpdateCheckOrganizationPresenter ui-size:(300,200) ui-title:"??维护"{
+	view CreateOrUpdateCheckOrganizationView<CheckOrganizationForm> for CreateOrUpdateCheckOrganizationPresenter ui-size:(300,300) ui-title:"检查科室维护"{
 		factory organizationOutlinePresenter : OrganizationOutlinePresenter
 		initializer{
 			this += widgets.DialogContent(
@@ -186,8 +186,6 @@ package com.fudanmed.platform.core.web feature deliver{
 		}
 		
 	}
-
-
 
 	ui-criteria UICheckOrganizationCriteria for DLCheckOrganizationCriteria{
 		info : String "科室信息"
@@ -291,7 +289,6 @@ package com.fudanmed.platform.core.web feature deliver{
 			listGrid.createActionContext
 		}
 	}	
-
 	
 	ui-command ShowCheckOrganizationManagementCommand "检查科室维护"{
 		factory managementPresenter : CheckOrganizationManagementPresenter
@@ -329,7 +326,7 @@ package com.fudanmed.platform.core.web feature deliver{
 			val ac = queryListPresenter.getView().actionContext.adapt[toProxy]
 			con = widgets.FramedPanel("检查科室维护")=>[
 				widget = queryListPresenter.getView().asWidget
-				addCommand(createCheckOrganizationCommand)
+				addCommand(createCheckOrganizationCommand) 
 				addCommand(ac,updateCheckOrganizationCommand)
 				addCommand(ac,deleteCheckOrganizationCommand)
 			]
