@@ -1,0 +1,124 @@
+package com.fudanmed.platform.core.web feature deliver{
+	
+	import java.util.*
+	import edu.fudan.langlab.uidl.domain.app.*
+	import edu.fudan.langlab.domain.organization.*
+	import edu.fudan.langlab.uidl.domain.app.client.web.*
+	import com.uniquesoft.gwt.client.common.*
+	import com.uniquesoft.gwt.client.common.widgets.*
+	import edu.fudan.langlab.csv.shared.*
+	import com.fudanmed.platform.core.web.shared.deliver.*
+	import com.fudanmed.platform.core.web.shared.common.*
+	import com.fudanmed.platform.core.web.client.common.*
+	import com.fudanmed.platform.core.web.client.deliver.*
+	import com.fudanmed.platform.core.common.*
+	import com.fudanmed.platform.core.domain.*
+	import com.fudanmed.platform.core.deliver.*
+	import com.fudanmed.platform.core.deliver.^proxy.*
+	import com.fudanmed.platform.core.web.*
+	import com.fudanmed.platform.core.web.shared.deliver.*
+	import com.fudanmed.platform.core.web.client.deliver.*
+	import com.fudanmed.platform.core.web.client.organization.*
+	import com.fudanmed.platform.core.web.client.tree.*
+
+	
+	ui-command DeliverTaskDispatchCommand require proxy of DLCenterlizedDeliverTask "人员调度" {
+		factory deliverTaskDispatchPresenter : DeliverTaskDispatchPresenter
+		execute{
+			deliverTaskDispatchPresenter.get.setup4create(value)[
+				popup(it)
+			]
+		}
+	}
+	ui-datatype DeliverTaskDispatchData{
+
+		deliverOrg: proxy of DLDeliverOrganization "运送部门"		
+		haulier: proxy of RCEmployee [*]"派送人员"
+		
+		constraints DeliverTaskDispatchDataValidator{
+			rule Required on deliverOrg
+		}
+		
+		ui-component DeliverTaskDispatchDataForm as GXTForm{
+			binding{deliverOrg as ComboBoxItem content from AllDeliverOrganizationContentProvider,  haulier as RequiredDualListItem content from AllDeliverEmployeeContentProvider}
+			con : Widget
+			op asWidget() : Widget{
+				con = con.lazy[
+					widgets.VLayout=>[
+						add(deliverOrg.asWidget)
+//						add(deliverOrg.asWidget,widgets.VLayoutData(366,80))
+						addFill(TABLE=>[
+							tr=>[td=>[colSpan=2 it += haulier.asWidget=>[width=500]]]
+						])
+					]
+				]
+			}			
+		}
+	}
+		
+	presenter DeliverTaskDispatchPresenter  with-validation implements CommitablePresenter{
+		view interface{
+			op getValue() : DeliverTaskDispatchData
+			op setDeliverEmployee(deliverOrg : proxy of DLDeliverOrganization):void
+			signal out deliverOrgChanged(deliverOrg : proxy of DLDeliverOrganization)
+		}
+		
+		interaction{
+			 contxt : proxy of DLCenterlizedDeliverTask
+			input prepare.setup4create(	parent : proxy of DLCenterlizedDeliverTask)
+			{
+				contxt = parent
+				this.activate[
+//					getView().setParent(parent)
+					done
+				]
+			}
+			
+			input call.performCommit(CommitResultNotifier notifier) {
+				service.commit(contxt, getView().value, callback[
+					onSuccessDo[workItemTask|
+						notifier.success
+					]
+					onFailureDo[
+						display("错误","无法派工，请刷新确认报修状态")
+					]
+				])
+			}
+			input view.deliverOrgChanged(deliverOrg : proxy of DLDeliverOrganization) {
+					getView().setDeliverEmployee(deliverOrg)
+			}
+		}
+		service{
+			@Inject ^validator : DeliverTaskDispatchDataValidator
+			op commit(context : proxy of DLCenterlizedDeliverTask,data : DeliverTaskDispatchData) : void{
+				data.validateWith(^validator)
+				(resolve context).dispatch(data.haulier.toList.^map[resolve(it)])
+			}
+		}
+	}
+	
+		view DeliverTaskDispatchView for DeliverTaskDispatchPresenter  implements IHasSize, IHasTitle{
+		@Inject form : DeliverTaskDispatchDataForm
+//		required timeService : ServerSideTimeServiceAsync
+		
+		initializer{
+			form.deliverOrg.addValueChangedListener[
+				fire view.deliverOrgChanged(form.deliverOrg.value)
+			]
+			this += widgets.VLayout=>[add(form.asWidget)]
+		}
+		
+		op getValue() : DeliverTaskDispatchData{
+			form.value
+		}
+		op getSize():Size{
+			new Size(550,300)
+		}
+		op getTitle():String{
+			"人员调度"
+		}
+		op setDeliverEmployee(deliverOrg : proxy of DLDeliverOrganization):void{
+//			form.haulierContentProvider.load((resolve deliverOrg).getOrganization().toProxy)[]
+		}
+	}	
+}
